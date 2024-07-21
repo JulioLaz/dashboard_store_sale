@@ -415,7 +415,6 @@ def main():
         top_10_costosos = filtered_df.groupby('producto')['valor_unitario'].mean().nlargest(10).reset_index()
         prup.graf_01(top_10_costosos)
 
-
     with col4: # Top 10 productos agrupados por tipo con mayores ventas
 
         filtered_df['producto_filtrado'] = filtered_df['producto'].str.split().str[0]
@@ -423,16 +422,21 @@ def main():
         df_top_10 = df_productos_mas_ventas.nlargest(10, 'valor_total')
         prup.graf_02(df_top_10)
 
-    # Mapa 
-    grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
-    mapa.mapa_br(grouped_df)
+    col5, col6 = st.columns(2)
 
-    # Top 10 de ganancia neta por estado
-    st.subheader("Top 10 Estados según Ganancia Neta")
-    top_10_estados = filtered_df.groupby('Estado')['ingresos_netos'].sum().nlargest(10).reset_index()
-    fig_estados = px.bar(top_10_estados, x='Estado', y='ingresos_netos', title='Top 10 Estados según Ganancia Neta')
-    fig_estados = layout.update_figure_layout(fig_estados)
-    st.plotly_chart(fig_estados, use_container_width=True)
+    with col5: #Mapa de brasil ventas totales por Estado:
+    # Mapa 
+        grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
+        mapa.mapa_br(grouped_df)
+
+    with col6: # Top 10 de Venta totales neta por estado
+
+        grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
+        top_10_estados = filtered_df.groupby('Estado')['valor_total'].sum().nlargest(10).reset_index()
+        mapa.barras(top_10_estados)
+   
+
+
 
     # Top 10 productos más vendidos históricamente
     st.subheader("Top 10 Productos más Vendidos")
