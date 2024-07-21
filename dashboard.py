@@ -7,6 +7,7 @@ import top10_profits_brands_products as prbr
 import top10_products_up as prup
 import mapa_brasil as mapa
 import update_figure_layout as layout
+import style_markdown as sm
 
 def formata_numero(valor, prefijo=''):
     for unidad in ['', 'k']:
@@ -19,80 +20,12 @@ st.set_page_config(page_title="Ventas ecommerce Brazil", page_icon=":shopping_ba
 
 titles_format = dict(font=dict(size=18, color='#1f77b4'), xref='paper', x=0.5, y=0.95, xanchor='center', yanchor='top')
 
-
-st.markdown(
-    """
-   <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
-   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-    .stApp {
-        background-color: #1E1E1E;
-        color: #00FF00;
-    }
-    header{
-    background-color: rgba(0,0,0,0) !important;
-    }
-        .navbar-custom {
-            top: 0rem !important; 
-            position: fixed !important;
-            width: calc(100% - 0px) !important;
-            right: 0px !important; 
-            z-index: 1000 !important;
-            background-color: black !important; 
-        }
-        #navbarNav{
-        margin: 2.3rem 2rem 0 0 !important;
-            display: flex;
-            justify-content: flex-end;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-def create_navbar():
-    st.markdown("""
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
-  <a class="navbar-brand" href="#" style="font-size: 40px; font-family: Arial; color: #00ffff; margin-left: 2.5rem">🛍️ Análisis de Ventas</a>
-  <div class="collapse navbar-collapse" id="navbarNav" >
-    <ul class="navbar-nav margenes">
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/JulioLaz" target="_blank">
-          <i class="fab fa-github me-2 fa-lg"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.linkedin.com/in/julio-lazarte-developer/" target="_blank">
-          <i class="fab fa-linkedin me-2 fa-lg"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://cv-lazarte-julio.web.app/" target="_blank">
-          <i class="fas fa-globe me-2 fa-lg"></i></a>
-      </li>
-    </ul>
-  </div>
-</nav>
-""", unsafe_allow_html=True)  
-
-st.markdown(
-    """
-    <style>
-    [data-testid="stSidebar"] {
-        background-color: rgba(0,0,0,0);
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# Style en navbar:
+sm.style_navbar()
+st.markdown("""<style>[data-testid="stSidebar"] {background-color: rgba(0,0,0,0);}</style>""",unsafe_allow_html=True)
 
 # ocultar label del ratioitens:
-hide_element_style = '''
-    <style>
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(9) > div > label {
-        display: none
-        }
-'''
-
+hide_element_style = '''<style>#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(9) > div > label {display: none}'''
 st.markdown(hide_element_style, unsafe_allow_html=True)
 
 def create_multiselect_filter(df, column, label):
@@ -136,232 +69,7 @@ def main():
     marca_genero_filter = create_multiselect_filter(df, 'marca_genero', "Género")
 
 # CSS personalizado
-    st.markdown("""
-    <style>
-    [data-testid="stWidgetLabel"]{
-         color: #ff00ff !important;
-         font-size: 10px !important;
-         font-weight: 400 !important;
-         display: flex;
-         justify-content: right !important;
-        }        
-    [role="radiogroup"] {
-           display: flex !important;
-           justify-content: center !important;
-      }
-    .st-cc {
-         font-size: 12px !important;
-         font-weight: 500 !important;
-      }
-    [data-testid="stRadio"] label:has(input:checked) {
-      color: white !important;
-      background-color: rgba(200,200,200,.3) !important;
-      padding: .4rem .8rem !important;
-      border: 1px solid white !important;
-      }
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(2) > div > div > label:nth-child(1) > div.st-ba.st-bp.st-bq.st-br.st-bs.st-bt.st-bu.st-bv.st-bw.st-bx.st-by > div > p{
-    color: white !important;
-                    }                
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(2) > div > div > label:nth-child(2) > div.st-ba.st-bp.st-bq.st-br.st-bs.st-bt.st-bu.st-bv.st-bw.st-bx.st-by > div > p{
-    color: white !important;
-                    }                
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(2) > div > div > label:nth-child(3) > div.st-ba.st-bp.st-bq.st-br.st-bs.st-bt.st-bu.st-bv.st-bw.st-bx.st-by > div > p{
-    color: white !important;
-                    }                
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(2) > div > div > label:nth-child(4) > div.st-ba.st-bp.st-bq.st-br.st-bs.st-bt.st-bu.st-bv.st-bw.st-bx.st-by > div > p{
-    color: white !important;
-                }                
-
-
- 
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(2) > div > label > div > p{
-                font-size: 20px;
-                font-weight: bold;
-                color: yellow;
-                    }
-                
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > label > div > p{
-                font-size: 20px;
-                font-weight: bold;
-                color: yellow;
-                    }
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > label > div > p{
-                font-size: 20px;
-                font-weight: bold;
-                color: yellow;
-                    }
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > label > div > p{
-            font-size: 20px;
-            font-weight: bold;
-            color: yellow;
-                }
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > label > div > p{
-            font-size: 20px;
-            font-weight: bold;
-            color: yellow;
-                }
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > label > div > p{
-            font-size: 20px;
-            font-weight: bold;
-            color: yellow;
-                }
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > label > div > p{
-            font-size: 20px;
-            font-weight: bold;
-            color: yellow;
-                }
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > label > div > p{
-            font-size: 20px;
-            font-weight: bold;
-            color: yellow;
-                }
-
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(1) > div > div > h2{
-   font-size: 2rem;
-   font-weight: 600;
-   color: aqua !important;
-   margin: 1rem !important;                
-                }
-
-               
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > div > div{
-            background-color: rgba(0,0,0,0) !important;                }
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > div.st-eg.st-dm.st-c9.st-db.st-da.st-eh{
-            color: white !important}               
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > div > div > div.st-ak.st-al.st-as.st-da.st-bg.st-db.st-dc > svg{
-            color: #00ffff !important;                }                
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > div > div > div.st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl > div.st-eg.st-cn.st-ar.st-ca.st-c9.st-eh{
-            color: white !important;                }                
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
-            background-color: rgba(200,200,200,0.3) !important;                }                
-               
-
-                
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div{
-            background-color: rgba(0,0,0,0) !important;                }
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > div.st-eg.st-dm.st-c9.st-db.st-da.st-eh{
-            color: white !important}               }                
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div > div.st-ak.st-al.st-as.st-da.st-bg.st-db.st-dc > svg{
-            color: #00ffff !important;                }                
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div > div.st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl > div.st-eg.st-cn.st-ar.st-ca.st-c9.st-eh{
-            color: white !important;                }                
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
-            background-color: rgba(200,200,200,0.3) !important;                }                
-               
-                
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > div > div > div{
-            background-color: rgba(0,0,0,0) !important;                }
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > div.st-eg.st-dm.st-c9.st-db.st-da.st-eh{
-            color: white !important}                
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > div > div > div > div.st-ak.st-al.st-as.st-da.st-bg.st-db.st-dc > svg{
-            color: #00ffff !important;                }                
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > div > div > div > div.st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl > div.st-eg.st-cn.st-ar.st-ca.st-c9.st-eh{
-            color: white !important;                }                
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
-            background-color: rgba(200,200,200,0.3) !important;                }                
-               
-                
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > div > div > div{
-            background-color: rgba(0,0,0,0) !important;}
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > div.st-eg.st-dm.st-c9.st-db.st-da.st-eh{
-            color: white !important}                
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > div > div > div > div.st-ak.st-al.st-as.st-da.st-bg.st-db.st-dc > svg{
-            color: #00ffff !important;
-                    }                
-
-    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > div > div > div > div.st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl > div.st-eg.st-cn.st-ar.st-ca.st-c9.st-eh{
-            color: white !important;
-                    }                
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
-         background-color: rgba(200,200,200,0.3) !important;
-                }                
-               
-                
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > div > div > div{
-         background-color: rgba(0,0,0,0) !important;
-                }
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > div.st-eg.st-dm.st-c9.st-db.st-da.st-eh{
-         color: white !important}                
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > div > div > div > div.st-ak.st-al.st-as.st-da.st-bg.st-db.st-dc > svg{
-         color: #00ffff !important;
-                }                
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > div > div > div > div.st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl > div.st-eg.st-cn.st-ar.st-ca.st-c9.st-eh{
-         color: white !important;
-                }                
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
-         background-color: rgba(200,200,200,0.3) !important;
-                }                
-                
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > div > div > div{
-         background-color: rgba(0,0,0,0) !important;}
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > div.st-eg.st-dm.st-c9.st-db.st-da.st-eh{
-         color: white !important}
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > div > div > div > div.st-ak.st-al.st-as.st-da.st-bg.st-db.st-dc > svg{
-         color: #00ffff !important;}                
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > div > div > div > div.st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl > div.st-eg.st-cn.st-ar.st-ca.st-c9.st-eh{
-         color: white !important;}                
-
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
-         background-color: rgba(200,200,200,0.3) !important;}                
-               
-#root > div:nth-child(1) .st-emotion-cache-ocqkz7 > div:nth-child(1),
-#root > div:nth-child(1) .st-emotion-cache-ocqkz7 > div:nth-child(2),
-#root > div:nth-child(1) .st-emotion-cache-ocqkz7 > div:nth-child(3),
-#root > div:nth-child(1) .st-emotion-cache-ocqkz7 > div:nth-child(4) {
-    border: 1px solid #00ff00;
-    border-radius: 5px;
-    padding: 10px;
-}
-                       
-                
-/* Hide specific label */
-#root > div:nth-child(1) .st-emotion-cache-ocqkz7.e1f1d6gn5 > div:nth-child(n+1):nth-child(-n+4) > div > div > div > div:nth-child(2) > div > label {
-    display: none;
-}
-
-/* Hide  */
-#root > div:nth-child(1) .st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(n+1):nth-child(-n+5),
-#root > div:nth-child(1) .st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(8) {
-    display: none;
-}
-
-
-
-                #root > div:nth-child(2) > div > div > div > div > div > div > ul > div{
-                background-color: darkgray;
-                }
-
-      </style>
-   """, unsafe_allow_html=True)
+    sm.style_gen()
 
     mask = (
         (df['nombre_vendedor'].isin(vendedor_filter)) &
@@ -374,18 +82,10 @@ def main():
     )
     filtered_df = df[mask]
 
-    st.markdown("""
-        <style>
-        .metric-title {
-            font-size: 14px; /* Cambia el tamaño del título */
-            color: #00FF00; /* Cambia el color del título */
-            # border: 1px solid white;
-        }
-        </style>
-        """, unsafe_allow_html=True)
+    sm.style_title()
 
     #### Métricas principales
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3, col4,col5 = st.columns(5)
 
     col1.markdown(f"<div class='metric-title'>Total de Ventas</div>", unsafe_allow_html=True)
     col1.metric("Total de Ventas", formata_numero(filtered_df['valor_total'].sum(),'$'),label_visibility="hidden")
@@ -398,6 +98,9 @@ def main():
 
     col4.markdown(f"<div class='metric-title'>Productos Únicos</div>", unsafe_allow_html=True)
     col4.metric("", f"{filtered_df['producto'].nunique():,}")
+
+    col5.markdown(f"<div class='metric-title'>Marcas</div>", unsafe_allow_html=True)
+    col5.metric("", f"{filtered_df['marca'].nunique():,}")
 
     col1, col2 = st.columns(2)
 
@@ -435,9 +138,6 @@ def main():
         top_10_estados = filtered_df.groupby('Estado')['valor_total'].sum().nlargest(10).reset_index()
         mapa.barras(top_10_estados)
    
-
-
-
     # Top 10 productos más vendidos históricamente
     st.subheader("Top 10 Productos más Vendidos")
     top_10_vendidos = filtered_df.groupby('producto')['cantidad'].sum().nlargest(10).reset_index()
@@ -460,11 +160,6 @@ def main():
     fig4.update_layout(title=titles_format, height=800)
     fig4 = layout.update_figure_layout(fig4)
     st.plotly_chart(fig4, use_container_width=True)
-
-
-# fig4 = px.sunburst(filtered_df, path=['Región', 'marca', 'producto'],
-                  #  values='valor_total', title='Jerarquía de Ventas por Región, Marca y Producto',
-                  #  color_discrete_sequence=['#FF00FF', '#00FFFF', '#FFFF00', '#FF1493', '#00FF00'])
 
     # Mapa de árbol (Treemap)
     st.subheader("Jerarquía de Ventas por Marca y Producto")
