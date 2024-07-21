@@ -69,23 +69,6 @@ def get_color_map(fig_mapa, df):
                 color_map[state] = colors[i % len(colors)]
     return color_map
 
-# def barras(df):
-#             colors = [viridis_palette[i] for i in range(len(df))]
-#             fig = px.bar(df, x='Estado', y='valor_total', title='Top 10 Estados vs Ventas')
-#             fig.update_traces(marker_color=colors)
-#             fig = layout.update_figure_layout(fig)
-#             fig.update_layout(title=titles_format)
-#             fig.update_layout(showlegend=False)
-#             fig.update_traces(texttemplate='%{y:.2s}', textposition='inside',
-#                                 textfont=dict(family='Arial black', color='black', size=14), textangle=0)
-#             fig.update_layout(height=500,uniformtext_minsize=8, uniformtext_mode='hide')
-#             fig.update_xaxes(title_text='')  # Remove x and y axis labels
-#             fig.update_yaxes(title_text='')  # Remove x and y axis labels
-#             fig.update_yaxes(showticklabels=False, showgrid=False)
-#             fig.update_xaxes(showline=False)  # Remove x-axis line
-#             fig.update_xaxes(showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=14))
-#             st.plotly_chart(fig, use_container_width=True)
-
 def barras(df):
     colors = generate_color_map(df, viridis_palette)
     df = df.sort_values(by='valor_total', ascending=False).head(10)
