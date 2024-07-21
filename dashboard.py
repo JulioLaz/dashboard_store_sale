@@ -42,23 +42,53 @@ def create_multiselect_filter(df, column, label):
 
 def main():
     df = db.load_data()
-    st.sidebar.header("Filtros")
+
+    # Barra lateral
+    with st.sidebar:
+        st.markdown("<h1></h1>", unsafe_allow_html=True)
+        st.markdown("<h1>Filtros</h1>", unsafe_allow_html=True)
+        # nb.create_navbar()
+
+    # Contenido principal
+    st.title("Dashboard de Ventas")
     nb.create_navbar()
-    nb.create_navbar()
 
-    years = ["ALL"] + sorted(df['fecha_compra'].dt.year.unique())
+    def year_filter(df):
+        years = sorted(df['fecha_compra'].dt.year.unique())
+        
+        # Checkbox para seleccionar todo el periodo
+        all_years = st.sidebar.checkbox('Todo el periodo', value=True)
+        
+        if all_years:
+            years_filter = years
+        else:
+            selected_year = st.sidebar.radio("", options=years[:], index=0, key="year_radio", horizontal=True)
+            if selected_year == "ALL":
+                years_filter = df['fecha_compra'].dt.year.unique()
+            else:
+                years_filter = [selected_year]
+        # else:
+            # years_filter = df['fecha_compra'].dt.year.unique()
 
-    if 'year_filter_mode' not in st.session_state:
-       st.session_state.year_filter_mode = True
+        # Aplicar el filtro al dataframe
+        filtered_df = df[df['fecha_compra'].dt.year.isin(years_filter)]
+        
+        return filtered_df, years_filter
 
-    if st.session_state.year_filter_mode:
-      selected_year = st.sidebar.radio("", options=years[:], index=0, key="year_radio", horizontal=True)
-      if selected_year == "ALL":
-         years_filter = df['fecha_compra'].dt.year.unique()
-      else:
-         years_filter = [selected_year]
-    else:
-      years_filter = df['fecha_compra'].dt.year.unique()
+    filtered_df, selected_years = year_filter(df)
+    # years = ["ALL"] + sorted(df['fecha_compra'].dt.year.unique())
+
+    # if 'year_filter_mode' not in st.session_state:
+    #    st.session_state.year_filter_mode = True
+
+    # if st.session_state.year_filter_mode:
+    #   selected_year = st.sidebar.radio("", options=years[:], index=0, key="year_radio", horizontal=True)
+    #   if selected_year == "ALL":
+    #      years_filter = df['fecha_compra'].dt.year.unique()
+    #   else:
+    #      years_filter = [selected_year]
+    # else:
+    #   years_filter = df['fecha_compra'].dt.year.unique()
 
     # Filtros de selección múltiple con opción "ALL"
     marca_filter = create_multiselect_filter(df, 'marca', "Marca")
@@ -78,7 +108,8 @@ def main():
         (df['producto'].isin(producto_filter)) &
         (df['Región'].isin(Región_filter)) &
         (df['marca_genero'].isin(marca_genero_filter)) &
-        (df['fecha_compra'].dt.year.isin(years_filter))
+        (df['fecha_compra'].dt.year.isin(selected_years))
+        # (df['fecha_compra'].dt.year.isin(years_filter))
     )
     filtered_df = df[mask]
 
@@ -96,11 +127,11 @@ def main():
     col3.markdown(f"<div class='metric-title'>Ganancia Neta</div>", unsafe_allow_html=True)
     col3.metric("", formata_numero(filtered_df['ingresos_netos'].sum(),'$'))
 
-    col4.markdown(f"<div class='metric-title'>Productos Únicos</div>", unsafe_allow_html=True)
-    col4.metric("", f"{filtered_df['producto'].nunique():,}")
+    col4.markdown(f"<div class='metric-title'>Marcas</div>", unsafe_allow_html=True)
+    col4.metric("", f"{filtered_df['marca'].nunique():,}")
 
-    col5.markdown(f"<div class='metric-title'>Marcas</div>", unsafe_allow_html=True)
-    col5.metric("", f"{filtered_df['marca'].nunique():,}")
+    col5.markdown(f"<div class='metric-title'>Productos Únicos</div>", unsafe_allow_html=True)
+    col5.metric("", f"{filtered_df['producto'].nunique():,}")
 
     col1, col2 = st.columns(2)
 

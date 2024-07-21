@@ -5,7 +5,7 @@ import dashboard as main
 import plotly.express as px
 # print(px.colors.named_colorscales())
 # "Top 10 Marcas según Ganancia Neta"
-tiltes_format = {'x': 0.2, 'font': {'size': 28, 'color': "#00ffff", 'family': "arial"}}
+titles_format = {'x': 0.2, 'font': {'size': 28, 'color': "#00ffff", 'family': "arial"}}
 viridis_palette = plotly.colors.sequential.Plotly3_r
 inferno_palette = px.colors.sequential.Inferno
 blue_palette = px.colors.sequential.Blues

@@ -5,7 +5,7 @@ import ddbb as db
 import update_figure_layout as layout
 
 # geojson_br = db.load_geojson()
-titles_format = {'x': 0.2, 'font': {'size': 28, 'color': "#00ffff", 'family': "arial"}}
+titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 20, 'color': "#00ffff", 'family': "arial"}}
 viridis_palette = plotly.colors.sequential.Viridis
 
 def generate_color_map(df, palette):
@@ -79,7 +79,7 @@ def barras(df):
     fig.update_layout(showlegend=False)
     fig.update_traces(texttemplate='%{y:.2s}', textposition='inside',
                       textfont=dict(family='Arial black', color='black', size=14), textangle=0)
-    fig.update_layout(height=500, uniformtext_minsize=8, uniformtext_mode='hide')
+    fig.update_layout(height=700, uniformtext_minsize=8, uniformtext_mode='hide')
     fig.update_xaxes(title_text='')  # Remove x and y axis labels
     fig.update_yaxes(title_text='')  # Remove x and y axis labels
     fig.update_yaxes(showticklabels=False, showgrid=False)

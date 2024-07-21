@@ -4,7 +4,8 @@ import plotly.colors
 import update_figure_layout as layout
 
 
-tiltes_format = {'x': 0.2, 'font': {'size': 28, 'color': "#00ffff", 'family': "arial"}}
+titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 20, 'color': "#00ffff", 'family': "arial"}}
+
 viridis_palette = plotly.colors.sequential.Plotly3_r
 inferno_palette = px.colors.sequential.Inferno
 blue_palette = px.colors.sequential.Blues
@@ -39,7 +40,7 @@ def graf_011(df):
          fig_marcas = px.bar(df, x='marca', y='ingresos_netos', title='Top 10 Marcas según Ganancia Neta')
          fig_marcas.update_traces(marker_color=peach)
          fig_marcas = layout.update_figure_layout(fig_marcas)
-         fig_marcas.update_layout(title=tiltes_format)
+         fig_marcas.update_layout(title=titles_format)
          fig_marcas.update_layout(showlegend=False)
          fig_marcas.update_traces(texttemplate='%{y:.2s}', textposition='inside',
                               textfont=dict(family='Arial black', color='black', size=14), textangle=0)
@@ -57,7 +58,7 @@ def graf_022(df):
          fig_productos = px.bar(df, x='producto', y='ingresos_netos', title='Top 10 Productos según Ganancia Neta')
          fig_productos.update_traces(marker_color=pera)
          fig_productos = layout.update_figure_layout(fig_productos)
-         fig_productos.update_layout(title=tiltes_format)
+         fig_productos.update_layout(title=titles_format)
          fig_productos.update_layout(showlegend=False)
          fig_productos.update_traces(texttemplate='%{y:.2s}', textposition='inside',
                               textfont=dict(family='Arial black', color='black', size=14), textangle=0)

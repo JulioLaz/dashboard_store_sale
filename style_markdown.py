@@ -228,10 +228,35 @@ def style_gen():
             font-size: 14px; /* Cambia el tamaño del título */
             color: #00FF00; /* Cambia el color del título */
             # border: 1px solid white;
-        }               
+        }
+/* selector años */            
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div{
+               display:flex;
+               justify-content: flex-end;
+               font-size:18px !important;
+               }
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > label > div > div > div > p{
+               font-size:16px !important;
+}
 
+/* botones ALL */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div > div.st-av.st-c3.st-cj.st-ck.st-cl.st-af.st-cm.st-cn.st-br.st-co.st-cp.st-cq.st-cr > span{
+         background-color: agua !important;
+               }
+               
          </style>
-      """, unsafe_allow_html=True)
+         """,
+         unsafe_allow_html=True
+      )
+# root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div > div.st-av.st-c3.st-cj.st-ck.st-cl.st-af.st-cm.st-cn.st-br.st-co.st-cp.st-cq.st-cr > span,
+# root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > div > div > div > div.st-av.st-c3.st-cj.st-ck.st-cl.st-af.st-cm.st-cn.st-br.st-co.st-cp.st-cq.st-cr > span,
+# root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > div > div > div > div.st-av.st-c3.st-cj.st-ck.st-cl.st-af.st-cm.st-cn.st-br.st-co.st-cp.st-cq.st-cr > span,
+# root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > div > div > div > div.st-av.st-c3.st-cj.st-ck.st-cl.st-af.st-cm.st-cn.st-br.st-co.st-cp.st-cq.st-cr > span,
+# root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > div > div > div > div.st-av.st-c3.st-cj.st-ck.st-cl.st-af.st-cm.st-cn.st-br.st-co.st-cp.st-cq.st-cr > span,
+# #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > label > span{
+#         background-color: agua !important;
+#          border-color: blue !important;
+#     }
 
 # styles en navbar:   
 def style_navbar():
@@ -261,6 +286,7 @@ def style_navbar():
                   display: flex;
                   justify-content: flex-end;
             }
+         
          </style>
          """,
          unsafe_allow_html=True
