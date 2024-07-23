@@ -1,7 +1,6 @@
 import streamlit as st
 import plotly.express as px
 import update_figure_layout as layout
-import plotly.express as px
 
 titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 20, 'color': "#00ffff", 'family': "arial"}}
 
@@ -35,8 +34,8 @@ def graf_01(df):
          fig = layout.update_figure_layout(fig)
          fig.update_layout(title=titles_format)
          fig.update_layout(showlegend=False)
-         fig.update_traces(texttemplate='%{y:.2s}', textposition='inside',
-                              textfont=dict(family='Arial black', color='black', size=14), textangle=0)
+         fig.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
+                              textfont=dict(family='Arial black', color='black', size=12), textangle=0)
          fig.update_layout(height=500,uniformtext_minsize=8, uniformtext_mode='hide')
          fig.update_xaxes(title_text='')  # Remove x and y axis labels
          fig.update_yaxes(title_text='')  # Remove x and y axis labels
@@ -51,8 +50,8 @@ def graf_02(df):
          fig = layout.update_figure_layout(fig)
          fig.update_layout(title=titles_format)
          fig.update_layout(showlegend=False)
-         fig.update_traces(texttemplate='%{y:.2s}', textposition='inside',
-                              textfont=dict(family='Arial black', color='black', size=14), textangle=0)
+         fig.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
+                              textfont=dict(family='Arial black', color='black', size=12), textangle=0)
          fig.update_layout(height=500,uniformtext_minsize=8, uniformtext_mode='hide')
          fig.update_xaxes(title_text='')  # Remove x and y axis labels
          fig.update_yaxes(title_text='')  # Remove x and y axis labels

@@ -41,10 +41,7 @@ def mapa_br(df):
         showframe=False,
         showsubunits=False
     )
-    fig_mapa.update_layout(
-        title=titles_format,
-        height=700,
-        coloraxis_showscale=False,
+    fig_mapa.update_layout(title=titles_format, height=700, coloraxis_showscale=False, 
         geo=dict(
             showframe=False,
             showcoastlines=False,
@@ -52,13 +49,9 @@ def mapa_br(df):
             projection_type='mercator'
         )
     )
-    fig_mapa.update_traces(
-        marker_line_width=0,
-        hovertemplate='<b>%{customdata[1]}</b><br>Ventas Totales: %{z}<extra></extra>'
-    )
+    fig_mapa.update_traces(marker_line_width=0, hovertemplate='<b>%{customdata[1]}</b><br>Ventas Totales: %{z}<extra></extra>')
     fig_mapa = layout.update_figure_layout(fig_mapa)
     st.plotly_chart(fig_mapa, use_container_width=True)
-    # return fig_mapa
 
 def get_color_map(fig_mapa, df):
     color_map = {}
@@ -77,8 +70,8 @@ def barras(df):
     fig = layout.update_figure_layout(fig)
     fig.update_layout(title=titles_format)
     fig.update_layout(showlegend=False)
-    fig.update_traces(texttemplate='%{y:.2s}', textposition='inside',
-                      textfont=dict(family='Arial black', color='black', size=14), textangle=0)
+    fig.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
+                      textfont=dict(family='Arial black', color='black', size=12), textangle=0)
     fig.update_layout(height=700, uniformtext_minsize=8, uniformtext_mode='hide')
     fig.update_xaxes(title_text='')  # Remove x and y axis labels
     fig.update_yaxes(title_text='')  # Remove x and y axis labels

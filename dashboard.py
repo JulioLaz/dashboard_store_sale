@@ -8,6 +8,8 @@ import top10_products_up as prup
 import mapa_brasil as mapa
 import update_figure_layout as layout
 import style_markdown as sm
+import years_sales as ys
+import vendedor as seller
 
 def formata_numero(valor, prefijo=''):
     for unidad in ['', 'k']:
@@ -118,20 +120,48 @@ def main():
     #### Métricas principales
     col1, col2, col3, col4,col5 = st.columns(5)
 
-    col1.markdown(f"<div class='metric-title'>Total de Ventas</div>", unsafe_allow_html=True)
+    col1.markdown(f" <div class='metric-title'>Total de Ventas</div>", unsafe_allow_html=True)
     col1.metric("Total de Ventas", formata_numero(filtered_df['valor_total'].sum(),'$'),label_visibility="hidden")
 
-    col2.markdown(f"<div class='metric-title'>Número de Pedidos</div>", unsafe_allow_html=True)
-    col2.metric("", f"{filtered_df['pedido_id'].nunique():,}")
+    col2.markdown(f" <div class='metric-title'>Ganancia Neta</div>", unsafe_allow_html=True)
+    col2.metric("", formata_numero(filtered_df['ingresos_netos'].sum(),'$'))
 
-    col3.markdown(f"<div class='metric-title'>Ganancia Neta</div>", unsafe_allow_html=True)
-    col3.metric("", formata_numero(filtered_df['ingresos_netos'].sum(),'$'))
+    col3.markdown(f" <div class='metric-title'>Número de Pedidos</div>", unsafe_allow_html=True)
+    col3.metric("", f"{filtered_df['pedido_id'].nunique():,}")
 
-    col4.markdown(f"<div class='metric-title'>Marcas</div>", unsafe_allow_html=True)
+    col4.markdown(f" <div class='metric-title'>Marcas</div>", unsafe_allow_html=True)
     col4.metric("", f"{filtered_df['marca'].nunique():,}")
 
-    col5.markdown(f"<div class='metric-title'>Productos Únicos</div>", unsafe_allow_html=True)
+    col5.markdown(f" <div class='metric-title'>Productos</div>", unsafe_allow_html=True)
     col5.metric("", f"{filtered_df['producto'].nunique():,}")
+
+    col1, col2 = st.columns(2)
+    
+    with col1: #ventas por años line:
+        ys.sales_line(filtered_df)
+
+    with col2: #ventas por años pie:
+        ys.sales_pie(filtered_df)
+
+    col1, col2 = st.columns(2)
+
+    with col1: #Vendedores por años
+        seller.seller(filtered_df)
+    with col2: # Vendedores total ventas distribucion:
+        seller.seller_pie(filtered_df)
+
+    col5, col6 = st.columns(2)
+
+    with col5: #Mapa de brasil ventas totales por Estado:
+    # Mapa 
+        grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
+        mapa.mapa_br(grouped_df)
+
+    with col6: # Top 10 de Venta totales neta por estado
+
+        grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
+        top_10_estados = filtered_df.groupby('Estado')['valor_total'].sum().nlargest(10).reset_index()
+        mapa.barras(top_10_estados)
 
     col1, col2 = st.columns(2)
 
@@ -156,18 +186,18 @@ def main():
         df_top_10 = df_productos_mas_ventas.nlargest(10, 'valor_total')
         prup.graf_02(df_top_10)
 
-    col5, col6 = st.columns(2)
+    # col5, col6 = st.columns(2)
 
-    with col5: #Mapa de brasil ventas totales por Estado:
-    # Mapa 
-        grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
-        mapa.mapa_br(grouped_df)
+    # with col5: #Mapa de brasil ventas totales por Estado:
+    # # Mapa 
+    #     grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
+    #     mapa.mapa_br(grouped_df)
 
-    with col6: # Top 10 de Venta totales neta por estado
+    # with col6: # Top 10 de Venta totales neta por estado
 
-        grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
-        top_10_estados = filtered_df.groupby('Estado')['valor_total'].sum().nlargest(10).reset_index()
-        mapa.barras(top_10_estados)
+    #     grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
+    #     top_10_estados = filtered_df.groupby('Estado')['valor_total'].sum().nlargest(10).reset_index()
+    #     mapa.barras(top_10_estados)
    
     # Top 10 productos más vendidos históricamente
     st.subheader("Top 10 Productos más Vendidos")

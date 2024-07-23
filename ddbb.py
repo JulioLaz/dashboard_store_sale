@@ -18,8 +18,3 @@ def load_geojson():
    response = requests.get(url)
    brazil_states_geojson = response.json()
    return brazil_states_geojson
-
-# def load_geojson():
-#    with open('brazil-states.geojson', 'r', encoding='utf-8') as f:
-#         return json.load(f)
-# print(load_geojson())

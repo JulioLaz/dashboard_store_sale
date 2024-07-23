@@ -42,8 +42,8 @@ def graf_011(df):
          fig_marcas = layout.update_figure_layout(fig_marcas)
          fig_marcas.update_layout(title=titles_format)
          fig_marcas.update_layout(showlegend=False)
-         fig_marcas.update_traces(texttemplate='%{y:.2s}', textposition='inside',
-                              textfont=dict(family='Arial black', color='black', size=14), textangle=0)
+         fig_marcas.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
+                              textfont=dict(family='Arial black', color='black', size=12), textangle=0)
          fig_marcas.update_layout(height=500,uniformtext_minsize=8, uniformtext_mode='hide')
          fig_marcas.update_xaxes(title_text='')  # Remove x and y axis labels
          fig_marcas.update_yaxes(title_text='')  # Remove x and y axis labels
@@ -60,8 +60,8 @@ def graf_022(df):
          fig_productos = layout.update_figure_layout(fig_productos)
          fig_productos.update_layout(title=titles_format)
          fig_productos.update_layout(showlegend=False)
-         fig_productos.update_traces(texttemplate='%{y:.2s}', textposition='inside',
-                              textfont=dict(family='Arial black', color='black', size=14), textangle=0)
+         fig_productos.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
+                              textfont=dict(family='Arial black', color='black', size=12), textangle=0)
          fig_productos.update_layout(height=500,uniformtext_minsize=8, uniformtext_mode='hide')
          fig_productos.update_xaxes(title_text='')  # Remove x and y axis labels
          fig_productos.update_yaxes(title_text='')  # Remove x and y axis labels
