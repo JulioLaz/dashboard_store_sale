@@ -53,9 +53,9 @@ def graf_011(df):
          st.plotly_chart(fig_marcas, use_container_width=True)
          pass
 
-def graf_022(df):
-         # colors = [magma_palette[i] for i in range(len(df))]
-         fig_productos = px.bar(df, x='producto', y='ingresos_netos', title='Top 10 Productos según Ganancia Neta')
+def graf_022(df,top_n):
+         df = df.groupby('producto')['ingresos_netos'].sum().nlargest(top_n).reset_index()
+         fig_productos = px.bar(df, x='producto', y='ingresos_netos', title=f'Top {top_n} Productos según Ganancia Neta')
          fig_productos.update_traces(marker_color=pera)
          fig_productos = layout.update_figure_layout(fig_productos)
          fig_productos.update_layout(title=titles_format)

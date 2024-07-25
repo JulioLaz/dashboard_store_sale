@@ -22,6 +22,7 @@ def mapa_br(df):
     fig_mapa = px.choropleth(
         grouped_df,
         geojson=geojson_br,
+        # locations='cod_ciudad',
         locations='abbrev_state',
         color='valor_total',
         color_continuous_scale='viridis',
@@ -34,14 +35,14 @@ def mapa_br(df):
         visible=False,
         scope="south america",
         center={"lat": -14.2350, "lon": -51.9253},
-        projection_scale=1.7,
+        projection_scale=1.65,
         showland=False,
         showcountries=False,
         showcoastlines=False,
         showframe=False,
         showsubunits=False
     )
-    fig_mapa.update_layout(title=titles_format, height=700, coloraxis_showscale=False, 
+    fig_mapa.update_layout(title=titles_format, height=700, coloraxis_showscale=True, 
         geo=dict(
             showframe=False,
             showcoastlines=False,

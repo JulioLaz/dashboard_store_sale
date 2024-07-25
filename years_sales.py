@@ -17,34 +17,13 @@ def sales_line(df):
          fig = px.line(df, x='Month', y='valor_total', markers=True, range_y=(0, df['valor_total'].max()), color='Year', line_dash='Year', title='Ingresos mensuales')
          fig.update_layout(title=titles_format)
          fig = layout.update_figure_layout(fig)
-         fig.update_layout(height=500,uniformtext_minsize=8, uniformtext_mode='hide')
+         fig.update_layout(height=450,uniformtext_minsize=8, uniformtext_mode='hide')
          fig.update_xaxes(title_text='')  # Remove x and y axis labels
          fig.update_yaxes(title_text='')  # Remove x and y axis labels
          fig.update_xaxes(showline=False)  # Remove x-axis line
          fig.update_xaxes(showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='white', size=12))
          st.plotly_chart(fig, use_container_width=True)
 
-# def sales_pie(df):
-#    df=df.sort_values(by='valor_total', ascending=False)
-#    fig = px.pie(df, names='Year', values='valor_total', 
-#                 title='Distribución de Total Vendido por Año', hole=0.3,
-#     #   labels={'Años': 'Year', 'Total': 'valor_total'}, 
-#       color_discrete_sequence=['#272cc2','#aeeafc','#e6a3a3'],
-#     #   hover_data={'total_vendido': ':$.2f'}
-#       )
-#    fig.update_traces( textinfo='percent+label+value', textfont_size=14, 
-#                      marker=dict(line=dict(color='black', width=1)), 
-#                      pull=[0.03,0,0],
-#                      )
-#    fig.update_layout(title=titles_format,
-#                      font=dict(family="Arial Black, sans-serif", size=14, 
-#                      color="white"),plot_bgcolor='rgba(0,0,0,0)',
-#                      paper_bgcolor='rgba(0,0,0,0)',
-#                      showlegend=False)
-#    fig.update_layout(height=500,uniformtext_minsize=12, uniformtext_mode='hide')
-#    fig.update_coloraxes(showscale=False)
-#    fig = layout.update_figure_layout(fig)
-#    st.plotly_chart(fig, use_container_width=True)
 def sales_pie(df):
     df = df.groupby(['Year'])['valor_total'].sum().reset_index()
     df = df.sort_values(by=['Year'], ascending=[True]).reset_index(drop=True)
@@ -75,7 +54,7 @@ def sales_pie(df):
         texttemplate='%{label}<br>%{percent:.1%}<br>%{customdata[0]}',
         textposition='inside',
         textfont_size=14,
-        marker=dict(line=dict(color='black', width=1)),
+        marker=dict(line=dict(color='black', width=2)),
         pull=[0.03,0,0],
         hovertemplate='<b>%{label}</b><br>Total Vendido: %{customdata[0]}<br>Porcentaje: %{percent:.1%}<extra></extra>'
     )
@@ -86,7 +65,7 @@ def sales_pie(df):
         plot_bgcolor='rgba(0,0,0,0)',
         paper_bgcolor='rgba(0,0,0,0)',
         showlegend=False,
-        height=500,
+        height=450,
         uniformtext_minsize=12, 
         uniformtext_mode='hide'
     )

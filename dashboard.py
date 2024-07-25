@@ -1,3 +1,4 @@
+import numpy as np
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -10,6 +11,7 @@ import update_figure_layout as layout
 import style_markdown as sm
 import years_sales as ys
 import vendedor as seller
+import graf_region as region
 
 def formata_numero(valor, prefijo=''):
     for unidad in ['', 'k']:
@@ -26,7 +28,7 @@ titles_format = dict(font=dict(size=18, color='#1f77b4'), xref='paper', x=0.5, y
 sm.style_navbar()
 st.markdown("""<style>[data-testid="stSidebar"] {background-color: rgba(0,0,0,0);}</style>""",unsafe_allow_html=True)
 
-# ocultar label del ratioitens:
+# ocultar label del ratioitems:
 hide_element_style = '''<style>#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(9) > div > label {display: none}'''
 st.markdown(hide_element_style, unsafe_allow_html=True)
 
@@ -42,6 +44,25 @@ def create_multiselect_filter(df, column, label):
         return df[column].unique()
     return selected
 
+### indicator ###
+
+# def calculate_change(current, previous):
+#     if previous == 0:
+#         return 0
+#     return (current - previous) / previous
+
+# def get_previous_period_data(df, date_column='Year'):
+#     # Asumimos que el DataFrame está ordenado por fecha
+#     current_period = df[date_column].max()
+#     previous_period = df[df[date_column] < current_period][date_column].max()
+    
+#     current_data = df[df[date_column] == current_period]
+#     previous_data = df[df[date_column] == previous_period]
+    
+#     return current_data, previous_data
+
+#####################
+# years=list(db.load_data().Year.unique())
 def main():
     df = db.load_data()
 
@@ -49,10 +70,6 @@ def main():
     with st.sidebar:
         st.markdown("<h1></h1>", unsafe_allow_html=True)
         st.markdown("<h1>Filtros</h1>", unsafe_allow_html=True)
-        # nb.create_navbar()
-
-    # Contenido principal
-    st.title("Dashboard de Ventas")
     nb.create_navbar()
 
     def year_filter(df):
@@ -76,7 +93,7 @@ def main():
         filtered_df = df[df['fecha_compra'].dt.year.isin(years_filter)]
         
         return filtered_df, years_filter
-
+    
     filtered_df, selected_years = year_filter(df)
     # years = ["ALL"] + sorted(df['fecha_compra'].dt.year.unique())
 
@@ -100,6 +117,7 @@ def main():
     vendedor_filter = create_multiselect_filter(df, 'nombre_vendedor', "Vendedor")
     marca_genero_filter = create_multiselect_filter(df, 'marca_genero', "Género")
 
+    top_n = int(st.sidebar.radio("TOP", options=['3', '5', '10'], index=0, key="top", horizontal=True))
 # CSS personalizado
     sm.style_gen()
 
@@ -117,23 +135,79 @@ def main():
 
     sm.style_title()
 
-    #### Métricas principales
-    col1, col2, col3, col4,col5 = st.columns(5)
+#### metric with indicator
+    def calculate_change(current, previous):
+        if previous == 0:
+            return 0
+        return (current - previous) / previous
 
-    col1.markdown(f" <div class='metric-title'>Total de Ventas</div>", unsafe_allow_html=True)
-    col1.metric("Total de Ventas", formata_numero(filtered_df['valor_total'].sum(),'$'),label_visibility="hidden")
+    def get_previous_period_data(df, date_column='Year'):
+        current_period = df[date_column].max()
+        previous_period = df[df[date_column] < current_period][date_column].max()
+        if previous_period==np.NaN:
+            previous_period=previous_period
+        else: 
+            previous_period=current_period-1
+        current_data = df[df[date_column] == current_period]
+        previous_data = db.load_data()[db.load_data()[date_column] == previous_period]
+        return current_data, previous_data
 
-    col2.markdown(f" <div class='metric-title'>Ganancia Neta</div>", unsafe_allow_html=True)
-    col2.metric("", formata_numero(filtered_df['ingresos_netos'].sum(),'$'))
-
-    col3.markdown(f" <div class='metric-title'>Número de Pedidos</div>", unsafe_allow_html=True)
-    col3.metric("", f"{filtered_df['pedido_id'].nunique():,}")
-
-    col4.markdown(f" <div class='metric-title'>Marcas</div>", unsafe_allow_html=True)
-    col4.metric("", f"{filtered_df['marca'].nunique():,}")
-
-    col5.markdown(f" <div class='metric-title'>Productos</div>", unsafe_allow_html=True)
-    col5.metric("", f"{filtered_df['producto'].nunique():,}")
+    def dashboard_metrics(filtered_df):
+        current_data, previous_data = get_previous_period_data(filtered_df)
+        
+        col1, col2, col3, col4, col5 = st.columns(5)
+        
+        # Total de Ventas
+        current_sales = current_data['valor_total'].sum()
+        previous_sales = previous_data['valor_total'].sum()
+        sales_change = calculate_change(current_sales, previous_sales)
+        if previous_sales!=0:
+            sales_change=f"{sales_change:.2%}"
+        else: sales_change="sin perído previo"
+        col1.markdown("<div class='metric-title'>Total de Ventas</div>", unsafe_allow_html=True)
+        col1.metric("", formata_numero(filtered_df['valor_total'].sum(),'$'), delta=sales_change,label_visibility="hidden")
+        
+        # Ganancia Neta
+        current_profit = current_data['ingresos_netos'].sum()
+        previous_profit = previous_data['ingresos_netos'].sum()
+        profit_change = calculate_change(current_profit, previous_profit)
+        if previous_profit!=0:
+            profit_change=f"{profit_change:.2%}"
+        else: profit_change="sin perído previo"        
+        col2.markdown("<div class='metric-title'>Ganancia Neta</div>", unsafe_allow_html=True)
+        col2.metric("", formata_numero(filtered_df['ingresos_netos'].sum(),'$'), delta=profit_change)
+        
+        # Número de Pedidos
+        current_orders = current_data['pedido_id'].nunique()
+        previous_orders = previous_data['pedido_id'].nunique()
+        orders_change = calculate_change(current_orders, previous_orders)
+        if previous_orders!=0:
+            orders_change=f"{orders_change:.2%}"
+        else: orders_change="sin perído previo"          
+        col3.markdown("<div class='metric-title'>Número de Pedidos</div>", unsafe_allow_html=True)
+        col3.metric("", formata_numero(current_orders,''), delta=orders_change)
+        # col3.metric("", f"{current_orders:,}", delta=orders_change)
+        
+        # Marcas
+        current_brands = current_data['marca'].nunique()
+        previous_brands = previous_data['marca'].nunique()
+        brands_change = calculate_change(current_brands, previous_brands)
+        if previous_brands!=0:
+            brands_change=f"{brands_change:.2%}"
+        else: brands_change="sin perído previo"         
+        col4.markdown("<div class='metric-title'>Marcas</div>", unsafe_allow_html=True)
+        col4.metric("", f"{current_brands:,}", delta=brands_change)
+        
+        # Productos
+        current_products = current_data['producto'].nunique()
+        previous_products = previous_data['producto'].nunique()
+        products_change = calculate_change(current_products, previous_products)
+        if previous_products!=0:
+            products_change=f"{products_change:.2%}"
+        else: products_change="sin perído previo"          
+        col5.markdown("<div class='metric-title'>Productos</div>", unsafe_allow_html=True)
+        col5.metric("", f"{current_products:,}", delta=products_change)
+    dashboard_metrics(filtered_df)
 
     col1, col2 = st.columns(2)
     
@@ -150,6 +224,18 @@ def main():
     with col2: # Vendedores total ventas distribucion:
         seller.seller_pie(filtered_df)
 
+    col4, col1, col2, col3 = st.columns(4)
+## regiones:
+    with col1:
+        region.region_barras(filtered_df)
+    with col2:
+        region.pop_pie(filtered_df)
+    with col3:
+        # region.pbi_pie(db.load_pop_pbi_region())
+        region.pbi_treemap(db.load_pop_pbi_region())
+    with col4:
+        region.mapa_br_reg(filtered_df)
+
     col5, col6 = st.columns(2)
 
     with col5: #Mapa de brasil ventas totales por Estado:
@@ -163,6 +249,7 @@ def main():
         top_10_estados = filtered_df.groupby('Estado')['valor_total'].sum().nlargest(10).reset_index()
         mapa.barras(top_10_estados)
 
+
     col1, col2 = st.columns(2)
 
     with col1: #"Top 10 Marcas según Ganancia Neta"
@@ -170,35 +257,23 @@ def main():
         prbr.graf_011(top_10_marcas)
 
     with col2: # Top 10 marcas según ganancia neta
-        top_10_productos = filtered_df.groupby('producto')['ingresos_netos'].sum().nlargest(10).reset_index()
-        prbr.graf_022(top_10_productos)
+        # top_10_productos = filtered_df.groupby('producto')['ingresos_netos'].sum().nlargest(10).reset_index()
+        prbr.graf_022(filtered_df,top_n)
 
-    col3, col4 = st.columns(2)
+    col3, col4 ,col5 ,col6 = st.columns(4)
 
     with col3: # Top 10 productos más costosos
-        top_10_costosos = filtered_df.groupby('producto')['valor_unitario'].mean().nlargest(10).reset_index()
-        prup.graf_01(top_10_costosos)
+        prup.graf_01(filtered_df,top_n)
 
     with col4: # Top 10 productos agrupados por tipo con mayores ventas
+        prup.graf_02(filtered_df,top_n)
 
-        filtered_df['producto_filtrado'] = filtered_df['producto'].str.split().str[0]
-        df_productos_mas_ventas = (filtered_df.groupby('producto_filtrado')[['valor_total', 'cantidad']].sum().reset_index().sort_values(by='valor_total', ascending=False).reset_index(drop=True))
-        df_top_10 = df_productos_mas_ventas.nlargest(10, 'valor_total')
-        prup.graf_02(df_top_10)
+    with col5:
+        prup.graf_03(filtered_df,top_n)
 
-    # col5, col6 = st.columns(2)
+    with col6: # Top 10 marcas según ganancia neta
+        prbr.graf_022(filtered_df,top_n)
 
-    # with col5: #Mapa de brasil ventas totales por Estado:
-    # # Mapa 
-    #     grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
-    #     mapa.mapa_br(grouped_df)
-
-    # with col6: # Top 10 de Venta totales neta por estado
-
-    #     grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
-    #     top_10_estados = filtered_df.groupby('Estado')['valor_total'].sum().nlargest(10).reset_index()
-    #     mapa.barras(top_10_estados)
-   
     # Top 10 productos más vendidos históricamente
     st.subheader("Top 10 Productos más Vendidos")
     top_10_vendidos = filtered_df.groupby('producto')['cantidad'].sum().nlargest(10).reset_index()

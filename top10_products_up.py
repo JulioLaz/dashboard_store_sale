@@ -28,8 +28,10 @@ for i in range(10):
     b = int(203 - i * 3.67)
     colors_3.append(f'rgb({r}, {g}, {b})')
 
-def graf_01(df):
-         fig = px.bar(df, x='producto', y='valor_unitario', title='Top 10 Productos más Costosos')
+# Top 10 Productos más Costosos
+def graf_01(df,top_n):
+         df = df.groupby('producto')['valor_unitario'].mean().nlargest(top_n).reset_index()
+         fig = px.bar(df, x='producto', y='valor_unitario', title=f'Top {top_n} Productos más Costosos')
          fig.update_traces(marker_color=colors_3)
          fig = layout.update_figure_layout(fig)
          fig.update_layout(title=titles_format)
@@ -44,18 +46,28 @@ def graf_01(df):
          fig.update_xaxes(showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=12))
          st.plotly_chart(fig, use_container_width=True)
 
-def graf_02(df):
-         fig = px.bar(df, x='producto_filtrado', y='valor_total', title='Top 10 Tipo de poductos con mayores ventas')
-         fig.update_traces(marker_color=colors_2)
+# Top 10 Tipo de poductos con mayores ventas
+def graf_02(df,top_n):
+         df['producto_filtrado'] = df['producto'].str.split().str[0]
+         df = (df.groupby('producto_filtrado')[['valor_total', 'cantidad']].sum().reset_index().sort_values(by='valor_total', ascending=False).reset_index(drop=True))
+         df = df.nlargest(top_n, 'valor_total')
+         fig = px.bar(df, x='producto_filtrado', y='valor_total', title=f'Top {top_n} Tipo de poductos con mayores ventas')
          fig = layout.update_figure_layout(fig)
-         fig.update_layout(title=titles_format)
-         fig.update_layout(showlegend=False)
-         fig.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
+         fig.update_traces(showlegend=False,marker_color=colors_2,texttemplate='$ %{y:.2s}', textposition='inside',
                               textfont=dict(family='Arial black', color='black', size=12), textangle=0)
-         fig.update_layout(height=500,uniformtext_minsize=8, uniformtext_mode='hide')
-         fig.update_xaxes(title_text='')  # Remove x and y axis labels
-         fig.update_yaxes(title_text='')  # Remove x and y axis labels
-         fig.update_yaxes(showticklabels=False, showgrid=False)
-         fig.update_xaxes(showline=False)  # Remove x-axis line
-         fig.update_xaxes(showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=12))         
-         st.plotly_chart(fig, use_container_width=True)
+         fig.update_layout(title=titles_format,height=500,uniformtext_minsize=8, uniformtext_mode='hide')
+         fig.update_yaxes(title_text='',showticklabels=False, showgrid=False)
+         fig.update_xaxes(title_text='',showline=False,showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=12))         
+         st.plotly_chart(fig, use_container_width=True) 
+
+    # Top 10 productos más vendidos históricamente
+def graf_03(df,top_n):
+        df = df.groupby('producto')['cantidad'].sum().nlargest(top_n).reset_index()
+        fig = px.bar(df, x='producto', y='cantidad',title=f'Top {top_n} productos más vendidos')
+        fig = layout.update_figure_layout(fig)
+        fig.update_layout(title=titles_format,showlegend=False,height=500,uniformtext_minsize=8, uniformtext_mode='hide')
+        fig.update_traces(marker_color=colors_3,texttemplate='%{y} u', textposition='inside',
+                              textfont=dict(family='Arial black', color='black', size=12), textangle=0)
+        fig.update_yaxes(title_text='',showticklabels=False, showgrid=False)
+        fig.update_xaxes(title_text='',showline=False,showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=12))         
+        st.plotly_chart(fig, use_container_width=True)       

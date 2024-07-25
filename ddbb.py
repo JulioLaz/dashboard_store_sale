@@ -6,10 +6,11 @@ import clasifica_gen as clge
 @st.cache_data(ttl=600)
 def generar_dataframe():
 
-    global df_itens_pedidos, df_pedidos, df_productos, df_vendedores,df_population, df_final
+    global df_items_pedidos, df_pedidos, df_productos, df_vendedores,df_population, df_final
 
-    df_itens_pedidos = pd.read_csv('https://raw.githubusercontent.com/ElProfeAlejo/Bootcamp_Databases/main/itens_pedidos.csv')
-    df_itens_pedidos.rename(columns={'ciudad': 'ISO_3166_2'},inplace=True)
+    df_items_pedidos = pd.read_csv('https://raw.githubusercontent.com/ElProfeAlejo/Bootcamp_Databases/main/itens_pedidos.csv')
+    df_items_pedidos.rename(columns={'ciudad': 'ISO_3166_2'},inplace=True)
+    # df_items_pedidos['cod_ciudad']= [ciudad.replace('BR-', '') for ciudad in df_items_pedidos.ISO_3166_2]
     df_pedidos = pd.read_csv('https://raw.githubusercontent.com/ElProfeAlejo/Bootcamp_Databases/main/pedidos.csv')
     df_productos = pd.read_csv('https://raw.githubusercontent.com/ElProfeAlejo/Bootcamp_Databases/main/productos.csv')
     df_vendedores = pd.read_csv('https://raw.githubusercontent.com/ElProfeAlejo/Bootcamp_Databases/main/vendedores.csv')
@@ -20,10 +21,10 @@ def generar_dataframe():
     df_population = pd.read_csv(url)
 
     def preprocesamiento():
-        global df_itens_pedidos, df_pedidos, df_productos, df_vendedores, df_population
+        global df_items_pedidos, df_pedidos, df_productos, df_vendedores, df_population
 
         # Eliminar registros con valores nulos en columnas primary o foreign key
-        df_itens_pedidos.dropna(subset=['pedido_id', 'producto_id'], inplace=True)
+        df_items_pedidos.dropna(subset=['pedido_id', 'producto_id'], inplace=True)
         df_pedidos.dropna(subset=['pedido_id', 'producto_id', 'vendedor_id'], inplace=True)
         df_productos.dropna(subset=['producto_id','producto'], inplace=True)### Elimino también los NaN de producto
         df_vendedores.dropna(subset=['vendedor_id'], inplace=True)
@@ -32,17 +33,17 @@ def generar_dataframe():
         df_vendedores = df_vendedores[df_vendedores['nombre_vendedor'] != 'Unknown']
 
         # Eliminar registros duplicados
-        df_itens_pedidos.drop_duplicates(inplace=True)
+        df_items_pedidos.drop_duplicates(inplace=True)
         df_pedidos.drop_duplicates(inplace=True)
         df_productos.drop_duplicates(inplace=True)
         df_vendedores.drop_duplicates(inplace=True)
 
         # Asegurar tipos de datos correctos:
-        df_itens_pedidos['id_recibo'] = df_itens_pedidos['id_recibo'].astype('int32')
-        df_itens_pedidos['producto_id'] = df_itens_pedidos['producto_id'].astype('int32')
-        df_itens_pedidos['pedido_id'] = df_itens_pedidos['pedido_id'].astype('int32')
-        df_itens_pedidos['ISO_3166_2'] = df_itens_pedidos['ISO_3166_2'].astype(str)
-        df_itens_pedidos['costo_envio'] = df_itens_pedidos['costo_envio'].astype('int32')
+        df_items_pedidos['id_recibo'] = df_items_pedidos['id_recibo'].astype('int32')
+        df_items_pedidos['producto_id'] = df_items_pedidos['producto_id'].astype('int32')
+        df_items_pedidos['pedido_id'] = df_items_pedidos['pedido_id'].astype('int32')
+        df_items_pedidos['ISO_3166_2'] = df_items_pedidos['ISO_3166_2'].astype(str)
+        df_items_pedidos['costo_envio'] = df_items_pedidos['costo_envio'].astype('int32')
 
         df_pedidos['pedido_id'] = df_pedidos['pedido_id'].astype('int32')
         df_pedidos['producto_id'] = df_pedidos['producto_id'].astype('int32')
@@ -60,13 +61,13 @@ def generar_dataframe():
         df_population['Area_km2'] = df_population['Area_km2'].astype('int32')
         df_population['Density_pers_km2'] = df_population['Density_pers_km2'].astype('uint16')
 
-        return df_itens_pedidos, df_pedidos, df_productos, df_vendedores, df_population
+        return df_items_pedidos, df_pedidos, df_productos, df_vendedores, df_population
 
-    df_itens_pedidos, df_pedidos, df_productos, df_vendedores, df_population = preprocesamiento()
+    df_items_pedidos, df_pedidos, df_productos, df_vendedores, df_population = preprocesamiento()
 
     #Fusionar dfs:
     df_final = (
-        df_itens_pedidos.merge(df_pedidos, on='pedido_id')
+        df_items_pedidos.merge(df_pedidos, on='pedido_id')
                 .drop(columns=['producto_id_y'])
                 .rename(columns={'producto_id_x': 'producto_id'})
                 .merge(df_productos, on='producto_id')
@@ -98,14 +99,50 @@ def load_data():
         # print(df_final)
         print(df_all.info())
         return df_all
-# @st.cache_data(ttl=600)
-# def load_data():
-#     file_id = '1bbfb6a71RI7a2F7vv_SzhtKkN8QyugJf'
-#     url = f'https://drive.google.com/uc?export=download&id={file_id}'
-#     df = pd.read_csv(url)
-#     df['fecha_compra'] = pd.to_datetime(df['fecha_compra'])
-#     return df
-# print(load_data())
+
+### PBI & Pop for State
+@st.cache_data(ttl=600)
+def load_pop_pbi_state():
+    url = "https://es.wikipedia.org/wiki/Anexo:Estados_de_Brasil_por_PIB_per_c%C3%A1pita_(nominal)"
+    tablas = pd.read_html(url)
+    tabla = tablas[0]
+    df_data_brasil=pd.DataFrame(tabla)
+
+    PBI=df_data_brasil['PIB per cápita']
+    poblacion=df_data_brasil['Referencia (2023)']
+    region=df_data_brasil['Región']
+
+    df_data_brasil_pbi_pop_state = pd.concat([region,PBI,poblacion],axis=1)
+    columns=['Región', 'BRL', 'Población']
+    df_data_brasil_pbi_pop_state= df_data_brasil_pbi_pop_state[columns].copy()
+    df_data_brasil_pbi_pop_state.rename(columns={'BRL': 'pbi_R$','Región': 'Estado','Población':'Poblacion'}, inplace=True)
+    df_data_brasil_pbi_pop_state=df_data_brasil_pbi_pop_state.sort_values(by='Estado', ascending=True).reset_index(drop=True)
+    df_data_brasil_pbi_pop_state=df_data_brasil_pbi_pop_state[df_data_brasil_pbi_pop_state['Estado']!='Brasil']
+    df_data_brasil_pbi_pop_state['Poblacion'] = (df_data_brasil_pbi_pop_state['Poblacion'].str.replace('.', '')).astype('uint32')
+    df_data_brasil_pbi_pop_state['pbi_R$'] = (df_data_brasil_pbi_pop_state['pbi_R$']*1000).astype('uint32')
+    return df_data_brasil_pbi_pop_state
+
+### PBI & Pop for Regiones
+@st.cache_data(ttl=600)
+def load_pop_pbi_region():
+    url = "https://es.wikipedia.org/wiki/Anexo:Estados_de_Brasil_por_PIB_per_c%C3%A1pita_(nominal)"
+
+    tablas = pd.read_html(url)
+    tabla_region = tablas[1]
+    df_data_brasil_region=pd.DataFrame(tabla_region)
+
+    PBI_reg=df_data_brasil_region['PIB per cápita']
+    poblacion_reg=df_data_brasil_region['Referencia (2023)']
+    region_reg=df_data_brasil_region['Región']
+
+    df_data_brasil_pbi_pop_region = pd.concat([region_reg,PBI_reg,poblacion_reg],axis=1)
+    df_data_brasil_pbi_pop_region=df_data_brasil_pbi_pop_region[df_data_brasil_pbi_pop_region['Región']!='Brasil']
+    columns=['Región', 'BRL', 'Población']
+    df_data_brasil_pbi_pop_region= df_data_brasil_pbi_pop_region[columns].copy()
+    df_data_brasil_pbi_pop_region.rename(columns={'BRL': 'pbi_R$','Región': 'Region','Población':'Poblacion'}, inplace=True)
+    df_data_brasil_pbi_pop_region['Poblacion'] = (df_data_brasil_pbi_pop_region['Poblacion'].str.replace('.', '')).astype('uint32')
+    df_data_brasil_pbi_pop_region['pbi_R$'] = (df_data_brasil_pbi_pop_region['pbi_R$']*1000).astype('uint32')
+    return df_data_brasil_pbi_pop_region
 
 @st.cache_data(ttl=600)
 def load_geojson():
@@ -114,3 +151,12 @@ def load_geojson():
    response = requests.get(url)
    brazil_states_geojson = response.json()
    return brazil_states_geojson
+
+# @st.cache_data(ttl=600)
+# def load_data():
+#     file_id = '1bbfb6a71RI7a2F7vv_SzhtKkN8QyugJf'
+#     url = f'https://drive.google.com/uc?export=download&id={file_id}'
+#     df = pd.read_csv(url)
+#     df['fecha_compra'] = pd.to_datetime(df['fecha_compra'])
+#     return df
+# print(load_data())

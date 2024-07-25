@@ -89,7 +89,7 @@ def style_gen():
       font-size: 2rem;
       font-weight: 600;
       color: aqua !important;
-      margin: 1rem !important;                
+      margin: 1rem !important;
                   }
 
                   
@@ -239,8 +239,47 @@ def style_gen():
                }
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > label > div > div > div > p{
                font-size:16px !important;
-}              
+}
+
+               /*  header fijo */
+
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(13){
+                position: fixed;
+                top: 110px;
+               right: 1.3rem !important;
+                background-color: black;
+                z-index: 1000;
+                width: 70vw;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+               
+
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5{
+ margin: 95px 0 0 0 !important;
+                }               
+
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5{
+         padding-left: 1rem !important;
+         padding-right: 1rem !important;
+               }
+
+               
+
          </style> """, unsafe_allow_html=True)
+   
+               #  /* margenes de sector graficas: */
+# #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div{
+#    display: flex;
+#     flex-direction: column;
+#     align-items: center;
+#                }   
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(10){
+               #               width: 100%vw;
+  
+               # }
+
+
 # /* botones ALL */
 # root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div > div.st-av.st-c3.st-cj.st-ck.st-cl.st-af.st-cm.st-cn.st-br.st-co.st-cp.st-cq.st-cr > span,
 # root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > div > div > div > div.st-av.st-c3.st-cj.st-ck.st-cl.st-af.st-cm.st-cn.st-br.st-co.st-cp.st-cq.st-cr > span,
