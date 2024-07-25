@@ -65,7 +65,7 @@ def create_multiselect_filter(df, column, label):
 # years=list(db.load_data().Year.unique())
 def main():
     df = db.load_data()
-
+    df_regiones= db.load_pop_pbi_region()
     # Barra lateral
     with st.sidebar:
         st.markdown("<h1></h1>", unsafe_allow_html=True)
@@ -221,18 +221,19 @@ def main():
 
     with col1: #Vendedores por años
         seller.seller(filtered_df)
+
     with col2: # Vendedores total ventas distribucion:
         seller.seller_pie(filtered_df)
 
+    ### regiones:
     col4, col1, col2, col3 = st.columns(4)
-## regiones:
+
     with col1:
         region.region_barras(filtered_df)
     with col2:
         region.pop_pie(filtered_df)
     with col3:
-        # region.pbi_pie(db.load_pop_pbi_region())
-        region.pbi_treemap(db.load_pop_pbi_region())
+        region.pbi_treemap(df_regiones)
     with col4:
         region.mapa_br_reg(filtered_df)
 
