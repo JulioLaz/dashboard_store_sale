@@ -10,7 +10,6 @@ def generar_dataframe():
 
     df_items_pedidos = pd.read_csv('https://raw.githubusercontent.com/ElProfeAlejo/Bootcamp_Databases/main/itens_pedidos.csv')
     df_items_pedidos.rename(columns={'ciudad': 'ISO_3166_2'},inplace=True)
-    # df_items_pedidos['cod_ciudad']= [ciudad.replace('BR-', '') for ciudad in df_items_pedidos.ISO_3166_2]
     df_pedidos = pd.read_csv('https://raw.githubusercontent.com/ElProfeAlejo/Bootcamp_Databases/main/pedidos.csv')
     df_productos = pd.read_csv('https://raw.githubusercontent.com/ElProfeAlejo/Bootcamp_Databases/main/productos.csv')
     df_vendedores = pd.read_csv('https://raw.githubusercontent.com/ElProfeAlejo/Bootcamp_Databases/main/vendedores.csv')
@@ -96,8 +95,6 @@ def load_data():
         df_all['Year'] = df_all['fecha_compra'].dt.year
         df_all['Month'] = df_all['fecha_compra'].dt.month_name()
         df_all['Month_num'] = df_all['fecha_compra'].dt.month
-        # print(df_final)
-        # print(df_all.info())
         return df_all
 
 ### PBI & Pop for State
@@ -122,8 +119,6 @@ def load_pop_pbi_state():
     df_data_brasil_pbi_pop_state['pbi_R$'] = (df_data_brasil_pbi_pop_state['pbi_R$']*1000).astype('uint32')
     return df_data_brasil_pbi_pop_state
 
-print(load_pop_pbi_state())
-### PBI & Pop for Regiones
 @st.cache_data(ttl=600)
 def load_pop_pbi_region():
     url = "https://es.wikipedia.org/wiki/Anexo:Estados_de_Brasil_por_PIB_per_c%C3%A1pita_(nominal)"
@@ -149,12 +144,3 @@ def load_geojson():
    response = requests.get(url)
    brazil_states_geojson = response.json()
    return brazil_states_geojson
-
-# @st.cache_data(ttl=600)
-# def load_data():
-#     file_id = '1bbfb6a71RI7a2F7vv_SzhtKkN8QyugJf'
-#     url = f'https://drive.google.com/uc?export=download&id={file_id}'
-#     df = pd.read_csv(url)
-#     df['fecha_compra'] = pd.to_datetime(df['fecha_compra'])
-#     return df
-# print(load_data())
