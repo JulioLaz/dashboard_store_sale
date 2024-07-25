@@ -97,7 +97,7 @@ def load_data():
         df_all['Month'] = df_all['fecha_compra'].dt.month_name()
         df_all['Month_num'] = df_all['fecha_compra'].dt.month
         # print(df_final)
-        print(df_all.info())
+        # print(df_all.info())
         return df_all
 
 ### PBI & Pop for State
@@ -122,19 +122,17 @@ def load_pop_pbi_state():
     df_data_brasil_pbi_pop_state['pbi_R$'] = (df_data_brasil_pbi_pop_state['pbi_R$']*1000).astype('uint32')
     return df_data_brasil_pbi_pop_state
 
+print(load_pop_pbi_state())
 ### PBI & Pop for Regiones
 @st.cache_data(ttl=600)
 def load_pop_pbi_region():
     url = "https://es.wikipedia.org/wiki/Anexo:Estados_de_Brasil_por_PIB_per_c%C3%A1pita_(nominal)"
-
     tablas = pd.read_html(url)
     tabla_region = tablas[1]
     df_data_brasil_region=pd.DataFrame(tabla_region)
-
     PBI_reg=df_data_brasil_region['PIB per cápita']
     poblacion_reg=df_data_brasil_region['Referencia (2023)']
     region_reg=df_data_brasil_region['Región']
-
     df_data_brasil_pbi_pop_region = pd.concat([region_reg,PBI_reg,poblacion_reg],axis=1)
     df_data_brasil_pbi_pop_region=df_data_brasil_pbi_pop_region[df_data_brasil_pbi_pop_region['Región']!='Brasil']
     columns=['Región', 'BRL', 'Población']

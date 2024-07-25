@@ -63,13 +63,13 @@ def create_multiselect_filter(df, column, label):
 
 #####################
 # years=list(db.load_data().Year.unique())
+df_regiones= db.load_pop_pbi_region()
 def main():
     df = db.load_data()
-    df_regiones= db.load_pop_pbi_region()
     # Barra lateral
     with st.sidebar:
         st.markdown("<h1></h1>", unsafe_allow_html=True)
-        st.markdown("<h1>Filtros</h1>", unsafe_allow_html=True)
+        # st.markdown("<h1>Filtros</h1>", unsafe_allow_html=True)
     nb.create_navbar()
 
     def year_filter(df):
