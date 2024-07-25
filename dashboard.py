@@ -144,7 +144,7 @@ def main():
     def get_previous_period_data(df, date_column='Year'):
         current_period = df[date_column].max()
         previous_period = df[df[date_column] < current_period][date_column].max()
-        if previous_period==np.NaN:
+        if previous_period==np.nan:
             previous_period=previous_period
         else: 
             previous_period=current_period-1
