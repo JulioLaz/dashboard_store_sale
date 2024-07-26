@@ -2,7 +2,7 @@ import streamlit as st
 import plotly.express as px
 import plotly.colors
 import update_figure_layout as layout
-
+import pandas as pd
 
 titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 20, 'color': "#00ffff", 'family': "arial"}}
 
@@ -28,45 +28,46 @@ for i in range(10):
     b = int(197 - i * 3.67)
     colors_1.append(f'rgb({r}, {g}, {b})')
 
-colors_2 = []
-for i in range(10):
-    r = int(211 - i * 15)
-    g = int(242 - i * 9.67)
-    b = int(163 - i * 3.67)
-    colors_2.append(f'rgb({r}, {g}, {b})')
 
-def graf_011(df):
-         # colors = [viridis_palette[i] for i in range(len(df))]
-         fig_marcas = px.bar(df, x='marca', y='ingresos_netos', title='Top 10 Marcas según Ganancia Neta')
-         fig_marcas.update_traces(marker_color=peach)
-         fig_marcas = layout.update_figure_layout(fig_marcas)
-         fig_marcas.update_layout(title=titles_format)
-         fig_marcas.update_layout(showlegend=False)
-         fig_marcas.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
-                              textfont=dict(family='Arial black', color='black', size=12), textangle=0)
-         fig_marcas.update_layout(height=500,uniformtext_minsize=8, uniformtext_mode='hide')
-         fig_marcas.update_xaxes(title_text='')  # Remove x and y axis labels
-         fig_marcas.update_yaxes(title_text='')  # Remove x and y axis labels
-         fig_marcas.update_yaxes(showticklabels=False, showgrid=False)
-         fig_marcas.update_xaxes(showline=False)  # Remove x-axis line
-         fig_marcas.update_xaxes(showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=14))
-         st.plotly_chart(fig_marcas, use_container_width=True)
-         pass
+def graf_011(df, top_n, color_map):
+    df = df.groupby('marca')['ingresos_netos'].sum().nlargest(top_n).reset_index().sort_values(by='ingresos_netos', ascending=False).reset_index(drop=True)
+    fig_marcas = px.bar(df, x='marca', y='ingresos_netos', title='Top Marcas según Ganancia Neta', color='marca', color_discrete_map=color_map)
+    fig_marcas = layout.update_figure_layout(fig_marcas)
+    fig_marcas.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
+                             textfont=dict(family='Arial black', color='black', size=12), textangle=0)
+    fig_marcas.update_layout(title=titles_format, height=500, uniformtext_minsize=8, uniformtext_mode='hide', showlegend=False)
+    fig_marcas.update_yaxes(title_text='', showticklabels=False, showgrid=False)
+    fig_marcas.update_xaxes(title_text='', showline=False, showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=14))
+    st.plotly_chart(fig_marcas, use_container_width=True)
 
-def graf_022(df,top_n):
-         df = df.groupby('producto')['ingresos_netos'].sum().nlargest(top_n).reset_index()
-         fig_productos = px.bar(df, x='producto', y='ingresos_netos', title=f'Top {top_n} Productos según Ganancia Neta')
-         fig_productos.update_traces(marker_color=pera)
-         fig_productos = layout.update_figure_layout(fig_productos)
-         fig_productos.update_layout(title=titles_format)
-         fig_productos.update_layout(showlegend=False)
-         fig_productos.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
-                              textfont=dict(family='Arial black', color='black', size=12), textangle=0)
-         fig_productos.update_layout(height=500,uniformtext_minsize=8, uniformtext_mode='hide')
-         fig_productos.update_xaxes(title_text='')  # Remove x and y axis labels
-         fig_productos.update_yaxes(title_text='')  # Remove x and y axis labels
-         fig_productos.update_yaxes(showticklabels=False, showgrid=False)
-         fig_productos.update_xaxes(showline=False)  # Remove x-axis line
-         fig_productos.update_xaxes(showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=14))         
-         st.plotly_chart(fig_productos, use_container_width=True)
-         pass
+def treemap_brands_products(df, top_n, color_map):
+    top_brands = df.groupby('marca')['valor_total'].sum().nlargest(top_n).index
+    df_filtered = df[df['marca'].isin(top_brands)].copy()
+    df_filtered['marca'] = pd.Categorical(df_filtered['marca'], categories=top_brands, ordered=True)
+    df_filtered = df_filtered.sort_values('marca').reset_index(drop=True)
+    
+    fig5 = px.treemap(df_filtered, path=['marca', 'producto'], values='valor_total',
+                      title='Jerarquía de Ventas por Marca y Producto',
+                      color='marca', color_discrete_map=color_map)
+    
+    fig5.update_layout(title=titles_format, height=500)
+    fig5 = layout.update_figure_layout(fig5)
+    st.plotly_chart(fig5, use_container_width=True)
+
+def sales_line_top(df, top_n, color_map):
+    top_brands = df.groupby('marca')['valor_total'].sum().nlargest(top_n).index
+    df = df[df['marca'].isin(top_brands)]
+    df['YearMonth'] = df['Year'].astype(str) + '-' + df['Month_num'].astype(str).str.zfill(2)
+    df = df.groupby(['marca', 'YearMonth'])['valor_total'].sum().reset_index()
+    df['YearMonth'] = pd.to_datetime(df['YearMonth'], format='%Y-%m')
+    df = df.sort_values(by='YearMonth').reset_index(drop=True)
+    
+    fig = px.line(df, x='YearMonth', y='valor_total', markers=True, range_y=(0, df['valor_total'].max()), 
+                  color='marca', title='Ingresos mensuales por Marca', color_discrete_map=color_map)
+    
+    fig.update_traces(line=dict(width=.8), marker=dict(size=5))
+    fig = layout.update_figure_layout(fig)
+    fig.update_layout(title=titles_format, height=500, uniformtext_minsize=8, uniformtext_mode='hide')
+    fig.update_yaxes(title_text='')
+    fig.update_xaxes(showline=False, title_text='', showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='white', size=12))
+    st.plotly_chart(fig, use_container_width=True)

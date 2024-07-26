@@ -44,32 +44,23 @@ def create_multiselect_filter(df, column, label):
         return df[column].unique()
     return selected
 
-### indicator ###
-
-# def calculate_change(current, previous):
-#     if previous == 0:
-#         return 0
-#     return (current - previous) / previous
-
-# def get_previous_period_data(df, date_column='Year'):
-#     # Asumimos que el DataFrame está ordenado por fecha
-#     current_period = df[date_column].max()
-#     previous_period = df[df[date_column] < current_period][date_column].max()
-    
-#     current_data = df[df[date_column] == current_period]
-#     previous_data = df[df[date_column] == previous_period]
-    
-#     return current_data, previous_data
-
-#####################
 # years=list(db.load_data().Year.unique())
 df_regiones= db.load_pop_pbi_region()
 def main():
     df = db.load_data()
+
+
+# Obtener las marcas top_n y asignar los colores
+    fluorescent_colors = ['#39FF14', '#FF1493', '#00FFFF', '#FFFF00', '#FF00FF',                 '#FF4500', '#7FFF00', '#00FF7F', '#00CED1', '#FFD700']
+    def assign_colors(df):
+        top_brands = df.groupby('marca')['valor_total'].sum().nlargest(10).index
+        color_map = {brand: fluorescent_colors[i] for i, brand in enumerate(top_brands)}
+        return color_map
+
+
     # Barra lateral
     with st.sidebar:
         st.markdown("<h1></h1>", unsafe_allow_html=True)
-        # st.markdown("<h1>Filtros</h1>", unsafe_allow_html=True)
     nb.create_navbar()
 
     def year_filter(df):
@@ -86,8 +77,6 @@ def main():
                 years_filter = df['fecha_compra'].dt.year.unique()
             else:
                 years_filter = [selected_year]
-        # else:
-            # years_filter = df['fecha_compra'].dt.year.unique()
 
         # Aplicar el filtro al dataframe
         filtered_df = df[df['fecha_compra'].dt.year.isin(years_filter)]
@@ -95,19 +84,6 @@ def main():
         return filtered_df, years_filter
     
     filtered_df, selected_years = year_filter(df)
-    # years = ["ALL"] + sorted(df['fecha_compra'].dt.year.unique())
-
-    # if 'year_filter_mode' not in st.session_state:
-    #    st.session_state.year_filter_mode = True
-
-    # if st.session_state.year_filter_mode:
-    #   selected_year = st.sidebar.radio("", options=years[:], index=0, key="year_radio", horizontal=True)
-    #   if selected_year == "ALL":
-    #      years_filter = df['fecha_compra'].dt.year.unique()
-    #   else:
-    #      years_filter = [selected_year]
-    # else:
-    #   years_filter = df['fecha_compra'].dt.year.unique()
 
     # Filtros de selección múltiple con opción "ALL"
     marca_filter = create_multiselect_filter(df, 'marca', "Marca")
@@ -118,8 +94,8 @@ def main():
     marca_genero_filter = create_multiselect_filter(df, 'marca_genero', "Género")
 
     top_n = int(st.sidebar.radio("TOP", options=['3', '5', '10'], index=0, key="top", horizontal=True))
-# CSS personalizado
-    sm.style_gen()
+
+    sm.style_gen() # CSS personalizado
 
     mask = (
         (df['nombre_vendedor'].isin(vendedor_filter)) &
@@ -210,24 +186,19 @@ def main():
     dashboard_metrics(filtered_df)
 
     col1, col2 = st.columns(2)
-    
     with col1: #ventas por años line:
         ys.sales_line(filtered_df)
-
     with col2: #ventas por años pie:
         ys.sales_pie(filtered_df)
 
     col1, col2 = st.columns(2)
-
     with col1: #Vendedores por años
         seller.seller(filtered_df)
-
     with col2: # Vendedores total ventas distribucion:
         seller.seller_pie(filtered_df)
 
     ### regiones:
     col4, col1, col2, col3 = st.columns(4)
-
     with col1:
         region.region_barras(filtered_df)
     with col2:
@@ -237,50 +208,39 @@ def main():
     with col4:
         region.mapa_br_reg(filtered_df)
 
+    ### MAPA 
     col5, col6 = st.columns(2)
-
     with col5: #Mapa de brasil ventas totales por Estado:
-    # Mapa 
-        grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
-        mapa.mapa_br(grouped_df)
-
+        mapa.mapa_br(filtered_df)
     with col6: # Top 10 de Venta totales neta por estado
-
-        grouped_df = filtered_df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
-        top_10_estados = filtered_df.groupby('Estado')['valor_total'].sum().nlargest(10).reset_index()
-        mapa.barras(top_10_estados)
+        mapa.barras(filtered_df)
 
 
-    col1, col2 = st.columns(2)
+    # Crear dos columnas principales
+    col_left, col_right = st.columns(2)
+    color_map=assign_colors(df)
 
-    with col1: #"Top 10 Marcas según Ganancia Neta"
-        top_10_marcas = filtered_df.groupby('marca')['ingresos_netos'].sum().nlargest(10).reset_index().sort_values(by='ingresos_netos', ascending=False).reset_index(drop=True)
-        prbr.graf_011(top_10_marcas)
+    with col_left:
+        col1, col2 = st.columns(2)
+        with col1: #"Top Marcas según Ganancia Neta"
+            prbr.graf_011(filtered_df, top_n, color_map)
+        with col2: #"Jerarquía de Ventas por Marca y Producto"
+            prbr.treemap_brands_products(filtered_df, top_n, color_map)
 
-    with col2: # Top 10 marcas según ganancia neta
-        # top_10_productos = filtered_df.groupby('producto')['ingresos_netos'].sum().nlargest(10).reset_index()
-        prbr.graf_022(filtered_df,top_n)
+    with col_right:
+        prbr.sales_line_top(filtered_df, top_n, color_map) #"Ingresos Mensuales por Marca"
 
+    ### PRODUCTOS
     col3, col4 ,col5 ,col6 = st.columns(4)
-
     with col3: # Top 10 productos más costosos
         prup.graf_01(filtered_df,top_n)
-
     with col4: # Top 10 productos agrupados por tipo con mayores ventas
         prup.graf_02(filtered_df,top_n)
-
     with col5:
         prup.graf_03(filtered_df,top_n)
-
     with col6: # Top 10 marcas según ganancia neta
-        prbr.graf_022(filtered_df,top_n)
+        prup.graf_022(filtered_df,top_n)
 
-    # Top 10 productos más vendidos históricamente
-    st.subheader("Top 10 Productos más Vendidos")
-    top_10_vendidos = filtered_df.groupby('producto')['cantidad'].sum().nlargest(10).reset_index()
-    fig_vendidos = px.bar(top_10_vendidos, x='producto', y='cantidad', color='cantidad',color_continuous_scale='viridis')
-    fig_vendidos = layout.update_figure_layout(fig_vendidos)
-    st.plotly_chart(fig_vendidos, use_container_width=True)
 
     # Evolución histórica de la ganancia neta
     st.subheader("Evolución Histórica de la Ganancia Neta")
@@ -297,24 +257,6 @@ def main():
     fig4.update_layout(title=titles_format, height=800)
     fig4 = layout.update_figure_layout(fig4)
     st.plotly_chart(fig4, use_container_width=True)
-
-    # Mapa de árbol (Treemap)
-    st.subheader("Jerarquía de Ventas por Marca y Producto")
-    fig5 = px.treemap(filtered_df, path=['marca', 'producto'], values='valor_total',
-                      title='Jerarquía de Ventas por Marca y Producto',color_discrete_sequence=['#FF00FF', '#00FFFF', '#FFFF00', '#FF1493', '#00FF00'])
-    fig5.update_layout(title=titles_format, height=600)
-    fig5 = layout.update_figure_layout(fig5)
-    st.plotly_chart(fig5, use_container_width=True)
-
-   # Total sales by region
-    st.header("Total Sales by Region")
-    fig_region = px.bar(filtered_df.groupby("Región")["valor_total"].sum().reset_index(), x="Región", y="valor_total", title="Total Sales by Region")
-    st.plotly_chart(fig_region)
-
-   # Sales by state
-    st.header("Total Sales by State")
-    fig_state = px.bar(filtered_df.groupby("Estado")["valor_total"].sum().reset_index(), x="Estado", y="valor_total", title="Total Sales by State")
-    st.plotly_chart(fig_state)
 
    # Sales by condition
     st.header("Sales by Condition")

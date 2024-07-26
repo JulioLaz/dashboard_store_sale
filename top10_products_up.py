@@ -70,4 +70,17 @@ def graf_03(df,top_n):
                               textfont=dict(family='Arial black', color='black', size=12), textangle=0)
         fig.update_yaxes(title_text='',showticklabels=False, showgrid=False)
         fig.update_xaxes(title_text='',showline=False,showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=12))         
-        st.plotly_chart(fig, use_container_width=True)       
+        st.plotly_chart(fig, use_container_width=True)
+
+def graf_022(df,top_n):
+         df = df.groupby('producto')['ingresos_netos'].sum().nlargest(top_n).reset_index()
+         fig_productos = px.bar(df, x='producto', y='ingresos_netos', title=f'Top {top_n} Productos según Ganancia Neta')
+         fig_productos = layout.update_figure_layout(fig_productos)
+
+         fig_productos.update_traces(marker_color=pera,texttemplate='$ %{y:.2s}', textposition='inside',
+                              textfont=dict(family='Arial black', color='black', size=12), textangle=0)
+         fig_productos.update_layout(title=titles_format,height=500,uniformtext_minsize=8, uniformtext_mode='hide',showlegend=False)
+         fig_productos.update_yaxes(title_text='',showticklabels=False, showgrid=False)
+         fig_productos.update_xaxes(title_text='',showline=False,showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=14))
+         st.plotly_chart(fig_productos, use_container_width=True)
+         pass              

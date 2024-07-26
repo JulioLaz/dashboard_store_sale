@@ -64,6 +64,9 @@ def get_color_map(fig_mapa, df):
     return color_map
 
 def barras(df):
+    # grouped_df = df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
+    df = df.groupby('Estado')['valor_total'].sum().nlargest(10).reset_index()
+
     colors = generate_color_map(df, viridis_palette)
     df = df.sort_values(by='valor_total', ascending=False).head(10)
     fig = px.bar(df, x='Estado', y='valor_total', title='Top 10 Estados vs Ventas')
