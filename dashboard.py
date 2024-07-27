@@ -185,11 +185,14 @@ def main():
         col5.metric("", f"{current_products:,}", delta=products_change)
     dashboard_metrics(filtered_df)
 
-    col1, col2 = st.columns(2)
+    col1, col2,col3 = st.columns(3)
     with col1: #ventas por años line:
         ys.sales_line(filtered_df)
     with col2: #ventas por años pie:
         ys.sales_pie(filtered_df)
+    with col3: #ventas por años pie:
+        # ys.sunburst_chart(filtered_df)
+        ys.condition_treemap(filtered_df)
 
     col1, col2 = st.columns(2)
     with col1: #Vendedores por años
@@ -258,10 +261,9 @@ def main():
     fig4 = layout.update_figure_layout(fig4)
     st.plotly_chart(fig4, use_container_width=True)
 
-   # Sales by condition
-    st.header("Sales by Condition")
-    fig_condition = px.pie(filtered_df.groupby("condicion")["valor_total"].sum().reset_index(), names="condicion", values="valor_total", title="Sales by Condition")
-    st.plotly_chart(fig_condition)
+#    # Sales by condition
+#     fig_condition = px.pie(filtered_df.groupby("condicion")["valor_total"].sum().reset_index(), names="condicion", values="valor_total", title="Sales by Condition")
+#     st.plotly_chart(fig_condition)
 
    # Sales over time
     st.header("Sales Over Time")

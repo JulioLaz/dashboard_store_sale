@@ -66,8 +66,41 @@ def sales_line_top(df, top_n, color_map):
                   color='marca', title='Ingresos mensuales por Marca', color_discrete_map=color_map)
     
     fig.update_traces(line=dict(width=.8), marker=dict(size=5))
+
+    if df['YearMonth'].dt.year.eq(2019).any():
+            fig.add_vrect(x0="2019-01-01", x1="2019-12-31", 
+                        annotation_text="Year 2019", annotation_position="top left",
+                        fillcolor="green", opacity=0.25, line_width=0,
+                        annotation_font=dict(size=12, family="Arial", color="white"))
+        
+    if df['YearMonth'].dt.year.eq(2020).any():
+            fig.add_vrect(x0="2020-01-01", x1="2020-12-31", 
+                        annotation_text="Year 2020", annotation_position="top left",
+                        fillcolor="blue", opacity=0.25, line_width=0,
+                        annotation_font=dict(size=12, family="Arial", color="white"))
+        
+    if df['YearMonth'].dt.year.eq(2021).any():
+            fig.add_vrect(x0="2021-01-01", x1="2021-04-01", 
+                        annotation_text="Year 2021", annotation_position="top left",
+                        fillcolor="red", opacity=0.25, line_width=0,
+                        annotation_font=dict(size=12, family="Arial", color="white"))    
+#     fig.add_vrect(x0="2019-01-01", x1="2019-12-31", 
+#               annotation_text="Year 2019", annotation_position="top left",
+#               fillcolor="green", opacity=0.25, line_width=0,
+#             annotation_font=dict(size=12, family="Arial", color="white"),
+# )    
+#     fig.add_vrect(x0="2020-01-01", x1="2020-12-31", 
+#               annotation_text="Year 2020", annotation_position="top left",
+#               fillcolor="blue", opacity=0.25, line_width=0,
+#             annotation_font=dict(size=12, family="Arial", color="white"),
+# )    
+#     fig.add_vrect(x0="2021-01-01", x1="2021-03-01", 
+#                 annotation_text="Year 2021", annotation_position="top left",
+#                 annotation_font=dict(size=12, family="Arial", color="white"),
+#                 fillcolor="red", opacity=0.25, line_width=0)    
+
     fig = layout.update_figure_layout(fig)
     fig.update_layout(title=titles_format, height=500, uniformtext_minsize=8, uniformtext_mode='hide')
     fig.update_yaxes(title_text='')
-    fig.update_xaxes(showline=False, title_text='', showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='white', size=12))
+    fig.update_xaxes(showline=False, title_text='', showticklabels=False, tickangle=45, tickfont=dict(family='Arial', color='white', size=12))
     st.plotly_chart(fig, use_container_width=True)

@@ -289,7 +289,7 @@ background-color: rgba(0,0,0,.7)
 
 /* sidebar img   */  
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18{
-     background-image: url('https://i.imgur.com/MNid628.jpg');
+     background-image: url('https://i.imgur.com/ZhBoH7H.jpeg');
     position: relative;
     user-select: auto;
     width: 422px;
@@ -297,12 +297,13 @@ background-color: rgba(0,0,0,.7)
     box-sizing: border-box;
     flex-shrink: 0;
     background-repeat: no-repeat;
-    background-size: cover;
 }                          
              
                
          </style> """, unsafe_allow_html=True)
-   
+   #  background-size: cover;
+    #imagen de mujer
+   #   background-image: url('https://i.imgur.com/MNid628.jpg');
 
 # styles en navbar:   
 def style_navbar():
