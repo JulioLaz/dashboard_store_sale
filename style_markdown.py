@@ -30,117 +30,6 @@ def style_gen():
       #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > label:nth-child(4) > div.st-ba.st-bp.st-bq.st-br.st-bs.st-bt.st-bu.st-bv.st-bw.st-bx.st-by > div > p{
       color: white !important;
                   }                
-   
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(1) > div > div > h2{
-      font-size: 2rem;
-      font-weight: 600;
-      color: aqua !important;
-      margin: 1rem !important;
-                  }
-
-                  
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > div > div{
-               background-color: rgba(0,0,0,0) !important;                }
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > div.st-eg.st-dm.st-c9.st-db.st-da.st-eh{
-               color: white !important}               
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > div > div > div.st-ak.st-al.st-as.st-da.st-bg.st-db.st-dc > svg{
-               color: #00ffff !important;                }                
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > div > div > div.st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl > div.st-eg.st-cn.st-ar.st-ca.st-c9.st-eh{
-               color: white !important;                }                
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
-               background-color: rgba(200,200,200,0.3) !important;                }                
-                  
-
-      
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div{
-               background-color: rgba(0,0,0,0) !important;                }
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > div.st-eg.st-dm.st-c9.st-db.st-da.st-eh{
-               color: white !important}               }                
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div > div.st-ak.st-al.st-as.st-da.st-bg.st-db.st-dc > svg{
-               color: #00ffff !important;                }                
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div > div.st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl > div.st-eg.st-cn.st-ar.st-ca.st-c9.st-eh{
-               color: white !important;                }                
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
-               background-color: rgba(200,200,200,0.3) !important;                }                
-                  
-                  
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > div > div > div{
-               background-color: rgba(0,0,0,0) !important;                }
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > div.st-eg.st-dm.st-c9.st-db.st-da.st-eh{
-               color: white !important}                
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > div > div > div > div.st-ak.st-al.st-as.st-da.st-bg.st-db.st-dc > svg{
-               color: #00ffff !important;                }                
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > div > div > div > div.st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl > div.st-eg.st-cn.st-ar.st-ca.st-c9.st-eh{
-               color: white !important;                }                
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
-               background-color: rgba(200,200,200,0.3) !important;                }                
-                  
-                  
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > div > div > div{
-               background-color: rgba(0,0,0,0) !important;}
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > div.st-eg.st-dm.st-c9.st-db.st-da.st-eh{
-               color: white !important}                
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > div > div > div > div.st-ak.st-al.st-as.st-da.st-bg.st-db.st-dc > svg{
-               color: #00ffff !important;
-                     }                
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > div > div > div > div.st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl > div.st-eg.st-cn.st-ar.st-ca.st-c9.st-eh{
-               color: white !important;
-                     }                
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
-            background-color: rgba(200,200,200,0.3) !important;
-                  }                
-                  
-                  
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > div > div > div{
-            background-color: rgba(0,0,0,0) !important;
-                  }
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > div.st-eg.st-dm.st-c9.st-db.st-da.st-eh{
-            color: white !important}                
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > div > div > div > div.st-ak.st-al.st-as.st-da.st-bg.st-db.st-dc > svg{
-            color: #00ffff !important;
-                  }                
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > div > div > div > div.st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl > div.st-eg.st-cn.st-ar.st-ca.st-c9.st-eh{
-            color: white !important;
-                  }                
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
-            background-color: rgba(200,200,200,0.3) !important;
-                  }                
-                  
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > div > div > div{
-            background-color: rgba(0,0,0,0) !important;}
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > div.st-eg.st-dm.st-c9.st-db.st-da.st-eh{
-            color: white !important}
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > div > div > div > div.st-ak.st-al.st-as.st-da.st-bg.st-db.st-dc > svg{
-            color: #00ffff !important;}                
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > div > div > div > div.st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl > div.st-eg.st-cn.st-ar.st-ca.st-c9.st-eh{
-            color: white !important;}                
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
-            background-color: rgba(200,200,200,0.3) !important;}                
 
                /* title de indicator */              
    #root > div:nth-child(1) .st-emotion-cache-ocqkz7 > div:nth-child(1),
@@ -171,12 +60,6 @@ def style_gen():
    #root > div:nth-child(2) > div > div > div > div > div > div > ul > div{
    background-color: darkgray;
    }
-
-   .metric-title {
-            font-size: 14px; /* Cambia el tamaño del título */
-            color: #00FF00; /* Cambia el color del título */
-            # border: 1px solid white;
-        }
                
 /* selector años */            
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(2) > div{
@@ -191,27 +74,17 @@ def style_gen():
                /*    titulo del dashboard */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(7) > div > div > nav > a{
     width: 50vw !important;
-    font-size: 40px;
+    font-size: 30px;
     font-family: Arial;
     color: rgb(0, 255, 255);
     margin-left: 2.5rem;
     text-align: end !important;
                }   
 
-               /*  header fijo */
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14){
-                position: fixed;
-                top: 110px;
-               right: 1.3rem !important;
-                background-color: none;
-                z-index: 1000;
-                width: 70vw;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-               }
+/* INDICATOR */
                
-
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5{
- margin: 95px 0 0 0 !important;
+ margin: -20px 0 0 0 !important;
                 }               
 
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5{
@@ -234,7 +107,7 @@ background-color: rgba(0,0,0,.7)
 
 /* sidebar img   */  
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18{
-     background-image: url('https://i.imgur.com/ZhBoH7H.jpeg');
+    background-image: url('https://i.imgur.com/ZhBoH7H.jpeg');
     position: relative;
     user-select: auto;
     width: 422px;
@@ -272,6 +145,18 @@ background-color: rgba(0,0,0,.5)
                }
 
          </style> """, unsafe_allow_html=True)
+
+#                /*  header fijo */
+# #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14){
+#                 position: fixed;
+#                 top: 110px;
+#                right: 1.3rem !important;
+#                 background-color: none;
+#                 z-index: 1000;
+#                 width: 70vw;
+#                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+#                }
+
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(1) > div > div > div > div:nth-child(1) > div > div > div,               
    #  background-size: cover;
     #imagen de mujer

@@ -10,6 +10,7 @@ import years_sales as ys
 import vendedor as seller
 import graf_region as region
 import profit_evolution as pe
+
 def formata_numero(valor, prefijo=''):
     for unidad in ['', 'k']:
         if valor < 1000:
@@ -43,17 +44,15 @@ def create_multiselect_filter(df, column, label):
 
 # years=list(db.load_data().Year.unique())
 df_regiones= db.load_pop_pbi_region()
+
 def main():
     df = db.load_data()
-
-
-# Obtener las marcas top_n y asignar los colores
-    fluorescent_colors = ['#39FF14', '#FF1493', '#00FFFF', '#FFFF00', '#FF00FF',                 '#FF4500', '#7FFF00', '#00FF7F', '#00CED1', '#FFD700']
+    # Obtener las marcas top_n y asignar los colores
+    fluorescent_colors = ['#39FF14', '#FF1493', '#00FFFF', '#FFFF00', '#FF00FF', '#FF4500', '#7FFF00', '#00FF7F', '#00CED1', '#FFD700']
     def assign_colors(df):
         top_brands = df.groupby('marca')['valor_total'].sum().nlargest(10).index
         color_map = {brand: fluorescent_colors[i] for i, brand in enumerate(top_brands)}
         return color_map
-
 
     # Barra lateral
     with st.sidebar:

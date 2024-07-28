@@ -2,7 +2,7 @@ import streamlit as st
 import plotly.express as px
 import update_figure_layout as layout
 height=350
-titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 20, 'color': "#00ffff", 'family': "arial"}}
+titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 16, 'color': "#00ffff", 'family': "arial"}}
 
 def sales_line(df):
          df = df.groupby(['Year', 'Month', 'Month_num'])['valor_total'].sum().reset_index()

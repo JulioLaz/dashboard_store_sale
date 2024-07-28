@@ -5,7 +5,7 @@ import update_figure_layout as layout
 import pandas as pd
 import colorsys
 height=350
-titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 20, 'color': "#00ffff", 'family': "arial"}}
+titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 16, 'color': "#00ffff", 'family': "arial"}}
 
 viridis_palette = plotly.colors.sequential.Plotly3_r
 inferno_palette = px.colors.sequential.Inferno
@@ -32,7 +32,7 @@ for i in range(10):
 
 def graf_011(df, top_n, color_map):
     df = df.groupby('marca')['ingresos_netos'].sum().nlargest(top_n).reset_index().sort_values(by='ingresos_netos', ascending=False).reset_index(drop=True)
-    fig_marcas = px.bar(df, x='marca', y='ingresos_netos', title='Top Marcas según Ganancia Neta', color='marca', color_discrete_map=color_map)
+    fig_marcas = px.bar(df, x='marca', y='ingresos_netos', title=f'Marcas según Ganancia Neta - Top {top_n}', color='marca', color_discrete_map=color_map)
     fig_marcas = layout.update_figure_layout(fig_marcas)
     fig_marcas.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
                              textfont=dict(family='Arial black', color='black', size=12), textangle=0)
@@ -48,7 +48,7 @@ def treemap_brands_products(df, top_n, color_map):
     df_filtered = df_filtered.sort_values('marca').reset_index(drop=True)
     
     fig5 = px.treemap(df_filtered, path=['marca', 'producto'], values='valor_total',
-                      title='Jerarquía de Ventas por Marca y Producto',
+                      title=f'Jerarquía de Ventas por Marca/Producto - Top {top_n}',
                       color='marca', color_discrete_map=color_map)
     
     fig5.update_layout(title=titles_format, height=height)
@@ -69,7 +69,7 @@ def sales_line_top(df, top_n, color_map):
     df = df.sort_values(by='YearMonth').reset_index(drop=True)
 
     fig = px.line(df, x='YearMonth', y='valor_total', markers=True, range_y=(0, df['valor_total'].max()),
-                  color='marca', title='Ingresos mensuales por Marca', color_discrete_map=color_map)
+                  color='marca', title=f'Ingresos mensuales por Marca - Top {top_n}', color_discrete_map=color_map)
 
     fig.update_traces(line=dict(width=.6), marker=dict(size=3))
 
