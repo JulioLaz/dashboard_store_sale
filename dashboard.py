@@ -1,18 +1,15 @@
 import numpy as np
 import streamlit as st
-import pandas as pd
-import plotly.express as px
 import ddbb as db
 import navbar as nb
 import top10_profits_brands_products as prbr
 import top10_products_up as prup
 import mapa_brasil as mapa
-import update_figure_layout as layout
 import style_markdown as sm
 import years_sales as ys
 import vendedor as seller
 import graf_region as region
-
+import profit_evolution as pe
 def formata_numero(valor, prefijo=''):
     for unidad in ['', 'k']:
         if valor < 1000:
@@ -191,8 +188,10 @@ def main():
     with col2: #ventas por años pie:
         ys.sales_pie(filtered_df)
     with col3: #ventas por años pie:
+        # ys.enhanced_condition_treemap(filtered_df)
         # ys.sunburst_chart(filtered_df)
-        ys.condition_treemap(filtered_df)
+        ys.condition_pie(filtered_df)
+        # ys.condition_treemap(filtered_df)
 
     col1, col2 = st.columns(2)
     with col1: #Vendedores por años
@@ -244,37 +243,6 @@ def main():
     with col6: # Top 10 marcas según ganancia neta
         prup.graf_022(filtered_df,top_n)
 
-
-    # Evolución histórica de la ganancia neta
-    st.subheader("Evolución Histórica de la Ganancia Neta")
-    evolucion_ganancia = filtered_df.groupby('fecha_compra')['ingresos_netos'].sum().reset_index()
-    fig_evolucion = px.line(evolucion_ganancia, x='fecha_compra', y='ingresos_netos', title='Evolución Histórica de la Ganancia Neta')
-    fig_evolucion = layout.update_figure_layout(fig_evolucion)
-    st.plotly_chart(fig_evolucion, use_container_width=True)
-
-    # Gráfico de sol (Sunburst)
-    st.subheader("Jerarquía de Ventas por Región, Marca y Producto")
-    fig4 = px.sunburst(filtered_df, path=['Región', 'marca', 'producto'],
-                       values='valor_total', title='Jerarquía de Ventas por Región, Marca y Producto',
-                       color_discrete_sequence=['#FF00FF', '#00FFFF', '#FFFF00', '#FF1493', '#00FF00'])
-    fig4.update_layout(title=titles_format, height=800)
-    fig4 = layout.update_figure_layout(fig4)
-    st.plotly_chart(fig4, use_container_width=True)
-
-#    # Sales by condition
-#     fig_condition = px.pie(filtered_df.groupby("condicion")["valor_total"].sum().reset_index(), names="condicion", values="valor_total", title="Sales by Condition")
-#     st.plotly_chart(fig_condition)
-
-   # Sales over time
-    st.header("Sales Over Time")
-    filtered_df["fecha_compra"] = pd.to_datetime(filtered_df["fecha_compra"])
-    fig_time = px.line(filtered_df.sort_values(by="fecha_compra"), x="fecha_compra", y="valor_total", title="Sales Over Time")
-    st.plotly_chart(fig_time)
-
-    # Tabla de datos
-    filtered_df['year'] = filtered_df['fecha_compra'].dt.year.astype(str)
-    st.header("Datos Detallados")
-    st.dataframe(filtered_df[['year', 'marca', 'producto', 'ingresos_netos']])
-
+    pe.profit_evol(filtered_df)
 if __name__ == '__main__':
     main()
