@@ -2,7 +2,7 @@ import streamlit as st
 import plotly.express as px
 import update_figure_layout as layout
 import ddbb
-
+height=350
 color_map = {
     'Centro-Oeste': 'rgb(275, 204, 204)',  # Pastel red
     'Nordeste': 'rgb(204, 229, 255)',      # Pastel blue
@@ -30,7 +30,7 @@ def region_barras(df):
                  hover_data={'Región': True, 'valor_total': ':$.2f'})
 
     fig.update_layout(title=titles_format, xaxis_title='', yaxis_title='', font=dict(family="Arial, sans-serif", size=14, color="white"), plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',
-                      height=500, showlegend=False, coloraxis_showscale=False)
+                      height=height, showlegend=False, coloraxis_showscale=False)
 
     fig.update_traces(texttemplate='$ %{y:.2s}', textposition='inside', textfont=dict(family='Arial Black', size=14),
                       textangle=0, hovertemplate='<b>%{x}<b><br>'+'Ventas Totales: %{y:.2s}<extra></extra>')
@@ -75,7 +75,7 @@ def pop_pie(df):
    
    fig.update_layout(title={'x': 0.5, 'xanchor': 'center'}, font=dict(family="Arial Black, sans-serif",
                      size=13), plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', showlegend=False)
-   fig.update_layout(height=500, uniformtext_minsize=12, uniformtext_mode='hide')
+   fig.update_layout(height=height, uniformtext_minsize=12, uniformtext_mode='hide')
    fig.update_coloraxes(showscale=False)
    fig = layout.update_figure_layout(fig)
    st.plotly_chart(fig, use_container_width=True)
@@ -113,7 +113,7 @@ def pbi_pie(df):
    
    fig.update_layout(title={'x': 0.5, 'xanchor': 'center'}, font=dict(family="Arial Black, sans-serif",
                      size=13), plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', showlegend=False)
-   fig.update_layout(height=500, uniformtext_minsize=12, uniformtext_mode='hide')
+   fig.update_layout(height=height, uniformtext_minsize=12, uniformtext_mode='hide')
    fig.update_coloraxes(showscale=False)
    fig = layout.update_figure_layout(fig)
    st.plotly_chart(fig, use_container_width=True)
@@ -148,7 +148,7 @@ def mapa_br_reg(df):
 
     fig_mapa.update_layout(
         # title=titles_format,
-        height=500,
+        height=height,
         geo=dict(
             showframe=False,
             showcoastlines=False,
@@ -219,7 +219,7 @@ def pbi_treemap(df):
         font=dict(family="Arial Black, sans-serif", size=13),
         plot_bgcolor='rgba(0,0,0,0)',
         paper_bgcolor='rgba(0,0,0,0)',
-        height=500,
+        height=height,
         margin=dict(t=50, l=25, r=25, b=25)
     )
     

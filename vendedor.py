@@ -1,8 +1,7 @@
-import plotly
 import streamlit as st
 import plotly.express as px
 import update_figure_layout as layout
-
+height=350
 peach = ['rgb(253, 224, 197)', 'rgb(251, 211, 184)', 'rgb(249, 198, 171)', 'rgb(247, 185, 158)', 'rgb(246, 172, 145)',
          'rgb(245, 165, 135)', 'rgb(244, 162, 128)', 'rgb(244, 160, 121)', 'rgb(244, 159, 117)', 'rgb(245, 158, 114)']
 titles_format = {'y': 0.95, 'x': 0.5, 'xanchor': 'center', 'yanchor': 'top', 'font': {
@@ -26,7 +25,7 @@ def seller(df):
                  hover_data={'Year': True, 'valor_total': ':$.2f'})
 
     fig.update_layout(title=titles_format,xaxis_title='',yaxis_title='',font=dict(family="Arial, sans-serif", size=14, color="white"),plot_bgcolor='rgba(0,0,0,0)',paper_bgcolor='rgba(0,0,0,0)',
-                      height=450,showlegend=False,coloraxis_showscale=False)
+                      height=height,showlegend=False,coloraxis_showscale=False)
 
     fig.update_traces(texttemplate='$ %{y:.2s}',textposition='inside',textfont=dict(family='Arial Black', size=14),
         textangle=0,hovertemplate='<b>%{x}</b><br>'+'Año: %{customdata[0]}<br>'+'Ventas Totales: %{y:.2s}<extra></extra>',
@@ -71,7 +70,7 @@ def seller_pie(df):
         font=dict(family="Arial Black, sans-serif", size=14),
         plot_bgcolor='rgba(0,0,0,0)',
         paper_bgcolor='rgba(0,0,0,0)',
-        height=450,
+        height=height,
         legend_title_text='ID del Vendedor',
         showlegend=False
 

@@ -1,7 +1,7 @@
 import streamlit as st
 import plotly.express as px
 import update_figure_layout as layout
-
+height=350
 titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 20, 'color': "#00ffff", 'family': "arial"}}
 
 peach=['rgb(253, 224, 197)','rgb(251, 211, 184)','rgb(249, 198, 171)','rgb(247, 185, 158)','rgb(246, 172, 145)','rgb(245, 165, 135)','rgb(244, 162, 128)','rgb(244, 160, 121)','rgb(244, 159, 117)','rgb(245, 158, 114)']
@@ -38,7 +38,7 @@ def graf_01(df,top_n):
          fig.update_layout(showlegend=False)
          fig.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
                               textfont=dict(family='Arial black', color='black', size=12), textangle=0)
-         fig.update_layout(height=500,uniformtext_minsize=8, uniformtext_mode='hide')
+         fig.update_layout(height=height,uniformtext_minsize=8, uniformtext_mode='hide')
          fig.update_xaxes(title_text='')  # Remove x and y axis labels
          fig.update_yaxes(title_text='')  # Remove x and y axis labels
          fig.update_yaxes(showticklabels=False, showgrid=False)
@@ -55,7 +55,7 @@ def graf_02(df,top_n):
          fig = layout.update_figure_layout(fig)
          fig.update_traces(showlegend=False,marker_color=colors_2,texttemplate='$ %{y:.2s}', textposition='inside',
                               textfont=dict(family='Arial black', color='black', size=12), textangle=0)
-         fig.update_layout(title=titles_format,height=500,uniformtext_minsize=8, uniformtext_mode='hide')
+         fig.update_layout(title=titles_format,height=height,uniformtext_minsize=8, uniformtext_mode='hide')
          fig.update_yaxes(title_text='',showticklabels=False, showgrid=False)
          fig.update_xaxes(title_text='',showline=False,showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=12))         
          st.plotly_chart(fig, use_container_width=True) 
@@ -65,7 +65,7 @@ def graf_03(df,top_n):
         df = df.groupby('producto')['cantidad'].sum().nlargest(top_n).reset_index()
         fig = px.bar(df, x='producto', y='cantidad',title=f'Top {top_n} productos más vendidos')
         fig = layout.update_figure_layout(fig)
-        fig.update_layout(title=titles_format,showlegend=False,height=500,uniformtext_minsize=8, uniformtext_mode='hide')
+        fig.update_layout(title=titles_format,showlegend=False,height=height,uniformtext_minsize=8, uniformtext_mode='hide')
         fig.update_traces(marker_color=colors_3,texttemplate='%{y} u', textposition='inside',
                               textfont=dict(family='Arial black', color='black', size=12), textangle=0)
         fig.update_yaxes(title_text='',showticklabels=False, showgrid=False)
@@ -79,7 +79,7 @@ def graf_022(df,top_n):
 
          fig_productos.update_traces(marker_color=pera,texttemplate='$ %{y:.2s}', textposition='inside',
                               textfont=dict(family='Arial black', color='black', size=12), textangle=0)
-         fig_productos.update_layout(title=titles_format,height=500,uniformtext_minsize=8, uniformtext_mode='hide',showlegend=False)
+         fig_productos.update_layout(title=titles_format,height=height,uniformtext_minsize=8, uniformtext_mode='hide',showlegend=False)
          fig_productos.update_yaxes(title_text='',showticklabels=False, showgrid=False)
          fig_productos.update_xaxes(title_text='',showline=False,showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=14))
          st.plotly_chart(fig_productos, use_container_width=True)

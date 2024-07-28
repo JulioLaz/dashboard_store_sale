@@ -24,67 +24,13 @@ def style_gen():
          padding: .4rem .8rem !important;
          border: 1px solid white !important;
          }
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > label:nth-child(1) > div.st-ba.st-bp.st-bq.st-br.st-bs.st-bt.st-bu.st-bv.st-bw.st-bx.st-by > div > p{
-      color: white !important;
-                     }                
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > label:nth-child(2) > div.st-ba.st-bp.st-bq.st-br.st-bs.st-bt.st-bu.st-bv.st-bw.st-bx.st-by > div > p{
-      color: white !important;
-                     }                
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > label:nth-child(3) > div.st-ba.st-bp.st-bq.st-br.st-bs.st-bt.st-bu.st-bv.st-bw.st-bx.st-by > div > p{
-      color: white !important;
-                     }                
+      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > label:nth-child(1) > div.st-ba.st-bp.st-bq.st-br.st-bs.st-bt.st-bu.st-bv.st-bw.st-bx.st-by > div > p,
+      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > label:nth-child(2) > div.st-ba.st-bp.st-bq.st-br.st-bs.st-bt.st-bu.st-bv.st-bw.st-bx.st-by > div > p,
+      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > label:nth-child(3) > div.st-ba.st-bp.st-bq.st-br.st-bs.st-bt.st-bu.st-bv.st-bw.st-bx.st-by > div > p,
       #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div > label:nth-child(4) > div.st-ba.st-bp.st-bq.st-br.st-bs.st-bt.st-bu.st-bv.st-bw.st-bx.st-by > div > p{
       color: white !important;
                   }                
    
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > label > div > p{
-                  font-size: 20px;
-                  font-weight: bold;
-                  color: yellow;
-                     }
-                  
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > label > div > p{
-                  font-size: 20px;
-                  font-weight: bold;
-                  color: yellow;
-                     }
-
-      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > label > div > p{
-                  font-size: 20px;
-                  font-weight: bold;
-                  color: yellow;
-                     }
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > label > div > p{
-               font-size: 20px;
-               font-weight: bold;
-               color: yellow;
-                  }
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > label > div > p{
-               font-size: 20px;
-               font-weight: bold;
-               color: yellow;
-                  }
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(6) > div > label > div > p{
-               font-size: 20px;
-               font-weight: bold;
-               color: yellow;
-                  }
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > label > div > p{
-               font-size: 20px;
-               font-weight: bold;
-               color: yellow;
-                  }
-
-   #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > label > div > p{
-               font-size: 20px;
-               font-weight: bold;
-               color: yellow;
-                  }
-
-
    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(1) > div > div > h2{
       font-size: 2rem;
       font-weight: 600;
@@ -195,8 +141,8 @@ def style_gen():
 
    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > div > div > div > div.st-c3.st-bx.st-cq.st-cr.st-cs.st-ae.st-ah.st-af.st-c9.st-bk.st-bm.st-ct.st-bl > span{
             background-color: rgba(200,200,200,0.3) !important;}                
-                  
 
+               /* title de indicator */              
    #root > div:nth-child(1) .st-emotion-cache-ocqkz7 > div:nth-child(1),
    #root > div:nth-child(1) .st-emotion-cache-ocqkz7 > div:nth-child(2),
    #root > div:nth-child(1) .st-emotion-cache-ocqkz7 > div:nth-child(3),
@@ -206,6 +152,7 @@ def style_gen():
       border-radius: 5px;
       padding: 3px;
       text-align: center !important;
+      font-size:10px !important;
 
    }
                         
@@ -220,8 +167,6 @@ def style_gen():
    #root > div:nth-child(1) .st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(8) {
       display: none;
    }
-
-
 
    #root > div:nth-child(2) > div > div > div > div > div > div > ul > div{
    background-color: darkgray;
@@ -310,13 +255,24 @@ background-color: rgba(0,0,0,.5)
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(7) > div > label > div > p,
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(8) > div > label > div > p,
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(9) > div > label > div > p{
-         background-color: rgba(0,0,0,.5) !important;
+         background-color: rgba(0,0,0,.6) !important;
          padding-left: 1rem !important;
          padding-right: 1rem !important;
          border-radius: 5px
                }   
 
+               /* titulo del indicator  */
+               /* texto del indicator  */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(1) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div,
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(2) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div,
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div,
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(4) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div,
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(5) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div{
+               font-size: 24px;
+               }
+
          </style> """, unsafe_allow_html=True)
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(1) > div > div > div > div:nth-child(1) > div > div > div,               
    #  background-size: cover;
     #imagen de mujer
    #   background-image: url('https://i.imgur.com/MNid628.jpg');

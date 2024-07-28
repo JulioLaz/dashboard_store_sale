@@ -1,11 +1,10 @@
-from datetime import datetime
 import streamlit as st
 import plotly.express as px
 import plotly.colors
 import update_figure_layout as layout
 import pandas as pd
 import colorsys
-
+height=350
 titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 20, 'color': "#00ffff", 'family': "arial"}}
 
 viridis_palette = plotly.colors.sequential.Plotly3_r
@@ -37,7 +36,7 @@ def graf_011(df, top_n, color_map):
     fig_marcas = layout.update_figure_layout(fig_marcas)
     fig_marcas.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
                              textfont=dict(family='Arial black', color='black', size=12), textangle=0)
-    fig_marcas.update_layout(title=titles_format, height=500, uniformtext_minsize=8, uniformtext_mode='hide', showlegend=False)
+    fig_marcas.update_layout(title=titles_format, height=height, uniformtext_minsize=8, uniformtext_mode='hide', showlegend=False)
     fig_marcas.update_yaxes(title_text='', showticklabels=False, showgrid=False)
     fig_marcas.update_xaxes(title_text='', showline=False, showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=14))
     st.plotly_chart(fig_marcas, use_container_width=True)
@@ -52,7 +51,7 @@ def treemap_brands_products(df, top_n, color_map):
                       title='Jerarquía de Ventas por Marca y Producto',
                       color='marca', color_discrete_map=color_map)
     
-    fig5.update_layout(title=titles_format, height=500)
+    fig5.update_layout(title=titles_format, height=height)
     fig5 = layout.update_figure_layout(fig5)
     st.plotly_chart(fig5, use_container_width=True)
 
@@ -99,7 +98,7 @@ def sales_line_top(df, top_n, color_map):
         )
 
     fig = layout.update_figure_layout(fig)
-    fig.update_layout(title=titles_format, height=500, uniformtext_minsize=8, uniformtext_mode='hide')
+    fig.update_layout(title=titles_format, height=height, uniformtext_minsize=8, uniformtext_mode='hide')
     fig.update_yaxes(title_text='')
     fig.update_xaxes(showline=False, title_text='', showticklabels=True, tickangle=45, 
                      tickfont=dict(family='Arial', color='white', size=12))  # Show tick every 3 months
