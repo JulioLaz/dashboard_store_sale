@@ -4,9 +4,9 @@ def style_gen():
    st.markdown("""
       <style>
       [data-testid="stWidgetLabel"]{
-            color: #ff00ff !important;
+            color: #00ffff !important;
             font-size: 10px !important;
-            font-weight: 400 !important;
+            font-weight: 300 !important;
             display: flex;
             justify-content: right !important;
          }        
@@ -14,10 +14,7 @@ def style_gen():
             display: flex !important;
             justify-content: center !important;
          }
-      .st-cc {
-            font-size: 12px !important;
-            font-weight: 500 !important;
-         }
+
       [data-testid="stRadio"] label:has(input:checked) {
          color: white !important;
          background-color: rgba(200,200,200,.3) !important;
@@ -118,8 +115,10 @@ background-color: rgba(0,0,0,.7)
 }                          
              /* filtro years  */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(2) > div{
-background-color: rgba(0,0,0,.5)
-               }               
+background-color: rgba(0,0,0,.5);
+border-radius: 5px;
+               }   
+
              /* filtros  */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > label > div > p,
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > label > div > p,
@@ -143,8 +142,16 @@ background-color: rgba(0,0,0,.5)
                font-size: 24px;
                }
 
-         </style> """, unsafe_allow_html=True)
+          
 
+         </style> """, unsafe_allow_html=True)
+#                /* width sidebar */
+# #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18{
+# width: 20vw !important;
+# }               
+# #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12{
+# width: 20vw !important;
+#                }  
 #                /*  header fijo */
 # #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14){
 #                 position: fixed;
