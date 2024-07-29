@@ -78,7 +78,8 @@ def sales_line_top(df, top_n, color_map):
     year_color_map = dict(zip(years, year_colors))
 
     df_date['fecha_compra'] = pd.to_datetime(df_date['fecha_compra'])
-    max_date = df_date['fecha_compra'].max() + pd.Timedelta(weeks=1)
+    # max_date = df_date['fecha_compra'].max() + pd.Timedelta(weeks=1)
+    max_date = df_date['fecha_compra'].max()
     max_year = max_date.year
     for year in years:
             start_date = f"{year}-01-01"
@@ -92,13 +93,23 @@ def sales_line_top(df, top_n, color_map):
             annotation_text=f"Year {year}",
             annotation_position="top left",
             fillcolor=year_color_map[year],
-            opacity=0.25,
+            opacity=0.2,
             line_width=0,
             annotation_font=dict(size=12, family="Arial", color="white")
         )
 
     fig = layout.update_figure_layout(fig)
-    fig.update_layout(title=titles_format, height=height, uniformtext_minsize=8, uniformtext_mode='hide')
+    fig.update_layout(title=titles_format, height=height,
+                      uniformtext_minsize=8, uniformtext_mode='hide',
+                    xaxis=dict(
+                        tickformat='%b',  # Mostrar nombre del mes
+                        tickvals=pd.date_range(start=df['YearMonth'].min(), end=df['YearMonth'].max(), freq='MS'),  # Definir los ticks en cada inicio de mes
+                        # showgrid=True,
+                        # gridcolor='gray',
+                        # gridwidth=0.1,
+                        # griddash='dash'
+                    )                      
+                      )
     fig.update_yaxes(title_text='')
     fig.update_xaxes(showline=False, title_text='', showticklabels=True, tickangle=45, 
                      tickfont=dict(family='Arial', color='white', size=12))  # Show tick every 3 months

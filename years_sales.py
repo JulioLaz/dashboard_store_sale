@@ -39,7 +39,7 @@ def sales_pie(df):
     fig.update_traces(
         texttemplate='<b>%{label}</b><br>%{customdata[0]}<br>%{percent:.1%}',
         # textposition='inside',
-        textfont_size=14,
+        textfont_size=10,
         rotation=72,
         marker=dict(line=dict(color='black', width=2)),
         pull=[0.03,0,0],
@@ -49,12 +49,12 @@ def sales_pie(df):
     fig.update_layout(
         title=titles_format,
         # font=dict(family="Arial Black, sans-serif", size=14, color="white"),
-        font=dict(family="Arial Black"),
+        font=dict(family="Arial"),
         plot_bgcolor='rgba(0,0,0,0)',
         paper_bgcolor='rgba(0,0,0,0)',
         showlegend=False,
         height=height,
-        uniformtext_minsize=12, 
+        uniformtext_minsize=10, 
         uniformtext_mode='hide'
     )
     fig.update_coloraxes(showscale=False)
@@ -86,11 +86,11 @@ def condition_pie(df):
     fig.update_traces(
         texttemplate='%{label}<br>%{percent:.1%}<br>%{customdata[0]}',
         # textfont_size=12,
-        textfont=dict(size=13, color='white'),  # Red color and size 10 for outside labels
+        textfont=dict(size=10, color='white'),  # Red color and size 10 for outside labels
         marker=dict(line=dict(color='black', width=2)),
-        pull=[0.03,0,0],
-        rotation=70,
-        # rotation=22,
+        pull=[0.01,0,0],
+        # rotation=10,
+        rotation=75,
         hovertemplate='<b>%{label}</b><br>Total Vendido: %{customdata[0]}<br>Porcentaje: %{percent:.1%}<extra></extra>',
         # textposition='outside',
         # insidetextorientation='radial'
@@ -98,13 +98,13 @@ def condition_pie(df):
 
     fig.update_layout(
         title=titles_format,
-        font=dict(family="Arial Black, sans-serif"),
+        font=dict(family="Arial, sans-serif"),
         plot_bgcolor='rgba(0,0,0,0)',
         paper_bgcolor='rgba(0,0,0,0)',
         showlegend=False,
         height=height,
         # uniformtext_minsize=12, 
-        uniformtext_mode='hide'
+        # uniformtext_mode='hide'
     )
     fig.update_coloraxes(showscale=False)
     fig = layout.update_figure_layout(fig)
