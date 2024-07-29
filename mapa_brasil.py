@@ -42,7 +42,7 @@ def mapa_br(df):
         showframe=False,
         showsubunits=False
     )
-    fig_mapa.update_layout(title=titles_format, height=700, coloraxis_showscale=True, 
+    fig_mapa.update_layout(title=titles_format, height=350, coloraxis_showscale=True, 
         geo=dict(
             showframe=False,
             showcoastlines=False,
@@ -76,7 +76,7 @@ def barras(df):
     fig.update_layout(showlegend=False)
     fig.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
                       textfont=dict(family='Arial black', color='black', size=12), textangle=0)
-    fig.update_layout(height=700, uniformtext_minsize=8, uniformtext_mode='hide')
+    fig.update_layout(height=350, uniformtext_minsize=8, uniformtext_mode='hide')
     fig.update_xaxes(title_text='')  # Remove x and y axis labels
     fig.update_yaxes(title_text='')  # Remove x and y axis labels
     fig.update_yaxes(showticklabels=False, showgrid=False)
