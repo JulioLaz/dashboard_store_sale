@@ -46,7 +46,7 @@ def style_gen():
    }
                         
                   
-   /* Hide specific label */
+   /* Hide label */
    #root > div:nth-child(1) .st-emotion-cache-ocqkz7.e1f1d6gn5 > div:nth-child(n+1):nth-child(-n+5) > div > div > div > div:nth-child(2) > div > label {
       display: none;
    }
@@ -134,7 +134,6 @@ background-color: rgba(0,0,0,.5)
          border-radius: 5px
                }   
 
-               /* titulo del indicator  */
                /* texto del indicator  */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(1) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div,
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(2) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div,
