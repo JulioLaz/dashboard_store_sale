@@ -90,7 +90,7 @@ def condition_pie(df):
         marker=dict(line=dict(color='black', width=2)),
         pull=[0.01,0,0],
         # rotation=10,
-        rotation=75,
+        rotation=65,
         hovertemplate='<b>%{label}</b><br>Total Vendido: %{customdata[0]}<br>Porcentaje: %{percent:.1%}<extra></extra>',
         # textposition='outside',
         # insidetextorientation='radial'

@@ -70,7 +70,7 @@ def style_gen():
 
                /*    titulo del dashboard */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(7) > div > div > nav > a{
-    width: 30vw !important;
+    width: 40vw !important;
     font-size: calc(10px + 1vw) !important;
     font-family: Arial;
     color: rgb(0, 255, 255);
@@ -104,6 +104,7 @@ background-color: rgba(0,0,0,.7)
 
 /* sidebar img   */  
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18{
+    background-color: black;
     background-image: url('https://i.imgur.com/ZhBoH7H.jpeg');
     position: relative;
     user-select: auto;
@@ -141,8 +142,8 @@ border-radius: 5px;
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(5) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div{
                font-size: 24px;
                }
-
-          
+/* links navbar */
+#navbarNav > ul{ flex-direction: row !important;}          
 
          </style> """, unsafe_allow_html=True)
 #                /* width sidebar */
