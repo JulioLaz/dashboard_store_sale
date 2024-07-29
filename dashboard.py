@@ -56,7 +56,8 @@ def main():
 
     # Barra lateral
     with st.sidebar:
-        st.markdown("<h1></h1>", unsafe_allow_html=True)
+        st.markdown("<h1></h1>", unsafe_allow_html=True)#                <img src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=f77136&size=50&center=true&vCenter=true&width=1300&height=60&duration=1200&lines=+++Hi,+I'm+Julio+Lazarte+++">
+
     nb.create_navbar()
 
     def year_filter(df):
@@ -181,74 +182,106 @@ def main():
         else: products_change="sin perído previo"          
         col5.markdown("<div class='metric-title'>Productos</div>", unsafe_allow_html=True)
         col5.metric("", f"{current_products:,}", delta=products_change)
+    
     dashboard_metrics(filtered_df)
 
+    selected_category = st.sidebar.selectbox(
+        "Choose a Category",
+        ["All", "Sales & Sellers", "Regions & States", "Brands & Products", "Sales Evolution"],
+        key="nav-selector"
+    )
+
+    def show_sales_and_sellers():
+        st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=3200&lines=Ventas+y+Vendedores+por+mes+año+y+condición"></div>''', unsafe_allow_html=True)#Ventas por mes, año, y condicion        
+        # st.subheader("Sales & Sellers")
     ### Gral Ventas
-    col1, col2,col3 = st.columns(3)
-    with col1: #ventas por años line:
-        ys.sales_line(filtered_df)
-    with col2: #ventas por años pie:
-        ys.sales_pie(filtered_df)
-    with col3: #ventas por años pie:
-        # ys.enhanced_condition_treemap(filtered_df)
-        # ys.sunburst_chart(filtered_df)
-        ys.condition_pie(filtered_df)
-        # ys.condition_treemap(filtered_df)
+        col1, col2,col3 = st.columns(3)
+        with col1: #ventas por años line:
+            ys.sales_line(filtered_df)
+        with col2: #ventas por años pie:
+            ys.sales_pie(filtered_df)
+        with col3: #ventas por años pie:
+            # ys.enhanced_condition_treemap(filtered_df)
+            # ys.sunburst_chart(filtered_df)
+            ys.condition_pie(filtered_df)
+            # ys.condition_treemap(filtered_df)
 
-    ### Sellers
-    col1, col2 = st.columns(2)
-    with col1: #Vendedores por años
-        seller.seller(filtered_df)
-    with col2: # Vendedores total ventas distribucion:
-        seller.seller_pie(filtered_df)
 
-    ### regiones:
-    col4, col1, col2, col3 = st.columns(4)
-    with col1:
-        region.region_barras(filtered_df)
-    with col2:
-        region.pop_pie(filtered_df)
-    with col3:
-        region.pbi_treemap(df_regiones)
-    with col4:
-        region.mapa_br_reg(filtered_df)
+        ### Sellers
+        col1, col2 = st.columns(2)
+        with col1: #Vendedores por años
+            seller.seller(filtered_df)
+        with col2: # Vendedores total ventas distribucion:
+            seller.seller_pie(filtered_df)
+
+    def show_regions_and_states():
+        st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=1000&height=36&duration=4000&lines=Análisis+por+Estados+y+Regiones:+Ventas,+población+y+PBI"></div>''', unsafe_allow_html=True)
+
+        # st.subheader("Regions & States")        ### regiones:
+        col4, col1, col2, col3 = st.columns(4)
+        with col1:
+            region.region_barras(filtered_df)
+        with col2:
+            region.pop_pie(filtered_df)
+        with col3:
+            region.pbi_treemap(df_regiones)
+        with col4:
+            region.mapa_br_reg(filtered_df)
 
     ### MAPA 
-    col5, col6 = st.columns(2)
-    with col5: #Mapa de brasil ventas totales por Estado:
-        mapa.mapa_br(filtered_df)
-    with col6: # Top 10 de Venta totales neta por estado
-        mapa.barras(filtered_df,top_n)
+        col5, col6 = st.columns(2)
+        with col5: #Mapa de brasil ventas totales por Estado:
+            mapa.mapa_br(filtered_df)
+        with col6: # Top 10 de Venta totales neta por estado
+            mapa.barras(filtered_df,top_n)
 
+    def show_brands_and_products():
+        st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=2800&lines=Análisis+de+Productos+y+Marcas"></div>''', unsafe_allow_html=True)
 
-    # Crear dos columnas principales
-    col_left, col_right = st.columns(2)
-    color_map=assign_colors(df)
+        # st.subheader("Brands & Products")        # Crear dos columnas principales
+        col_left, col_right = st.columns(2)
+        color_map=assign_colors(df)
 
-    with col_left:
-        col1, col2 = st.columns(2)
-        with col1: #"Top Marcas según Ganancia Neta"
-            prbr.graf_011(filtered_df, top_n, color_map)
-        with col2: #"Jerarquía de Ventas por Marca y Producto"
-            prbr.treemap_brands_products(filtered_df, top_n, color_map)
+        with col_left:
+            col1, col2 = st.columns(2)
+            with col1: #"Top Marcas según Ganancia Neta"
+                prbr.graf_011(filtered_df, top_n, color_map)
+            with col2: #"Jerarquía de Ventas por Marca y Producto"
+                prbr.treemap_brands_products(filtered_df, top_n, color_map)
 
-    with col_right:
-        prbr.sales_line_top(filtered_df, top_n, color_map) #"Ingresos Mensuales por Marca"
+        with col_right:
+            prbr.sales_line_top(filtered_df, top_n, color_map) #"Ingresos Mensuales por Marca"
 
-    ### PRODUCTOS
-    col3, col4 ,col5 ,col6 = st.columns(4)
-    with col3: # Top 10 productos más costosos
-        prup.graf_01(filtered_df,top_n,fluorescent_colors)
-    with col4: # Top 10 productos agrupados por tipo con mayores ventas
-        prup.graf_02(filtered_df,top_n,fluorescent_colors)
-    with col5:
-        prup.graf_03(filtered_df,top_n,fluorescent_colors)
-    with col6: # Top 10 marcas según ganancia neta
-        prup.graf_022(filtered_df,top_n,fluorescent_colors)
+        ### PRODUCTOS
+        col3, col4 ,col5 ,col6 = st.columns(4)
+        with col3: # Top 10 productos más costosos
+            prup.graf_01(filtered_df,top_n,fluorescent_colors)
+        with col4: # Top 10 productos agrupados por tipo con mayores ventas
+            prup.graf_02(filtered_df,top_n,fluorescent_colors)
+        with col5:
+            prup.graf_03(filtered_df,top_n,fluorescent_colors)
+        with col6: # Top 10 marcas según ganancia neta
+            prup.graf_022(filtered_df,top_n,fluorescent_colors)
 
-    ### Evolunción de ventas
-    pe.profit_evol(filtered_df)
-    
+    def show_sales_evolution():
+        st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=2500&lines=Evolución+hitórica+de+Ganancias"></div>''', unsafe_allow_html=True)
+
+        ### Evolunción de ventas
+        # st.subheader("Sales Evolution")       
+        pe.profit_evol(filtered_df)
+
+    if selected_category == 'All' or selected_category == 'Sales & Sellers':
+        show_sales_and_sellers()
+
+    if selected_category == 'All' or selected_category == 'Regions & States':
+        show_regions_and_states()
+
+    if selected_category == 'All' or selected_category == 'Brands & Products':
+        show_brands_and_products()
+
+    if selected_category == 'All' or selected_category == 'Sales Evolution':
+        show_sales_evolution()  
+
     ### Barra links
     nb.create_links()
 
