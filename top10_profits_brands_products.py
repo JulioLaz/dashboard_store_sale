@@ -19,17 +19,6 @@ Purpor_palette = px.colors.sequential.Purpor
 Sunset_palette = px.colors.sequential.Sunset
 Emrld_palette = px.colors.sequential.Emrld
 
-peach=['rgb(253, 224, 197)','rgb(251, 211, 184)','rgb(249, 198, 171)','rgb(247, 185, 158)','rgb(246, 172, 145)','rgb(245, 165, 135)','rgb(244, 162, 128)','rgb(244, 160, 121)','rgb(244, 159, 117)','rgb(245, 158, 114)']
-pera=['rgb(211, 242, 163)','rgb(196, 232, 159)','rgb(181, 222, 155)','rgb(166, 212, 151)','rgb(151, 202, 148)','rgb(136, 192, 144)','rgb(121, 182, 140)','rgb(106, 172, 136)','rgb(91, 162, 133)','rgb(76, 155, 130)']
-
-colors_1 = []
-for i in range(10):
-    r = int(253 - i * 10)
-    g = int(224 - i * 9.67)
-    b = int(197 - i * 3.67)
-    colors_1.append(f'rgb({r}, {g}, {b})')
-
-
 def graf_011(df, top_n, color_map):
     df = df.groupby('marca')['ingresos_netos'].sum().nlargest(top_n).reset_index().sort_values(by='ingresos_netos', ascending=False).reset_index(drop=True)
     fig_marcas = px.bar(df, x='marca', y='ingresos_netos', title=f'Marcas vs Ganancia Neta - Top {top_n}', color='marca', color_discrete_map=color_map)

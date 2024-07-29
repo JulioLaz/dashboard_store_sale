@@ -11,16 +11,16 @@ def create_navbar():
 def create_links():
     st.markdown(
         """
-        <div style="margin: 1rem 0;background-color: black; padding: 10px; text-align: center; border-radius: 5px;border:solid 1px #00ffff">
+        <div style="background-color: black; padding: 10px; text-align: center; border-radius: 5px;border:solid 1px #00ff00">
             <div style="margin: 10px 0;">
                 <a href="https://github.com/JulioLaz" target="_blank" style="margin-right: 20px;">
-                    <i class="fab fa-github fa-lg" style="color: #00ffff;font-size: 1.5rem; margin:0 10px"></i>
+                    <i class="fab fa-github fa-lg" style="color: #00ff00;font-size: 1.5rem; margin:0 10px"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/julio-lazarte-developer/" target="_blank" style="margin-right: 20px;">
-                    <i class="fab fa-linkedin fa-lg" style="color: #00ffff;font-size: 1.5rem; margin:0 10px"></i>
+                    <i class="fab fa-linkedin fa-lg" style="color: #00ff00;font-size: 1.5rem; margin:0 10px"></i>
                 </a>
                 <a href="https://cv-lazarte-julio.web.app/" target="_blank">
-                    <i class="fas fa-globe fa-lg" style="color: #00ffff;font-size: 1.5rem; margin:0 10px"></i>
+                    <i class="fas fa-globe fa-lg" style="color: #00ff00;font-size: 1.5rem; margin:0 10px"></i>
                 </a>
             </div>
         </div>

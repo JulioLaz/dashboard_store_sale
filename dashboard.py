@@ -107,7 +107,7 @@ def main():
     )
     filtered_df = df[mask]
 
-    sm.style_title()
+    # sm.style_title()
 
 #### metric with indicator
     def calculate_change(current, previous):
@@ -183,6 +183,7 @@ def main():
         col5.metric("", f"{current_products:,}", delta=products_change)
     dashboard_metrics(filtered_df)
 
+    ### Gral Ventas
     col1, col2,col3 = st.columns(3)
     with col1: #ventas por años line:
         ys.sales_line(filtered_df)
@@ -194,6 +195,7 @@ def main():
         ys.condition_pie(filtered_df)
         # ys.condition_treemap(filtered_df)
 
+    ### Sellers
     col1, col2 = st.columns(2)
     with col1: #Vendedores por años
         seller.seller(filtered_df)
@@ -236,18 +238,18 @@ def main():
     ### PRODUCTOS
     col3, col4 ,col5 ,col6 = st.columns(4)
     with col3: # Top 10 productos más costosos
-        prup.graf_01(filtered_df,top_n)
+        prup.graf_01(filtered_df,top_n,fluorescent_colors)
     with col4: # Top 10 productos agrupados por tipo con mayores ventas
-        prup.graf_02(filtered_df,top_n)
+        prup.graf_02(filtered_df,top_n,fluorescent_colors)
     with col5:
-        prup.graf_03(filtered_df,top_n)
+        prup.graf_03(filtered_df,top_n,fluorescent_colors)
     with col6: # Top 10 marcas según ganancia neta
-        prup.graf_022(filtered_df,top_n)
+        prup.graf_022(filtered_df,top_n,fluorescent_colors)
 
+    ### Evolunción de ventas
     pe.profit_evol(filtered_df)
-
-    # Título con estilo
-
+    
+    ### Barra links
     nb.create_links()
 
 if __name__ == '__main__':

@@ -66,11 +66,9 @@ def style_gen():
                font-size:16px !important;
 }
 
-
 /* INDICATOR */
-               
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5{
- margin: -50px 0 0 0 !important;
+ margin: -30px 0 0 0 !important;
                 }               
 
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5{
@@ -150,6 +148,14 @@ border-radius: 5px;
 #root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div > div:nth-child(2) > button > div > div,               
 #root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div > div:nth-child(3) > button > div > div{
                display: none!important}
+
+/* marco de graf sales in the time  */   
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(20) > div > div > div > div > svg:nth-child(1){
+      border: 1px solid #00ff00;
+      border-radius: 5px;
+      padding: 3px;
+      text-align: center !important;
+      font-size:10px !important;  }                         
          </style> """, unsafe_allow_html=True)
 
 def style_navbar():
@@ -169,7 +175,7 @@ def style_navbar():
             .navbar-custom {
                   top: 0rem !important; 
                   position: fixed !important;
-                  width: calc(100% - 0px) !important;
+                  width: calc(100%) !important;
                   right: 0px !important; 
                   z-index: 1000 !important;
                   background-color: black !important; 
@@ -188,8 +194,17 @@ def style_navbar():
       )
 
 # style en cuadros generales:
-def style_title()         :
-          st.markdown("""<style>.metric-title {
-            font-size: 18px;
-            color: #00FF00;
-            }</style>""", unsafe_allow_html=True)
+# def style_title()         :
+#           st.markdown("""<style>.metric-title {
+#             font-size: 18px;
+#             color: #00FF00;
+#             }</style>""", unsafe_allow_html=True)
+# style en cuadros generales:
+# def style_graf_sales_times()         :
+#           st.markdown("""<style>.metric-title {
+#       border: 1px solid #00ff00;
+#       border-radius: 5px;
+#       padding: 3px;
+#       text-align: center !important;
+#       font-size:10px !important;
+#             }</style>""", unsafe_allow_html=True)
