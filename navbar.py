@@ -6,7 +6,13 @@ def create_navbar():
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom " style="z-index: 2000 !important">
   <span class="navbar-brand" style="font-size: 40px; font-family: Arial; color: #00ffff; margin-left: 30vw">🛍️ Análisis de Ventas</span>
   <div class="collapse navbar-collapse" id="navbarNav" >
-    <ul class="navbar-nav margenes">
+    <ul class="navbar-nav margenes" style='
+                top: 0rem !important; 
+                  position: fixed !important;
+                  width: calc(100% - 0px) !important;
+                  left: 0px !important; 
+                  z-index: 1000 !important;
+                  background-color: black !important; '>
       <li class="nav-item">
         <a class="nav-link" href="https://github.com/JulioLaz" target="_blank">
           <i class="fab fa-github me-2 fa-lg"></i></a>
