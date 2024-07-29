@@ -39,9 +39,7 @@ def style_gen():
       padding: 3px;
       text-align: center !important;
       font-size:10px !important;
-
    }
-                        
                   
    /* Hide label */
    #root > div:nth-child(1) .st-emotion-cache-ocqkz7.e1f1d6gn5 > div:nth-child(n+1):nth-child(-n+5) > div > div > div > div:nth-child(2) > div > label {
@@ -93,7 +91,20 @@ background-color: #000000 !important;
 background-color: rgba(0,0,0,.7)
                }               
 
-/* sidebar img   */  
+/* sidebar años   */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-17mvl7w.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(2) > div{
+justify-content: flex-end;
+}               
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-17mvl7w.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(2) > div > label{
+padding:0
+}               
+/* sidebar hide div   */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-17mvl7w.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(1){
+display: none
+               }               
+
+/* sidebar img   */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-17mvl7w.eczjsme18,               
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18{
     background-image: url('https://i.imgur.com/ZhBoH7H.jpeg')!important;
     background-color: black !important;
@@ -125,7 +136,7 @@ border-radius: 5px;
          border-radius: 5px
                }   
 
-               /* texto del indicator  */
+/* texto del indicator  */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(1) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div,
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(2) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div,
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div,
@@ -133,6 +144,7 @@ border-radius: 5px;
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(5) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div{
                font-size: 24px;
                }
+
 /* icon nav streamlit */      
 #root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div > div:nth-child(1) > button > div > span,               
 #root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div > div:nth-child(2) > button > div > div,               
