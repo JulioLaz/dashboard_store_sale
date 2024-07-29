@@ -5,7 +5,7 @@ import update_figure_layout as layout
 import pandas as pd
 import colorsys
 height=350
-titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 14, 'color': "#00ffff", 'family': "arial"}}
+titles_format = {'y':0.91, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 14, 'color': "#00ffff", 'family': "arial"}}
 
 viridis_palette = plotly.colors.sequential.Plotly3_r
 inferno_palette = px.colors.sequential.Inferno
@@ -95,7 +95,7 @@ def sales_line_top(df, top_n, color_map):
             fillcolor=year_color_map[year],
             opacity=0.2,
             line_width=0,
-            annotation_font=dict(size=12, family="Arial", color="white")
+            annotation_font=dict(size=10, family="Arial", color="white")
         )
 
     fig = layout.update_figure_layout(fig)
@@ -112,11 +112,13 @@ def sales_line_top(df, top_n, color_map):
                             legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=1.02,
+            y=.96,
             xanchor="center",
-            x=0.45,
+            x=0.47,
             title=None,
-            font=dict(size=12, color="#FFFFFF")
+            font=dict(size=9,color='white'),
+                bgcolor='rgba(0,0,0,0)'  # Quitar el color de fondo
+
         )                     
                       )
     fig.update_yaxes(title_text='')

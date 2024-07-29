@@ -68,20 +68,11 @@ def style_gen():
                font-size:16px !important;
 }
 
-               /*    titulo del dashboard */
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(7) > div > div > nav > a{
-    width: 40vw !important;
-    font-size: calc(10px + 1vw) !important;
-    font-family: Arial;
-    color: rgb(0, 255, 255);
-    margin-left: 2.5rem;
-    text-align: end !important;
-               }   
 
 /* INDICATOR */
                
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5{
- margin: -20px 0 0 0 !important;
+ margin: -50px 0 0 0 !important;
                 }               
 
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5{
