@@ -94,9 +94,9 @@ background-color: rgba(0,0,0,.7)
                }               
 
 /* sidebar img   */  
-    /* background-image: url('https://i.imgur.com/ZhBoH7H.jpeg'); */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18{
-    background-color: gray !important;
+    background-image: url('https://i.imgur.com/ZhBoH7H.jpeg')!important;
+    background-color: black !important;
     position: relative;
     user-select: auto;
     width: 422px;
