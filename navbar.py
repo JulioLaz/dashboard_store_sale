@@ -3,29 +3,28 @@ import streamlit as st
 
 def create_navbar():
     st.markdown("""
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom " style="z-index: 2000 !important">
-  <span class="navbar-brand" style="font-size: 40px; font-family: Arial; color: #00ffff; margin-left: 30vw">🛍️ Análisis de Ventas</span>
-  <div class="collapse navbar-collapse" id="navbarNav" >
-    <ul class="navbar-nav margenes" style='
-                top: 0rem !important; 
-                  position: fixed !important;
-                  width: calc(100% - 0px) !important;
-                  left: 0px !important; 
-                  z-index: 1000 !important;
-                  background-color: black !important; '>
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/JulioLaz" target="_blank">
-          <i class="fab fa-github me-2 fa-lg"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.linkedin.com/in/julio-lazarte-developer/" target="_blank">
-          <i class="fab fa-linkedin me-2 fa-lg"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://cv-lazarte-julio.web.app/" target="_blank">
-          <i class="fas fa-globe me-2 fa-lg"></i></a>
-      </li>
-    </ul>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom " style="z-index: 2000 !important;display:flex;justify-content: center;">
+  <span class="navbar-brand" style="font-size: 30px; font-family: Arial; color: #00ffff">🛍️ Análisis de Ventas</span>
 </nav>
 """, unsafe_allow_html=True)  
+    
+def create_links():
+    st.markdown(
+        """
+        <div style="margin: 1rem 0;background-color: black; padding: 10px; text-align: center; border-radius: 5px;">
+            <div style="margin: 10px 0;">
+                <a href="https://github.com/JulioLaz" target="_blank" style="margin-right: 20px;">
+                    <i class="fab fa-github fa-lg" style="color: #00ffff;font-size: 2rem; margin:0 10px"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/julio-lazarte-developer/" target="_blank" style="margin-right: 20px;">
+                    <i class="fab fa-linkedin fa-lg" style="color: #00ffff;font-size: 2rem; margin:0 10px"></i>
+                </a>
+                <a href="https://cv-lazarte-julio.web.app/" target="_blank">
+                    <i class="fas fa-globe fa-lg" style="color: #00ffff;font-size: 2rem; margin:0 10px"></i>
+                </a>
+            </div>
+        </div>
+        """, unsafe_allow_html=True) 
+    
+
+

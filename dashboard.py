@@ -243,5 +243,10 @@ def main():
         prup.graf_022(filtered_df,top_n)
 
     pe.profit_evol(filtered_df)
+
+    # Título con estilo
+
+    nb.create_links()
+
 if __name__ == '__main__':
     main()
