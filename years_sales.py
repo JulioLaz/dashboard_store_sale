@@ -9,7 +9,15 @@ def sales_line(df):
          df = df.sort_values(by=['Year', 'Month_num'], ascending=[True, True]).reset_index(drop=True)
          fig = px.line(df, x='Month', y='valor_total', markers=True, range_y=(0, df['valor_total'].max()), color='Year', line_dash='Year', title='Ingresos mensuales')
          fig = layout.update_figure_layout(fig)
-         fig.update_layout(title=titles_format,height=height,uniformtext_minsize=8, uniformtext_mode='hide')
+         fig.update_layout(title=titles_format,height=height,uniformtext_minsize=8, uniformtext_mode='hide',        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="center",
+            x=0.45,
+            title=None,
+            font=dict(size=12, color="#FFFFFF")
+        ))
          fig.update_yaxes(title_text='')
          fig.update_xaxes(showline=False,title_text='',showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='white', size=12))
          st.plotly_chart(fig, use_container_width=True)

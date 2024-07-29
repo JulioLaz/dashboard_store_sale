@@ -108,7 +108,16 @@ def sales_line_top(df, top_n, color_map):
                         # gridcolor='gray',
                         # gridwidth=0.1,
                         # griddash='dash'
-                    )                      
+                    ),
+                            legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="center",
+            x=0.45,
+            title=None,
+            font=dict(size=12, color="#FFFFFF")
+        )                     
                       )
     fig.update_yaxes(title_text='')
     fig.update_xaxes(showline=False, title_text='', showticklabels=True, tickangle=45, 

@@ -4,7 +4,7 @@ import streamlit as st
 def create_navbar():
     st.markdown("""
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom " style="z-index: 2000 !important">
-  <a class="navbar-brand" href="#" style="font-size: 40px; font-family: Arial; color: #00ffff; margin-left: 2.5rem">🛍️ Análisis de Ventas</a>
+  <span class="navbar-brand" style="font-size: 40px; font-family: Arial; color: #00ffff; margin-left: 30vw">🛍️ Análisis de Ventas</span>
   <div class="collapse navbar-collapse" id="navbarNav" >
     <ul class="navbar-nav margenes">
       <li class="nav-item">

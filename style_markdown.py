@@ -193,7 +193,7 @@ def style_navbar():
                   background-color: black !important; 
             }
             #navbarNav{
-            margin: 2.3rem 2rem 0 0 !important;
+            margin: 2rem 20vw 0 0 !important;
                   display: flex;
                   justify-content: flex-end;
             }
