@@ -12,11 +12,13 @@ def sales_line(df):
          fig.update_layout(title=titles_format,height=height,uniformtext_minsize=8, uniformtext_mode='hide',        legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=0.9,
+            y=0.85,
             xanchor="center",
             x=0.45,
             title=None,
-            font=dict(size=12, color="#FFFFFF")
+            font=dict(size=10, color="#FFFFFF"),
+                            bgcolor='rgba(0,0,0,0)'  # Quitar el color de fondo
+
         ))
          fig.update_yaxes(title_text='')
          fig.update_xaxes(showline=False,title_text='',showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='white', size=12))
