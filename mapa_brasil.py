@@ -63,13 +63,14 @@ def get_color_map(fig_mapa, df):
                 color_map[state] = colors[i % len(colors)]
     return color_map
 
-def barras(df):
+def barras(df,top_n):
     # grouped_df = df.groupby(['abbrev_state', 'Estado'])['valor_total'].sum().reset_index()
-    df = df.groupby('Estado')['valor_total'].sum().nlargest(10).reset_index()
+    df = df.groupby('Estado')['valor_total'].sum().nlargest(top_n).reset_index()
 
     colors = generate_color_map(df, viridis_palette)
     df = df.sort_values(by='valor_total', ascending=False).head(10)
-    fig = px.bar(df, x='Estado', y='valor_total', title='Top 10 Estados vs Ventas')
+
+    fig = px.bar(df, x='Estado', y='valor_total', title=f'Estados vs Ventas - Top {top_n}')
     fig.update_traces(marker_color=colors)
     fig = layout.update_figure_layout(fig)
     fig.update_layout(title=titles_format)
@@ -81,5 +82,6 @@ def barras(df):
     fig.update_yaxes(title_text='')  # Remove x and y axis labels
     fig.update_yaxes(showticklabels=False, showgrid=False)
     fig.update_xaxes(showline=False)  # Remove x-axis line
-    fig.update_xaxes(showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=14))
+    fig.update_xaxes(showticklabels=True, tickfont=dict(family='Arial', color='#ffffdf', size=10))
+    # fig.update_xaxes(showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=14))
     st.plotly_chart(fig, use_container_width=True)         

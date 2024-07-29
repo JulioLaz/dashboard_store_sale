@@ -35,7 +35,8 @@ def region_barras(df):
     fig.update_traces(texttemplate='$ %{y:.2s}', textposition='inside', textfont=dict(family='Arial Black', size=14),
                       textangle=0, hovertemplate='<b>%{x}<b><br>'+'Ventas Totales: %{y:.2s}<extra></extra>')
 
-    fig.update_xaxes(showline=False, showticklabels=True, tickangle=0, tickfont=dict(family='Arial', color='#ffffdf', size=12))
+    fig.update_xaxes(showline=False, showticklabels=True, tickfont=dict(family='Arial', color='#ffffdf', size=10))
+    # fig.update_xaxes(showline=False, showticklabels=True, tickangle=0, tickfont=dict(family='Arial', color='#ffffdf', size=12))
     fig.update_yaxes(showticklabels=False, showgrid=False)
     fig = layout.update_figure_layout(fig)
     st.plotly_chart(fig, use_container_width=True)
@@ -106,7 +107,7 @@ def pbi_pie(df):
         texttemplate='%{label}<br>%{customdata[0]}<br>%{percent:.1%}',
         pull=[0.03, 0, 0, 0, 0],
         textposition='inside',
-        textfont_size=14,
+        textfont_size=12,
         marker=dict(line=dict(color='black', width=2)),
         hovertemplate='<b>%{label}</b><br>PBI: %{customdata[0]}<br>%{percent:.1%}'
     )
@@ -216,7 +217,7 @@ def pbi_treemap(df):
     fig.update_layout(
         title=titles_format,
         # title={'text': 'PBI por Región', 'x': 0.5, 'xanchor': 'center', 'y': 0.95, 'yanchor': 'top'},
-        font=dict(family="Arial Black, sans-serif", size=13),
+        font=dict(family="Arial Black, sans-serif", size=12),
         plot_bgcolor='rgba(0,0,0,0)',
         paper_bgcolor='rgba(0,0,0,0)',
         height=height,

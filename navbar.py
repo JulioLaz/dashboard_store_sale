@@ -3,7 +3,7 @@ import streamlit as st
 
 def create_navbar():
     st.markdown("""
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom " style="z-index: 2000 !important;display:flex;justify-content: center;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom " style="z-index: 2000 !important;display:flex;justify-content: center;border-bottom: 1px solid #00ff00">
   <span class="navbar-brand" style="font-size: 30px; font-family: Arial; color: #00ffff">🛍️ Análisis de Ventas</span>
 </nav>
 """, unsafe_allow_html=True)  

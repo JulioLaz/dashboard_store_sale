@@ -87,7 +87,8 @@ def main():
     ciudad_filter = create_multiselect_filter(df, 'Estado', "Estado")
     Región_filter = create_multiselect_filter(df, 'Región', "Región")
     vendedor_filter = create_multiselect_filter(df, 'nombre_vendedor', "Vendedor")
-    marca_genero_filter = create_multiselect_filter(df, 'marca_genero', "Género")
+    # marca_genero_filter = create_multiselect_filter(df, 'marca_genero', "Género")
+    marca_genero_filter = create_multiselect_filter(df, 'condicion', "Condición")
 
     top_n = int(st.sidebar.radio("TOP", options=['3', '5', '10'], index=0, key="top", horizontal=True))
 
@@ -99,7 +100,8 @@ def main():
         (df['marca'].isin(marca_filter)) &
         (df['producto'].isin(producto_filter)) &
         (df['Región'].isin(Región_filter)) &
-        (df['marca_genero'].isin(marca_genero_filter)) &
+        (df['condicion'].isin(marca_genero_filter)) &
+        # (df['marca_genero'].isin(marca_genero_filter)) &
         (df['fecha_compra'].dt.year.isin(selected_years))
         # (df['fecha_compra'].dt.year.isin(years_filter))
     )
@@ -214,7 +216,7 @@ def main():
     with col5: #Mapa de brasil ventas totales por Estado:
         mapa.mapa_br(filtered_df)
     with col6: # Top 10 de Venta totales neta por estado
-        mapa.barras(filtered_df)
+        mapa.barras(filtered_df,top_n)
 
 
     # Crear dos columnas principales

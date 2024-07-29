@@ -72,5 +72,7 @@ def profit_evol(df):
         )
     )
     fig.update_yaxes(title_text='')
-    fig.update_xaxes(showline=True, title_text='', showticklabels=True, tickangle=0, tickfont=dict(family='Arial', color='white', size=12))
+    fig.update_xaxes(showline=True, title_text='', showticklabels=True,
+                    #  tickangle=0, 
+                     tickfont=dict(family='Arial', color='white', size=8))
     st.plotly_chart(fig, use_container_width=True)

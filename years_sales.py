@@ -21,7 +21,9 @@ def sales_line(df):
 
         ))
          fig.update_yaxes(title_text='')
-         fig.update_xaxes(showline=False,title_text='',showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='white', size=12))
+         fig.update_xaxes(showline=False,title_text='',showticklabels=True,
+                        #    tickangle=45,
+                             tickfont=dict(family='Arial', color='white', size=10))
          st.plotly_chart(fig, use_container_width=True)
 
 def sales_pie(df):

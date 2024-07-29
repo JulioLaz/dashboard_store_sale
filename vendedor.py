@@ -33,7 +33,8 @@ def seller(df):
                       marker_color=colors )
 
     fig.update_xaxes(showline=False,
-        showticklabels=True,tickangle=0,tickfont=dict(family='Arial', color='#ffffdf', size=12)
+        showticklabels=True,tickfont=dict(family='Arial', color='#ffffdf', size=12)
+        # showticklabels=True,tickangle=0,tickfont=dict(family='Arial', color='#ffffdf', size=12)
     )
 
     fig.update_yaxes(showticklabels=False, showgrid=False)

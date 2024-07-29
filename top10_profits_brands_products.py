@@ -35,10 +35,12 @@ def graf_011(df, top_n, color_map):
     fig_marcas = px.bar(df, x='marca', y='ingresos_netos', title=f'Marcas vs Ganancia Neta - Top {top_n}', color='marca', color_discrete_map=color_map)
     fig_marcas = layout.update_figure_layout(fig_marcas)
     fig_marcas.update_traces(texttemplate='$ %{y:.2s}', textposition='inside',
-                             textfont=dict(family='Arial black', color='black', size=12), textangle=0)
+                             textfont=dict(family='Arial black', color='black', size=10), textangle=0)
     fig_marcas.update_layout(title=titles_format, height=height, uniformtext_minsize=8, uniformtext_mode='hide', showlegend=False)
     fig_marcas.update_yaxes(title_text='', showticklabels=False, showgrid=False)
-    fig_marcas.update_xaxes(title_text='', showline=False, showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=14))
+    fig_marcas.update_xaxes(title_text='', showline=False, showticklabels=True, 
+                            # tickangle=45, 
+                            tickfont=dict(family='Arial', color='#ffffdf', size=10))
     st.plotly_chart(fig_marcas, use_container_width=True)
 
 def treemap_brands_products(df, top_n, color_map):
@@ -122,7 +124,8 @@ def sales_line_top(df, top_n, color_map):
         )                     
                       )
     fig.update_yaxes(title_text='')
-    fig.update_xaxes(showline=False, title_text='', showticklabels=True, tickangle=45, 
-                     tickfont=dict(family='Arial', color='white', size=12))  # Show tick every 3 months
+    fig.update_xaxes(showline=False, title_text='', showticklabels=True,
+                    #   tickangle=45, 
+                     tickfont=dict(family='Arial', color='white', size=8))  # Show tick every 3 months
 
     st.plotly_chart(fig, use_container_width=True)

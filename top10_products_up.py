@@ -43,7 +43,9 @@ def graf_01(df,top_n):
          fig.update_yaxes(title_text='')  # Remove x and y axis labels
          fig.update_yaxes(showticklabels=False, showgrid=False)
          fig.update_xaxes(showline=False)  # Remove x-axis line
-         fig.update_xaxes(showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=12))
+         fig.update_xaxes(showticklabels=True,
+                        #    tickangle=45, 
+                           tickfont=dict(family='Arial', color='#ffffdf', size=10))
          st.plotly_chart(fig, use_container_width=True)
 
 # Top 10 Tipo de poductos con mayores ventas
@@ -57,7 +59,9 @@ def graf_02(df,top_n):
                               textfont=dict(family='Arial black', color='black', size=12), textangle=0)
          fig.update_layout(title=titles_format,height=height,uniformtext_minsize=8, uniformtext_mode='hide')
          fig.update_yaxes(title_text='',showticklabels=False, showgrid=False)
-         fig.update_xaxes(title_text='',showline=False,showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=12))         
+         fig.update_xaxes(title_text='',showline=False,showticklabels=True, 
+                        #   tickangle=45, 
+                        tickfont=dict(family='Arial', color='#ffffdf', size=10))         
          st.plotly_chart(fig, use_container_width=True) 
 
     # Top 10 productos más vendidos históricamente
@@ -81,6 +85,8 @@ def graf_022(df,top_n):
                               textfont=dict(family='Arial black', color='black', size=12), textangle=0)
          fig_productos.update_layout(title=titles_format,height=height,uniformtext_minsize=8, uniformtext_mode='hide',showlegend=False)
          fig_productos.update_yaxes(title_text='',showticklabels=False, showgrid=False)
-         fig_productos.update_xaxes(title_text='',showline=False,showticklabels=True, tickangle=45, tickfont=dict(family='Arial', color='#ffffdf', size=14))
+         fig_productos.update_xaxes(title_text='',showline=False,showticklabels=True, 
+                                    # tickangle=45,
+                                      tickfont=dict(family='Arial', color='#ffffdf', size=10))
          st.plotly_chart(fig_productos, use_container_width=True)
          pass              
