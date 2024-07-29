@@ -143,6 +143,7 @@ border-radius: 5px;
                font-size: 24px;
                }
 /* icon nav streamlit */      
+#root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div > div:nth-child(1) > button > div > span,               
 #root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div > div:nth-child(2) > button > div > div,               
 #root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div > div:nth-child(3) > button > div > div{
                display: none!important}
