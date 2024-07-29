@@ -142,34 +142,11 @@ border-radius: 5px;
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(5) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div{
                font-size: 24px;
                }
-/* links navbar */
-#navbarNav > ul{ flex-direction: row !important;}          
-
+/* icon nav streamlit */      
+#root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div > div:nth-child(3) > button > div > div{
+               display: none}
          </style> """, unsafe_allow_html=True)
-#                /* width sidebar */
-# #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18{
-# width: 20vw !important;
-# }               
-# #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12{
-# width: 20vw !important;
-#                }  
-#                /*  header fijo */
-# #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14){
-#                 position: fixed;
-#                 top: 110px;
-#                right: 1.3rem !important;
-#                 background-color: none;
-#                 z-index: 1000;
-#                 width: 70vw;
-#                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-#                }
 
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(1) > div > div > div > div:nth-child(1) > div > div > div,               
-   #  background-size: cover;
-    #imagen de mujer
-   #   background-image: url('https://i.imgur.com/MNid628.jpg');
-
-# styles en navbar:   
 def style_navbar():
          st.markdown(
          """
