@@ -12,7 +12,7 @@ def sales_line(df):
          fig.update_layout(title=titles_format,height=height,uniformtext_minsize=8, uniformtext_mode='hide',        legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=1.02,
+            y=0.9,
             xanchor="center",
             x=0.45,
             title=None,
@@ -70,6 +70,8 @@ def sales_pie(df):
     st.plotly_chart(fig, use_container_width=True)
 
 def condition_pie(df):
+    titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 16, 'color': "#00ffff", 'family': "arial"}}
+
     def format_value(value):
         if value >= 1e6:
             return f'${value/1e6:.1f}M'
