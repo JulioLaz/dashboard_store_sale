@@ -5,7 +5,7 @@ import ddbb as db
 import update_figure_layout as layout
 
 # geojson_br = db.load_geojson()
-titles_format = {'y':0.95, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 16, 'color': "#00ffff", 'family': "arial"}}
+titles_format = {'y':0.91, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 16, 'color': "#00ffff", 'family': "arial"}}
 viridis_palette = plotly.colors.sequential.Viridis
 
 def generate_color_map(df, palette):

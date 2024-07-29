@@ -19,7 +19,7 @@ color_map = {
     'Sul': '#00FF00'           
 }
 
-titles_format = {'y': 0.95, 'x': 0.5, 'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 16, 'color': "#00ffff", 'family': "arial"}}
+titles_format = {'y': 0.91, 'x': 0.5, 'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 16, 'color': "#00ffff", 'family': "arial"}}
 
 def region_barras(df):
     df_zona_ventas = df.groupby(['Región']).agg(valor_total=('valor_total', 'sum')).reset_index().sort_values(by='valor_total', ascending=False)

@@ -5,7 +5,7 @@ import update_figure_layout as layout
 height=350
 peach = ['rgb(253, 224, 197)', 'rgb(251, 211, 184)', 'rgb(249, 198, 171)', 'rgb(247, 185, 158)', 'rgb(246, 172, 145)',
          'rgb(245, 165, 135)', 'rgb(244, 162, 128)', 'rgb(244, 160, 121)', 'rgb(244, 159, 117)', 'rgb(245, 158, 114)']
-titles_format = {'y': 0.95, 'x': 0.5, 'xanchor': 'center', 'yanchor': 'top', 'font': {
+titles_format = {'y': 0.91, 'x': 0.5, 'xanchor': 'center', 'yanchor': 'top', 'font': {
     'size': 16, 'color': "#00ffff", 'family': "arial"}}
 
 color_map = {
@@ -61,7 +61,7 @@ def seller_pie(df):
     fig = px.pie(df_vendedores,
                  values='valor_total',
                  names='nombre_vendedor',
-                 title='Distribución de Total ventas por Vendedor',
+                 title='Total ventas por Vendedor',
                  color_discrete_sequence=colors,
                  hole=.3,
                  hover_data={'valor_total': ':$.2f'})
