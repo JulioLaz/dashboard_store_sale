@@ -46,7 +46,7 @@ def create_multiselect_filter(df, column, label):
             key=f"{column}_filter"
         )
         if not selected:
-            st.sidebar.warning(f"No hay selección para {label}. Se usarán todos los valores.")
+            # st.sidebar.warning(f"No hay selección para {label}. Se usarán todos los valores.")
             return df[column].unique()
         return selected
 # def create_multiselect_filter(df, column, label):
