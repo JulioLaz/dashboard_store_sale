@@ -36,7 +36,7 @@ def profit_evol(df):
             annotation_text=f"Year {year}",
             annotation_position="top left",
             fillcolor=year_color_map[year],
-            opacity=0.2,
+            opacity=0.3,
             line_width=0,
             annotation_font=dict(size=12, family="Arial Black", color="white")
         )

@@ -84,7 +84,7 @@ def sales_line_top(df, top_n, color_map):
             annotation_text=f"Year {year}",
             annotation_position="top left",
             fillcolor=year_color_map[year],
-            opacity=0.2,
+            opacity=0.3,
             line_width=0,
             annotation_font=dict(size=10, family="Arial", color="white")
         )

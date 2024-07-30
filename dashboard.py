@@ -22,11 +22,10 @@ st.set_page_config(page_title="Ventas ecommerce Brazil", page_icon=":shopping_ba
 
 titles_format = dict(font=dict(size=18, color='#1f77b4'), xref='paper', x=0.5, y=0.95, xanchor='center', yanchor='top')
 
-# Style en navbar:
-sm.style_navbar()
-# st.markdown("""<style>[data-testid="stSidebar"] {background-color: rgba(0,0,0,0);}</style>""",unsafe_allow_html=True)
+sm.style_navbar() # Style en navbar:
 
-# ocultar label del ratioitems:
+
+# # ocultar label del ratioitems:
 hide_element_style = '''<style>#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(9) > div > label {display: none}'''
 st.markdown(hide_element_style, unsafe_allow_html=True)
 
@@ -187,102 +186,96 @@ def main():
 
     selected_category = st.sidebar.selectbox(
         "Choose a Category",
-        ["All", "Sales & Sellers", "Regions & States", "Brands & Products", "Sales Evolution"],
+        ["All", "Regions & States", "Brands & Products", "Sales Evolution"],
         key="nav-selector"
     )
 
-    def show_sales_and_sellers():
-        # st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=3200&lines=Ventas+y+Vendedores+por+mes+año+y+condición"></div>''', unsafe_allow_html=True)#Ventas por mes, año, y condicion        
-        st.subheader("Sales & Sellers")
-    ### Gral Ventas
-        col1, col2,col3 = st.columns(3)
-        with col1: #ventas por años line:
-            ys.sales_line(filtered_df)
-        with col2: #ventas por años pie:
-            ys.sales_pie(filtered_df)
-        with col3: #ventas por años pie:
-            # ys.enhanced_condition_treemap(filtered_df)
-            # ys.sunburst_chart(filtered_df)
-            ys.condition_pie(filtered_df)
-            # ys.condition_treemap(filtered_df)
+    # def show_sales_and_sellers():
+    st.subheader("Sales & Sellers")
+    tab1, tab2, tab3 = st.tabs(["Ingresos mensuales & Ventas por años", "Ventas por condición",'Seller'])
 
-
-        ### Sellers
+    with tab1: 
         col1, col2 = st.columns(2)
-        with col1: #Vendedores por años
-            seller.seller(filtered_df)
-        with col2: # Vendedores total ventas distribucion:
-            seller.seller_pie(filtered_df)
+        with col1:
+            ys.sales_line(filtered_df) #ventas por años line:
+        with col2:
+            ys.sales_pie(filtered_df)  #ventas por años pie
+    with tab2:
+            ys.condition_pie(filtered_df) #ventas por condición pie
+    with tab3: 
+        col1, col2 = st.columns(2)         ### Sellers
+        with col1:
+            seller.seller(filtered_df)  #Vendedores por años
+        with col2: 
+            seller.seller_pie(filtered_df) # Vendedores total ventas distribucion:
 
-    def show_regions_and_states():
         # st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=1000&height=36&duration=4000&lines=Análisis+por+Estados+y+Regiones:+Ventas,+población+y+PBI"></div>''', unsafe_allow_html=True)
 
-        st.subheader("Regions & States")        ### regiones:
-        col4, col1, col2, col3 = st.columns(4)
+    st.subheader("Regions & States")        ### regiones:
+    tab1, tab2, tab3 = st.tabs(["Regions & Sales", "Population & PBI",'Sales for States'])
+    
+    with tab1: 
+
+        col1, col2 = st.columns(2)
         with col1:
-            region.region_barras(filtered_df)
-        with col2:
-            region.pop_pie(filtered_df)
-        with col3:
-            region.pbi_treemap(df_regiones)
-        with col4:
             region.mapa_br_reg(filtered_df)
+        with col2:
+            region.region_barras(filtered_df)
 
-    ### MAPA 
+    with tab2:
+        col3, col4 = st.columns(2)
+        with col3:
+            region.pop_pie(filtered_df)
+        with col4:
+            region.pbi_treemap(df_regiones)
+
+    with tab3:
         col5, col6 = st.columns(2)
-        with col5: #Mapa de brasil ventas totales por Estado:
-            mapa.mapa_br(filtered_df)
-        with col6: # Top 10 de Venta totales neta por estado
-            mapa.barras(filtered_df,top_n)
+        with col5: 
+            mapa.mapa_br(filtered_df)#Mapa de brasil ventas totales por Estado:
+        with col6: 
+            mapa.barras(filtered_df,top_n) # Top n de Venta totales neta por estado
 
-    def show_brands_and_products():
-        # st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=2800&lines=Análisis+de+Productos+y+Marcas"></div>''', unsafe_allow_html=True)
+       # st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=2800&lines=Análisis+de+Productos+y+Marcas"></div>''', unsafe_allow_html=True)
 
-        st.subheader("Brands & Products")        # Crear dos columnas principales
-        col_left, col_right = st.columns(2)
-        color_map=assign_colors(df)
 
-        with col_left:
+    st.subheader("Brands & Products")        ### regiones:    
+    color_map=assign_colors(df)
+    tab1, tab2 = st.tabs(["Regions & Sales", "Population & PBI"])
+        
+    with tab1:
             col1, col2 = st.columns(2)
-            with col1: #"Top Marcas según Ganancia Neta"
-                prbr.graf_011(filtered_df, top_n, color_map)
-            with col2: #"Jerarquía de Ventas por Marca y Producto"
-                prbr.treemap_brands_products(filtered_df, top_n, color_map)
+            with col1: 
+                prbr.graf_011(filtered_df, top_n, color_map) #"Top Marcas según Ganancia Neta"
+            with col2: 
+                prbr.treemap_brands_products(filtered_df, top_n, color_map) #"Jerarquía de Ventas por Marca y Producto"
 
-        with col_right:
+    with tab2:
             prbr.sales_line_top(filtered_df, top_n, color_map) #"Ingresos Mensuales por Marca"
 
         ### PRODUCTOS
-        col3, col4 ,col5 ,col6 = st.columns(4)
-        with col3: # Top 10 productos más costosos
+    tab1, tab2 = st.tabs(["Regions & Sales", "Population & PBI"])
+    with tab1:
+        col1, col2 = st.columns(2)
+        with col1: # Top 10 productos más costosos
             prup.graf_01(filtered_df,top_n,fluorescent_colors)
-        with col4: # Top 10 productos agrupados por tipo con mayores ventas
+        with col2: # Top 10 productos agrupados por tipo con mayores ventas
             prup.graf_02(filtered_df,top_n,fluorescent_colors)
-        with col5:
+
+    with tab2:
+        col1, col2 = st.columns(2)
+        with col1:
             prup.graf_03(filtered_df,top_n,fluorescent_colors)
-        with col6: # Top 10 marcas según ganancia neta
+        with col2: # Top 10 marcas según ganancia neta
             prup.graf_022(filtered_df,top_n,fluorescent_colors)
 
-    def show_sales_evolution():
         # st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=2500&lines=Evolución+hitórica+de+Ganancias"></div>''', unsafe_allow_html=True)
 
-        ### Evolunción de ventas
-        st.subheader("Sales Evolution")       
-        pe.profit_evol(filtered_df)
+    ### Evolunción de ventas
+    st.subheader("Sales Evolution")       
+    pe.profit_evol(filtered_df)
 
-    if selected_category == 'All' or selected_category == 'Sales & Sellers':
-        show_sales_and_sellers()
 
-    if selected_category == 'All' or selected_category == 'Regions & States':
-        show_regions_and_states()
-
-    if selected_category == 'All' or selected_category == 'Brands & Products':
-        show_brands_and_products()
-
-    if selected_category == 'All' or selected_category == 'Sales Evolution':
-        show_sales_evolution()  
-
-    ### Barra links
     nb.create_links()
 
 if __name__ == '__main__':

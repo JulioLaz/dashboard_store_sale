@@ -28,7 +28,7 @@ def style_gen():
       color: white !important;
                   }                
 
-               /* title de indicator */              
+/* title de indicator */              
    #root > div:nth-child(1) .st-emotion-cache-ocqkz7 > div:nth-child(1),
    #root > div:nth-child(1) .st-emotion-cache-ocqkz7 > div:nth-child(2),
    #root > div:nth-child(1) .st-emotion-cache-ocqkz7 > div:nth-child(3),
@@ -78,6 +78,7 @@ display: none}
          padding-left: 1rem !important;
          padding-right: 1rem !important;
                }
+
 /* sidebar */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18{
 background-color: #000000 !important;
@@ -106,13 +107,13 @@ display: none
                }               
 
                          
-             /* filtro years  */
+/* filtro years  */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(2) > div{
 background-color: rgba(0,0,0,.5);
 border-radius: 5px;
                }   
 
-             /* filtros  */
+               /* filtros  */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > label > div > p,
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(4) > div > label > div > p,
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(5) > div > label > div > p,
@@ -127,7 +128,7 @@ border-radius: 5px;
          padding-right: 1rem !important;
          border-radius: 5px
                }   
-
+            
 /* texto del indicator  */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(1) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div,
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(14) > div:nth-child(2) > div > div > div > div:nth-child(2) > div > div.st-emotion-cache-1xarl3l.e1i5pmia1 > div,
@@ -145,7 +146,7 @@ border-radius: 5px;
                display: none!important}
 
 /* marco de graf sales in the time  */   
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(24) > div > div > div > div > svg:nth-child(1){
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(21) > div > div > div > div > svg:nth-child(1){
       border: 1px solid #00ff00;
       border-radius: 5px;
       padding: 3px;
@@ -184,8 +185,20 @@ display: none}
     flex-shrink: 0;
     background-repeat: no-repeat;
 }                
+/* titles of sections  */
+#sales-sellers,
+#regions-states{
+               margin: 0;
+               padding:0
+}
+             
+                              
+               </style> """, unsafe_allow_html=True)
 
-         </style> """, unsafe_allow_html=True)
+# ocultar label del ratioitems:
+# hide_element_style = '''<style>#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(9) > div > label {display: none}'''
+# st.markdown(hide_element_style, unsafe_allow_html=True)   
+
 # /* bg del title */                     
 # #root > div:nth-child(1) > div.withScreencast > div > div > header{
 #                    background-image: url('https://www.coventry.ac.uk/globalassets/media/global/00-new-course-imagery/engineering-environment-and-computing/ug/data-science-new-banner.jpg')!important;
