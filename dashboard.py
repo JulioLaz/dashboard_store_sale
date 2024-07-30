@@ -192,8 +192,8 @@ def main():
     )
 
     def show_sales_and_sellers():
-        st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=3200&lines=Ventas+y+Vendedores+por+mes+año+y+condición"></div>''', unsafe_allow_html=True)#Ventas por mes, año, y condicion        
-        # st.subheader("Sales & Sellers")
+        # st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=3200&lines=Ventas+y+Vendedores+por+mes+año+y+condición"></div>''', unsafe_allow_html=True)#Ventas por mes, año, y condicion        
+        st.subheader("Sales & Sellers")
     ### Gral Ventas
         col1, col2,col3 = st.columns(3)
         with col1: #ventas por años line:
@@ -215,9 +215,9 @@ def main():
             seller.seller_pie(filtered_df)
 
     def show_regions_and_states():
-        st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=1000&height=36&duration=4000&lines=Análisis+por+Estados+y+Regiones:+Ventas,+población+y+PBI"></div>''', unsafe_allow_html=True)
+        # st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=1000&height=36&duration=4000&lines=Análisis+por+Estados+y+Regiones:+Ventas,+población+y+PBI"></div>''', unsafe_allow_html=True)
 
-        # st.subheader("Regions & States")        ### regiones:
+        st.subheader("Regions & States")        ### regiones:
         col4, col1, col2, col3 = st.columns(4)
         with col1:
             region.region_barras(filtered_df)
@@ -236,9 +236,9 @@ def main():
             mapa.barras(filtered_df,top_n)
 
     def show_brands_and_products():
-        st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=2800&lines=Análisis+de+Productos+y+Marcas"></div>''', unsafe_allow_html=True)
+        # st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=2800&lines=Análisis+de+Productos+y+Marcas"></div>''', unsafe_allow_html=True)
 
-        # st.subheader("Brands & Products")        # Crear dos columnas principales
+        st.subheader("Brands & Products")        # Crear dos columnas principales
         col_left, col_right = st.columns(2)
         color_map=assign_colors(df)
 
@@ -264,10 +264,10 @@ def main():
             prup.graf_022(filtered_df,top_n,fluorescent_colors)
 
     def show_sales_evolution():
-        st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=2500&lines=Evolución+hitórica+de+Ganancias"></div>''', unsafe_allow_html=True)
+        # st.markdown('''<div><img style='margin-bottom: 5px' src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=00ff00&size=30&center=true&vCenter=true&width=800&height=36&duration=2500&lines=Evolución+hitórica+de+Ganancias"></div>''', unsafe_allow_html=True)
 
         ### Evolunción de ventas
-        # st.subheader("Sales Evolution")       
+        st.subheader("Sales Evolution")       
         pe.profit_evol(filtered_df)
 
     if selected_category == 'All' or selected_category == 'Sales & Sellers':
