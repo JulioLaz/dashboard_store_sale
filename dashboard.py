@@ -30,19 +30,38 @@ hide_element_style = '''<style>#root > div:nth-child(1) > div.withScreencast > d
 st.markdown(hide_element_style, unsafe_allow_html=True)
 
 def create_multiselect_filter(df, column, label):
-    options = ["ALL"] + list(df[column].unique())
-    selected = st.sidebar.multiselect(
-        label,
-        options=options,
-        default=["ALL"],
-        key=f"{column}_filter"
-    )
-    if "ALL" in selected:
-        return df[column].unique()
-    if not selected:
-        st.sidebar.warning(f"No hay selección para {label}. Por favor, seleccione al menos un valor.")
-        return df[column].unique() 
-    return selected
+    all_values = list(df[column].unique())
+    
+    # Checkbox para seleccionar todos los valores
+    all_selected = st.sidebar.checkbox(f'All {label}', value=True)
+    
+    if all_selected:
+        return all_values
+    else:
+        # Si no se seleccionan todos, mostrar el multiselect
+        selected = st.sidebar.multiselect(
+            label,
+            options=all_values,
+            default=[],
+            key=f"{column}_filter"
+        )
+        if not selected:
+            st.sidebar.warning(f"No hay selección para {label}. Se usarán todos los valores.")
+            return df[column].unique()
+        return selected
+# def create_multiselect_filter(df, column, label):
+#     options = ["ALL"] + list(df[column].unique())
+#     selected = st.sidebar.multiselect(
+#         label,
+#         options=options,
+#         default=["ALL"],
+#         key=f"{column}_filter")
+#     if "ALL" in selected:
+#         return df[column].unique()
+#     if not selected:
+#         st.sidebar.warning(f"No hay selección para {label}. Por favor, seleccione al menos un valor.")
+#         return df[column].unique()
+#     return selected
 
 years=list(db.load_data().Year.unique())
 df_regiones= db.load_pop_pbi_region()
@@ -65,7 +84,7 @@ def main():
         years = sorted(df['fecha_compra'].dt.year.unique())
         
         # Checkbox para seleccionar todo el periodo
-        all_years = st.sidebar.checkbox('Todo el periodo', value=True)
+        all_years = st.sidebar.checkbox('All Periods', value=True)
         
         if all_years:
             years_filter = years
@@ -84,13 +103,13 @@ def main():
     filtered_df, selected_years = year_filter(df)
 
     # Filtros de selección múltiple con opción "ALL"
-    marca_filter = create_multiselect_filter(df, 'marca', "Marca")
-    producto_filter = create_multiselect_filter(df, 'producto', "Producto")
-    Región_filter = create_multiselect_filter(df, 'Región', "Región")
-    ciudad_filter = create_multiselect_filter(df, 'Estado', "Estado")
-    vendedor_filter = create_multiselect_filter(df, 'nombre_vendedor', "Vendedor")
+    marca_filter = create_multiselect_filter(df, 'marca', "Brand")
+    producto_filter = create_multiselect_filter(df, 'producto', "Product")
+    Región_filter = create_multiselect_filter(df, 'Región', "Region")
+    ciudad_filter = create_multiselect_filter(df, 'Estado', "State")
+    vendedor_filter = create_multiselect_filter(df, 'nombre_vendedor', "Seller")
     # marca_genero_filter = create_multiselect_filter(df, 'marca_genero', "Género")
-    marca_genero_filter = create_multiselect_filter(df, 'condicion', "Condición")
+    marca_genero_filter = create_multiselect_filter(df, 'condicion', "Condition")
 
     top_n = int(st.sidebar.radio("TOP", options=['3', '5', '10'], index=0, key="top", horizontal=True))
 
