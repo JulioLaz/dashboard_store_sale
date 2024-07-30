@@ -4,7 +4,7 @@ import streamlit as st
 def create_navbar():
     st.markdown("""
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom " style="z-index: 2000 !important;display:flex;justify-content: center;border-bottom: 1px solid #00ff00">
-  <span class="navbar-brand" style="font-size: 30px; font-family: Arial; color: #00ffff">🛍️ Análisis de Ventas</span>
+  <a class="navbar-brand" style="font-size: 30px; font-family: Arial; color: #00ffff;background-img:url('https://www.coventry.ac.uk/globalassets/media/global/00-new-course-imagery/engineering-environment-and-computing/ug/data-science-new-banner.jpg')">🛍️ Análisis de Ventas</a>
 </nav>
 """, unsafe_allow_html=True)  
     

@@ -105,6 +105,11 @@ padding:0
 display: none
                }               
 
+/* backgroun black in the sidebar */               
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-17mvl7w.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11{
+    background-color: rgba(50,50,50,.7) !important
+               }
+
 /* sidebar img   */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-17mvl7w.eczjsme18,               
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18{
@@ -169,13 +174,30 @@ border-radius: 5px;
 display: none}                               
                
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > label{
-display: none}                               
+display: none}           
+
+/* style in the selected top  */   
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(9) > div > div{
+    background-color: rgba(0, 0, 0, .5);
+    padding: 4px 0;
+    border-radius: 5px;               
+}                          
+
          </style> """, unsafe_allow_html=True)
-# /* Selecterd Category */
-# #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(10){
-# position: absolute;
-# top: -2rem               ;
+# /* bg del title */                     
+# #root > div:nth-child(1) > div.withScreencast > div > div > header{
+#                    background-image: url('https://www.coventry.ac.uk/globalassets/media/global/00-new-course-imagery/engineering-environment-and-computing/ug/data-science-new-banner.jpg')!important;
+#     background-color: black !important;
+#     position: relative;
+#     user-select: auto;
+#     width: 422px;
+#     height: auto;
+#     box-sizing: border-box;
+#     flex-shrink: 0;
+#     background-repeat: no-repeat;
 #                }  
+
+# img:
 def style_navbar():
          st.markdown(
          """

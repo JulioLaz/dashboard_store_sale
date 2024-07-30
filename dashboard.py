@@ -56,7 +56,7 @@ def main():
 
     # Barra lateral
     with st.sidebar:
-        st.markdown("<h1></h1>", unsafe_allow_html=True)#                <img src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=f77136&size=50&center=true&vCenter=true&width=1300&height=60&duration=1200&lines=+++Hi,+I'm+Julio+Lazarte+++">
+        st.markdown("<h1></h1>", unsafe_allow_html=True)
 
     nb.create_navbar()
 
