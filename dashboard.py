@@ -24,7 +24,7 @@ titles_format = dict(font=dict(size=18, color='#1f77b4'), xref='paper', x=0.5, y
 
 # Style en navbar:
 sm.style_navbar()
-st.markdown("""<style>[data-testid="stSidebar"] {background-color: rgba(0,0,0,0);}</style>""",unsafe_allow_html=True)
+# st.markdown("""<style>[data-testid="stSidebar"] {background-color: rgba(0,0,0,0);}</style>""",unsafe_allow_html=True)
 
 # ocultar label del ratioitems:
 hide_element_style = '''<style>#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1gv3huu.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(9) > div > label {display: none}'''
