@@ -105,24 +105,7 @@ padding:0
 display: none
                }               
 
-/* backgroun black in the sidebar */               
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-17mvl7w.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11{
-    background-color: rgba(50,50,50,.7) !important
-               }
-
-/* sidebar img   */
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-17mvl7w.eczjsme18,               
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18{
-    background-image: url('https://i.imgur.com/ZhBoH7H.jpeg')!important;
-    background-color: black !important;
-    position: relative;
-    user-select: auto;
-    width: 422px;
-    height: auto;
-    box-sizing: border-box;
-    flex-shrink: 0;
-    background-repeat: no-repeat;
-}                          
+                         
              /* filtro years  */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(2) > div{
 background-color: rgba(0,0,0,.5);
@@ -182,6 +165,25 @@ display: none}
     padding: 4px 0;
     border-radius: 5px;               
 }                          
+
+/* backgroun black in the sidebar */               
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-17mvl7w.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11{
+    background-color: rgba(50,50,50,.7) !important
+               }
+
+/* sidebar img   */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-17mvl7w.eczjsme18,               
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18{
+    background-image: url('https://i.imgur.com/ZhBoH7H.jpeg')!important;
+    background-color: black !important;
+    position: relative;
+    user-select: auto;
+    width: 422px;
+    height: auto;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+}                
 
          </style> """, unsafe_allow_html=True)
 # /* bg del title */                     
