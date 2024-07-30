@@ -145,13 +145,22 @@ border-radius: 5px;
 #root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div > div:nth-child(3) > button > div > div{
                display: none!important}
 
-/* marco de graf sales in the time  */   
+/* marco de graf sales in the time  */  
+#tabs-bui139-tabpanel-1 > div > div > div > div > div > div > div > div > svg:nth-child(1){
+      border: 1px solid #00ff00;
+      border-radius: 5px;
+      padding: 3px;
+      text-align: center !important;
+      font-size:10px !important;
+}
+/* marco de graf sales in the time  */  
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(21) > div > div > div > div > svg:nth-child(1){
       border: 1px solid #00ff00;
       border-radius: 5px;
       padding: 3px;
       text-align: center !important;
-      font-size:10px !important;  } 
+      font-size:10px !important;
+               } 
 
 /* hide in sidebar top years  */               
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(1){

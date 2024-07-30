@@ -192,7 +192,7 @@ def main():
 
     # def show_sales_and_sellers():
     st.subheader("Sales & Sellers")
-    tab1, tab2, tab3 = st.tabs(["Ingresos mensuales & Ventas por años", "Ventas por condición",'Seller'])
+    tab1, tab2, tab3 = st.tabs(["Profits & Sales", "Sales vs Condition",'Seller'])
 
     with tab1: 
         col1, col2 = st.columns(2)
@@ -241,7 +241,7 @@ def main():
 
     st.subheader("Brands & Products")        ### regiones:    
     color_map=assign_colors(df)
-    tab1, tab2 = st.tabs(["Regions & Sales", "Population & PBI"])
+    tab1, tab2 = st.tabs(["Brands & Profits", "Monthly Profits per Brand"])
         
     with tab1:
             col1, col2 = st.columns(2)
@@ -254,7 +254,7 @@ def main():
             prbr.sales_line_top(filtered_df, top_n, color_map) #"Ingresos Mensuales por Marca"
 
         ### PRODUCTOS
-    tab1, tab2 = st.tabs(["Regions & Sales", "Population & PBI"])
+    tab1, tab2 = st.tabs(["Most Selled Products", "Products & Profits"])
     with tab1:
         col1, col2 = st.columns(2)
         with col1: # Top 10 productos más costosos
