@@ -5,7 +5,7 @@ import pandas as pd
 import colorsys
 import statsmodels.api as sm
 height=350
-titles_format = {'y': 0.95, 'x': 0.5, 'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 16, 'color': "#00ffff", 'family': "arial"}}
+titles_format = {'y': 0.91, 'x': 0.5, 'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 16, 'color': "#00ffff", 'family': "arial"}}
 
 def generate_soft_colors(n):
     HSV_tuples = [(x * 1.0 / n, 0.5, 0.9) for x in range(n)]

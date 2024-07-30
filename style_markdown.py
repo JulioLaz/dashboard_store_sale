@@ -178,6 +178,7 @@ display: none}
 
 /* backgroun black in the sidebar */               
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-17mvl7w.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11{
+    background-image: url('https://i.imgur.com/ZhBoH7H.jpeg')!important;
     background-color: rgba(50,50,50,.7) !important
                }
 
