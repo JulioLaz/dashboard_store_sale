@@ -39,14 +39,16 @@ def create_multiselect_filter(df, column, label):
     )
     if "ALL" in selected:
         return df[column].unique()
+    if not selected:
+        st.sidebar.warning(f"No hay selección para {label}. Por favor, seleccione al menos un valor.")
+        return df[column].unique() 
     return selected
 
-# years=list(db.load_data().Year.unique())
+years=list(db.load_data().Year.unique())
 df_regiones= db.load_pop_pbi_region()
 
 def main():
     df = db.load_data()
-    # Obtener las marcas top_n y asignar los colores
     fluorescent_colors = ['#39FF14', '#FF1493', '#00FFFF', '#FFFF00', '#FF00FF', '#FF4500', '#7FFF00', '#00FF7F', '#00CED1', '#FFD700']
     def assign_colors(df):
         top_brands = df.groupby('marca')['valor_total'].sum().nlargest(10).index
@@ -84,8 +86,8 @@ def main():
     # Filtros de selección múltiple con opción "ALL"
     marca_filter = create_multiselect_filter(df, 'marca', "Marca")
     producto_filter = create_multiselect_filter(df, 'producto', "Producto")
-    ciudad_filter = create_multiselect_filter(df, 'Estado', "Estado")
     Región_filter = create_multiselect_filter(df, 'Región', "Región")
+    ciudad_filter = create_multiselect_filter(df, 'Estado', "Estado")
     vendedor_filter = create_multiselect_filter(df, 'nombre_vendedor', "Vendedor")
     # marca_genero_filter = create_multiselect_filter(df, 'marca_genero', "Género")
     marca_genero_filter = create_multiselect_filter(df, 'condicion', "Condición")
@@ -107,8 +109,10 @@ def main():
     )
     filtered_df = df[mask]
 
-    # sm.style_title()
-
+    # Verificar si el DataFrame filtrado está vacío
+    # if filtered_df.empty:
+    #     st.warning("No hay datos disponibles para los filtros seleccionados. Por favor, ajusta los filtros.")
+    #     return
 #### metric with indicator
     def calculate_change(current, previous):
         if previous == 0:
@@ -184,15 +188,9 @@ def main():
     
     dashboard_metrics(filtered_df)
 
-    selected_category = st.sidebar.selectbox(
-        "Choose a Category",
-        ["All", "Regions & States", "Brands & Products", "Sales Evolution"],
-        key="nav-selector"
-    )
-
     # def show_sales_and_sellers():
     st.subheader("Sales & Sellers")
-    tab1, tab2, tab3 = st.tabs(["Profits & Sales", "Sales vs Condition",'Seller'])
+    tab1, tab2, tab3 = st.tabs(["Profits & Sales", "Sales vs Condition & Genre",'Seller'])
 
     with tab1: 
         col1, col2 = st.columns(2)
@@ -201,7 +199,11 @@ def main():
         with col2:
             ys.sales_pie(filtered_df)  #ventas por años pie
     with tab2:
+        col1, col2 = st.columns(2)
+        with col1:
             ys.condition_pie(filtered_df) #ventas por condición pie
+        with col2:
+            ys.genre_pie(filtered_df) #ventas por genre pie
     with tab3: 
         col1, col2 = st.columns(2)         ### Sellers
         with col1:
