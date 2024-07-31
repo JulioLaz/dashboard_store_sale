@@ -63,19 +63,19 @@ text-align:center}
                display: none!important}
 
 /* marco de graf sales in the time  */  
-#tabs-bui139-tabpanel-1 > div > div > div > div > div > div > div > div > svg:nth-child(1){
-      border: 1px solid #00ff00;
-      border-radius: 5px;
-      padding: 3px;
+#tabs-bui66-tabpanel-1 > div > div > div > div > div > div > div > div > svg:nth-child(1){
+      border: 1px solid #00ff00 !important;
+      border-radius: 5px !important;
+      padding: 3px !important;
       text-align: center !important;
       font-size:10px !important;
 }
                
 /* marco de graf sales in the time  */  
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(21) > div > div > div > div > svg:nth-child(1){
-      border: 1px solid #00ff00;
-      border-radius: 5px;
-      padding: 3px;
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(23) > div > div > div > div > svg:nth-child(1){
+      border: 1px solid #00ff00 !important;
+      border-radius: 5px !important;
+      padding: 3px !important;
       text-align: center !important;
       font-size:10px !important;
                } 
@@ -83,8 +83,6 @@ text-align:center}
 /* hide in sidebar top years  */               
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(1){
 display: none}                               
-               
-       
 
 /* style in the selected top  */   
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(9) > div > div{
@@ -123,18 +121,27 @@ display: none}
 padding: 2px 0}       
                                     
 /* icon charger page */
-               #root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div.st-emotion-cache-19or5k2.en6cib61.StatusWidget-appear-done.StatusWidget-enter-done > div > img{
+div > div > img,               
+#root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div.st-emotion-cache-19or5k2.en6cib61.StatusWidget-appear-done.StatusWidget-enter-done > div > img{
                position: fixed !important;
                border-radius: 50%;
                width: 10vw !important;
                height: 10vw !important;
                color: #00ff00 !important;
-               top: 10rem;
-               left: 50%;
+               top: 30vh;
+               left: 53.5%;
                z-index: 1e6;
                background-color: #ff00ff;
                }
-                          
+
+/* selector btn section */                                         
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(16) > div > div:nth-child(1) > div,
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(18) > div > div:nth-child(1) > div,
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(20) > div > div:nth-child(1) > div,
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(21) > div > div:nth-child(1) > div{
+display:flex;
+justify-content: center;               
+               }               
                </style> """, unsafe_allow_html=True)
 
 def style_navbar():

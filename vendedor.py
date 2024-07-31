@@ -20,8 +20,7 @@ def seller(df):
     colors = ['#272cc2', '#aeeafc', '#e6a3a3'] * df.nombre_vendedor.nunique()
     df_ingresos_vendedor = df.groupby(['nombre_vendedor', 'Year']).agg(valor_total=('valor_total', 'sum')).reset_index()
    #  print(df_ingresos_vendedor)
-    fig = px.bar(df_ingresos_vendedor,x='nombre_vendedor',y='valor_total',color='Year',
-                 title='Ventas totales por Vendedor por Año',labels={'nombre_vendedor': 'ID del Vendedor','valor_total': 'Ventas totales', 'Year': 'Año'},
+    fig = px.bar(df_ingresos_vendedor,x='nombre_vendedor',y='valor_total',color='Year', title='Ventas totales por Vendedor por Año',labels={'nombre_vendedor': 'ID del Vendedor','valor_total': 'Ventas totales', 'Year': 'Año'},
                  template='plotly_white', color_discrete_sequence=colors[:df.Year.nunique()],
                  hover_data={'Year': True, 'valor_total': ':$.2f'})
 

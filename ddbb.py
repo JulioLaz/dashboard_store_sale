@@ -73,7 +73,7 @@ def generar_dataframe():
                 .merge(df_vendedores, on='vendedor_id')
                 .merge(df_population, on='ISO_3166_2')
     )
-    columns=['total','precio','sku','producto_id','vendedor_id','id_recibo', 'Capital','Area_km2', 'Density_pers_km2']
+    columns=['total','precio','sku','producto_id','id_recibo', 'Capital','Area_km2', 'Density_pers_km2']
     df_final.drop(columns=columns,inplace=True)
     df_final['ingresos_netos'] = df_final['valor_total'] - df_final['costo_envio']
     df_final['tipo_producto'] = df_final['producto'].str.split().str[0]
