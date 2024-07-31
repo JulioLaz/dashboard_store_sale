@@ -109,8 +109,8 @@ div > div > img,
 #root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div.st-emotion-cache-19or5k2.en6cib61.StatusWidget-appear-done.StatusWidget-enter-done > div > img{
                position: fixed !important;
                border-radius: 50%;
-               width: 20vw !important;
-               height:20vw !important;
+               width: 30vw !important;
+               height:30vw !important;
                color: #00ff00 !important;
                top: 30vh;
                left:40%;
@@ -138,8 +138,8 @@ justify-content: center;
 }                   
 
                /* labels filter */
-{display: none !important;
-               }       
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div{
+display: flex;}   
                /* label de time date */  
                                                                  
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div{
