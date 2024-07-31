@@ -52,7 +52,9 @@ gap:0}
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div.st-emotion-cache-ocqkz7.e1f1d6gn5 > div:nth-child(5) > div > div > div > div:nth-child(2) > div > label{
    display: none !important;
                               }
-             
+
+#sales-sellers,#brands-products,#regions-states,#sales-evolution{
+text-align:center}        
 
 /* icon nav streamlit */      
 #root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div > div:nth-child(1) > button > div > span,               
