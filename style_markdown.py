@@ -120,8 +120,20 @@ display: none}
 }
 /* depliegue del sidebar */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1mi2ry5.eczjsme9{
-padding: 2px 0}                            
-
+padding: 2px 0}       
+                                    
+/* icon charger page */
+               #root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div.st-emotion-cache-19or5k2.en6cib61.StatusWidget-appear-done.StatusWidget-enter-done > div > img{
+               position: fixed !important;
+               border-radius: 50%;
+               width: 10vw !important;
+               height: 10vw !important;
+               color: #00ff00 !important;
+               top: 10rem;
+               left: 50%;
+               z-index: 1e6;
+               background-color: #ff00ff;
+               }
                           
                </style> """, unsafe_allow_html=True)
 
