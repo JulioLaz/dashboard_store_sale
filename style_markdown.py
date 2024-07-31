@@ -157,7 +157,17 @@ border-radius: 5px;
     padding: 1rem;
     background-color: rgba(0, 0, 0, .5);
 }
-               }                                           
+#marca_multiselect{
+    justify-content: center;
+               color: red;              
+    background-color: rgba(0, 255, 0, .5);
+}
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(10) > div > label{
+  display: none;
+               }
+.hidden-label-radio .st-emotion-cache-14rvwsw{
+  display: none;
+}                                                       
                </style> """, unsafe_allow_html=True)
 
 def style_navbar():

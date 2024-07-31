@@ -33,7 +33,7 @@ def create_multiselect_filter(df, column, label):
     all_values = list(df[column].unique())
     
     # Checkbox para seleccionar todos los valores
-    all_selected = st.sidebar.checkbox(f'All {label}', value=True)
+    all_selected = st.sidebar.checkbox(f'All {label}', value=True, key=f"all_{column}_checkbox")
     
     if all_selected:
         return all_values
@@ -43,7 +43,7 @@ def create_multiselect_filter(df, column, label):
             label,
             options=all_values,
             default=[],
-            key=f"{column}_filter"
+            key=f"{column}_multiselect"
         )
         if not selected:
             # st.sidebar.warning(f"No hay selección para {label}. Se usarán todos los valores.")
@@ -110,8 +110,9 @@ def main():
     vendedor_filter = create_multiselect_filter(df, 'nombre_vendedor', "Seller")
     # marca_genero_filter = create_multiselect_filter(df, 'marca_genero', "Género")
     marca_genero_filter = create_multiselect_filter(df, 'condicion', "Condition")
+    st.sidebar.subheader("Top", divider="gray")
 
-    top_n = int(st.sidebar.radio("TOP", options=['3', '5', '10'], index=0, key="top", horizontal=True))
+    top_n = int(st.sidebar.radio("", options=['3', '5', '10'], index=0, key="top", horizontal=True))
 
     sm.style_gen() # CSS personalizado
 
