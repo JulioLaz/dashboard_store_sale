@@ -75,13 +75,6 @@ text-align:center}
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(1){
 display: none}                               
 
-/* style in the selected top  */   
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(9) > div > div{
-    background-color: rgba(0, 0, 0, .5);
-    padding: 4px 0;
-    border-radius: 5px;               
-}                          
-
 /* backgroun black in the sidebar */               
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-17mvl7w.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11{
     background-image: url('https://i.imgur.com/ZhBoH7H.jpeg')!important;
@@ -146,7 +139,25 @@ justify-content: center;
 
                /* labels filter */
 {display: none !important;
-               }                                         
+               }       
+               /* label de time date */  
+                                                                 
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div > div:nth-child(3) > div > div{
+justify-content: center;
+               }               
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div{
+gap:0 !important}
+               
+/* selector filter*/
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12{
+padding: 0 1.5rem;
+               } 
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div{
+border-radius: 5px;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, .5);
+}
+               }                                           
                </style> """, unsafe_allow_html=True)
 
 def style_navbar():
