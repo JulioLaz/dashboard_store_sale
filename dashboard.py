@@ -161,8 +161,8 @@ def main():
         if previous_sales!=0:
             sales_change=f"{sales_change:.2%}"
         else: sales_change="sin perído previo"
-        col1.markdown("<div class='metric-title'>Total de Ventas</div>", unsafe_allow_html=True)
-        col1.metric("", formata_numero(filtered_df['valor_total'].sum(),'$'), delta=sales_change,label_visibility="hidden")
+        col1.markdown("<span style='color: #00ff00;font-size:1.5rem'>Total de Ventas</span>", unsafe_allow_html=True)
+        col1.metric("", formata_numero(filtered_df['valor_total'].sum(),'$'), delta=sales_change, label_visibility="hidden")
         
         # Ganancia Neta
         current_profit = current_data['ingresos_netos'].sum()
@@ -171,7 +171,7 @@ def main():
         if previous_profit!=0:
             profit_change=f"{profit_change:.2%}"
         else: profit_change="sin perído previo"        
-        col2.markdown("<div class='metric-title'>Ganancia Neta</div>", unsafe_allow_html=True)
+        col2.markdown("<span style='color: #00ff00;font-size:1.5rem'>Ganancia Neta</span>", unsafe_allow_html=True)
         col2.metric("", formata_numero(filtered_df['ingresos_netos'].sum(),'$'), delta=profit_change)
         
         # Número de Pedidos
@@ -181,7 +181,7 @@ def main():
         if previous_orders!=0:
             orders_change=f"{orders_change:.2%}"
         else: orders_change="sin perído previo"          
-        col3.markdown("<div class='metric-title'>Número de Pedidos</div>", unsafe_allow_html=True)
+        col3.markdown("<span style='color: #00ff00;font-size:1.5rem'>Número de Pedidos</span>", unsafe_allow_html=True)
         col3.metric("", formata_numero(current_orders,''), delta=orders_change)
         # col3.metric("", f"{current_orders:,}", delta=orders_change)
         
@@ -192,7 +192,7 @@ def main():
         if previous_brands!=0:
             brands_change=f"{brands_change:.2%}"
         else: brands_change="sin perído previo"         
-        col4.markdown("<div class='metric-title'>Marcas</div>", unsafe_allow_html=True)
+        col4.markdown("<span style='color: #00ff00;font-size:1.5rem'>Marcas</span>", unsafe_allow_html=True)
         col4.metric("", f"{current_brands:,}", delta=brands_change)
         
         # Productos
@@ -202,7 +202,7 @@ def main():
         if previous_products!=0:
             products_change=f"{products_change:.2%}"
         else: products_change="sin perído previo"          
-        col5.markdown("<div class='metric-title'>Productos</div>", unsafe_allow_html=True)
+        col5.markdown("<span style='color: #00ff00;font-size:1.5rem'>Productos</span>", unsafe_allow_html=True)
         col5.metric("", f"{current_products:,}", delta=products_change)
     
     dashboard_metrics(filtered_df)
