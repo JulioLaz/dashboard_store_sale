@@ -4,6 +4,8 @@ import plotly.colors
 import update_figure_layout as layout
 import pandas as pd
 import colorsys
+from pandas.tseries.offsets import DateOffset
+
 height=350
 titles_format = {'y':0.91, 'x': 0.5,'xanchor': 'center', 'yanchor': 'top', 'font': {'size': 14, 'color': "#00ffff", 'family': "arial"}}
 
@@ -59,6 +61,9 @@ def sales_line_top(df, top_n, color_map):
     df['YearMonth'] = pd.to_datetime(df['YearMonth'], format='%Y-%m')
     df = df.sort_values(by='YearMonth').reset_index(drop=True)
 
+    min_date = df['YearMonth'].min()
+    max_date = df['YearMonth'].max()
+
     fig = px.line(df, x='YearMonth', y='valor_total', markers=True, range_y=(0, df['valor_total'].max()),
                   color='marca', title=f'Ingresos mensuales por Marca - Top {top_n}', color_discrete_map=color_map)
 
@@ -69,17 +74,16 @@ def sales_line_top(df, top_n, color_map):
     year_color_map = dict(zip(years, year_colors))
 
     df_date['fecha_compra'] = pd.to_datetime(df_date['fecha_compra'])
-    # max_date = df_date['fecha_compra'].max() + pd.Timedelta(weeks=1)
-    max_date = df_date['fecha_compra'].max()
+
     max_year = max_date.year
     for year in years:
-            start_date = f"{year}-01-01"
-            if year == max_year:
-                  end_date = max_date.strftime("%Y-%m-%d")
-            else:
-                  end_date = f"{year}-12-31"
+        start_date = f"{year}-01-01"
+        if year == max_year:
+            end_date = max_date.strftime("%Y-%m-%d")
+        else:
+            end_date = f"{year}-12-31"
 
-            fig.add_vrect(
+        fig.add_vrect(
             x0=start_date, x1=end_date,
             annotation_text=f"Year {year}",
             annotation_position="top left",
@@ -92,29 +96,23 @@ def sales_line_top(df, top_n, color_map):
     fig = layout.update_figure_layout(fig)
     fig.update_layout(title=titles_format, height=height,
                       uniformtext_minsize=8, uniformtext_mode='hide',
-                    xaxis=dict(
-                        tickformat='%b',  # Mostrar nombre del mes
-                        tickvals=pd.date_range(start=df['YearMonth'].min(), end=df['YearMonth'].max(), freq='MS'),  # Definir los ticks en cada inicio de mes
-                        # showgrid=True,
-                        # gridcolor='gray',
-                        # gridwidth=0.1,
-                        # griddash='dash'
-                    ),
-                            legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=.96,
-            xanchor="center",
-            x=0.47,
-            title=None,
-            font=dict(size=9,color='white'),
-                bgcolor='rgba(0,0,0,0)'  # Quitar el color de fondo
-
-        )                     
+                      xaxis=dict(
+                          tickformat='%b',  # Mostrar nombre del mes
+                          tickvals=pd.date_range(start=df['YearMonth'].min(), end=df['YearMonth'].max(), freq='MS'),  # Definir los ticks en cada inicio de mes
+                          range=[min_date, max_date]  # Set the range for the x-axis
+                      ),
+                      legend=dict(
+                          orientation="h",
+                          yanchor="bottom",
+                          y=.96,
+                          xanchor="center",
+                          x=0.47,
+                          title=None,
+                          font=dict(size=9, color='white'),
+                          bgcolor='rgba(0,0,0,0)'  # Quitar el color de fondo
+                      )
                       )
     fig.update_yaxes(title_text='')
     fig.update_xaxes(showline=False, title_text='', showticklabels=True,
-                    #   tickangle=45, 
                      tickfont=dict(family='Arial', color='white', size=8))  # Show tick every 3 months
-
     st.plotly_chart(fig, use_container_width=True)

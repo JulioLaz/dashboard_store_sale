@@ -63,15 +63,6 @@ text-align:center}
                display: none!important}
 
 /* marco de graf sales in the time  */  
-#tabs-bui66-tabpanel-1 > div > div > div > div > div > div > div > div > svg:nth-child(1){
-      border: 1px solid #00ff00 !important;
-      border-radius: 5px !important;
-      padding: 3px !important;
-      text-align: center !important;
-      font-size:10px !important;
-}
-               
-/* marco de graf sales in the time  */  
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(23) > div > div > div > div > svg:nth-child(1){
       border: 1px solid #00ff00 !important;
       border-radius: 5px !important;
@@ -125,11 +116,11 @@ div > div > img,
 #root > div:nth-child(1) > div.withScreencast > div > div > header > div.st-emotion-cache-15ecox0.ezrtsby0 > div.st-emotion-cache-19or5k2.en6cib61.StatusWidget-appear-done.StatusWidget-enter-done > div > img{
                position: fixed !important;
                border-radius: 50%;
-               width: 10vw !important;
-               height: 10vw !important;
+               width: 20vw !important;
+               height:20vw !important;
                color: #00ff00 !important;
                top: 30vh;
-               left: 53.5%;
+               left:40%;
                z-index: 1e6;
                background-color: #ff00ff;
                }
@@ -141,7 +132,21 @@ div > div > img,
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-1jicfl2.ea3mdgi5 > div > div > div > div:nth-child(21) > div > div:nth-child(1) > div{
 display:flex;
 justify-content: center;               
-               }               
+               }
+
+/* marco de graf sales in the time  */  
+#tabs-bui16-tabpanel-1 > div > div > div > div > div > div > div > div > svg:nth-child(3),               
+#tabs-bui66-tabpanel-1 > div > div > div > div > div > div > div > div > svg:nth-child(1){
+      border: 1px solid #00ff00 !important;
+      border-radius: 5px !important;
+      padding: 3px !important;
+      text-align: center !important;
+      font-size:10px !important;
+}                   
+
+               /* labels filter */
+{display: none !important;
+               }                                         
                </style> """, unsafe_allow_html=True)
 
 def style_navbar():
