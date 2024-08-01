@@ -146,7 +146,8 @@ display: flex;}
 justify-content: center;
                }               
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12 > div > div > div > div{
-gap:0 !important}
+gap:0 !important;
+}
                
 /* selector filter*/
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme18 > div.st-emotion-cache-6qob1r.eczjsme11 > div.st-emotion-cache-1gwvy71.eczjsme12{
@@ -167,7 +168,14 @@ border-radius: 5px;
                }
 .hidden-label-radio .st-emotion-cache-14rvwsw{
   display: none;
-}                                                       
+}
+
+/* grafica de lineas temporales */  
+
+#tabs-bui115-tabpanel-1 > div > div > div > div > div > div > div > div > svg:nth-child(1){
+                   border: 1px solid #00ff00;
+    background: black;
+    border-radius: 5px;}                                                                                   
                </style> """, unsafe_allow_html=True)
 
 def style_navbar():

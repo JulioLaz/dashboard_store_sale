@@ -100,6 +100,7 @@ def main():
         
         return filtered_df, years_filter
     
+    st.sidebar.subheader("Filtros", divider="gray")
     filtered_df, selected_years = year_filter(df)
 
     # Filtros de selección múltiple con opción "ALL"
@@ -110,9 +111,9 @@ def main():
     vendedor_filter = create_multiselect_filter(df, 'nombre_vendedor', "Seller")
     # marca_genero_filter = create_multiselect_filter(df, 'marca_genero', "Género")
     marca_genero_filter = create_multiselect_filter(df, 'condicion', "Condition")
-    st.sidebar.subheader("Top", divider="gray")
+    st.sidebar.subheader("", divider="gray")
 
-    top_n = int(st.sidebar.radio("", options=['3', '5', '10'], index=0, key="top", horizontal=True))
+    top_n = int(st.sidebar.radio("Top", options=['3', '5', '10'], index=0, key="top", horizontal=True))
 
     sm.style_gen() # CSS personalizado
 
@@ -123,17 +124,10 @@ def main():
         (df['producto'].isin(producto_filter)) &
         (df['Región'].isin(Región_filter)) &
         (df['condicion'].isin(marca_genero_filter)) &
-        # (df['marca_genero'].isin(marca_genero_filter)) &
         (df['fecha_compra'].dt.year.isin(selected_years))
-        # (df['fecha_compra'].dt.year.isin(years_filter))
     )
     filtered_df = df[mask]
 
-    # Verificar si el DataFrame filtrado está vacío
-    # if filtered_df.empty:
-    #     st.warning("No hay datos disponibles para los filtros seleccionados. Por favor, ajusta los filtros.")
-    #     return
-#### metric with indicator
     def calculate_change(current, previous):
         if previous == 0:
             return 0
