@@ -257,7 +257,7 @@ def main():
 
     st.subheader("Brands & Products")        ### regiones:    
     color_map=assign_colors(df)
-    tab1, tab2 = st.tabs(["Brands & Profits", "Monthly Profits per Brand"])
+    tab1, tab2 = st.tabs(["Brands & Profits", "Monthly Profits vs Brand & distribution"])
         
     with tab1:
             col1, col2 = st.columns(2)
