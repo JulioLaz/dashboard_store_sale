@@ -267,6 +267,16 @@ def main():
                 prbr.treemap_brands_products(filtered_df, top_n, color_map) #"Jerarquía de Ventas por Marca y Producto"
 
     with tab2:
+            # div > div > div > div:nth-child(2) > div > div > div > div > svg:nth-child(1){
+            hide_element_style = '''<style>
+            div > div > div > div > svg:nth-child(1){
+                border: 1px solid #00ff00 !important;
+                border-radius: 5px !important;
+                padding: 3px !important;
+                text-align: center !important;
+                font-size:10px !important;
+            }</style>'''
+            st.markdown(hide_element_style, unsafe_allow_html=True)
             prbr.sales_line_top(filtered_df, top_n, color_map) #"Ingresos Mensuales por Marca"
 
         ### PRODUCTOS
