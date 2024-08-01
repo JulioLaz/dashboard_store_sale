@@ -116,3 +116,43 @@ def sales_line_top(df, top_n, color_map):
     fig.update_xaxes(showline=False, title_text='', showticklabels=True,
                      tickfont=dict(family='Arial', color='white', size=8))  # Show tick every 3 months
     st.plotly_chart(fig, use_container_width=True)
+
+def create_top_n_pie_chart(df, top_n):
+    df_brands=df.groupby('marca')[['valor_total','ingresos_netos']].sum().reset_index()
+    df_brands.sort_values(by='valor_total', ascending=False, inplace=True)
+    df_brands.reset_index(drop=True, inplace=True)
+    top_df_brands=df_brands.head(top_n)
+    resto_df_brands=df_brands[top_n:]
+    top_df_brands.loc[top_n] = ['resto', resto_df_brands.valor_total.sum(), resto_df_brands.ingresos_netos.sum()]
+    max_index = top_df_brands['valor_total'].idxmax()
+
+    pull_values = [0] * len(top_df_brands)
+    pull_values[max_index] = 0.1  # Explode el valor más alto
+    fig = px.pie(
+        top_df_brands,
+        names='marca',
+        values='valor_total',
+        title='Venta Total por Marca',
+        hole=0.3,
+        labels={'marca': 'Marca', 'valor_total': 'Total'},
+        # color_discrete_sequence=color_map
+        color_discrete_sequence=px.colors.sequential.RdBu
+    )
+
+    fig.update_traces(
+        textinfo='percent+label',
+        textfont_size=14,
+        marker=dict(line=dict(color='gray', width=2)),
+        pull=pull_values,
+        # textposition='inside'
+    )
+
+    fig.update_layout(
+        title=titles_format, height=height,
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        showlegend=False  
+    )
+    fig.update_coloraxes(showscale=False)
+    fig = layout.update_figure_layout(fig)
+    st.plotly_chart(fig, use_container_width=True)          

@@ -265,19 +265,12 @@ def main():
                 prbr.graf_011(filtered_df, top_n, color_map) #"Top Marcas según Ganancia Neta"
             with col2: 
                 prbr.treemap_brands_products(filtered_df, top_n, color_map) #"Jerarquía de Ventas por Marca y Producto"
-
     with tab2:
-            # div > div > div > div:nth-child(2) > div > div > div > div > svg:nth-child(1){
-            hide_element_style = '''<style>
-            div > div > div > div > svg:nth-child(1){
-                border: 1px solid #00ff00 !important;
-                border-radius: 5px !important;
-                padding: 3px !important;
-                text-align: center !important;
-                font-size:10px !important;
-            }</style>'''
-            st.markdown(hide_element_style, unsafe_allow_html=True)
-            prbr.sales_line_top(filtered_df, top_n, color_map) #"Ingresos Mensuales por Marca"
+            col1, col2 = st.columns(2)
+            with col1: 
+                prbr.sales_line_top(filtered_df, top_n, color_map) #"Ingresos Mensuales por Marca"
+            with col2: 
+                prbr.create_top_n_pie_chart(filtered_df, top_n) #"Ingresos Mensuales por Marca"
 
         ### PRODUCTOS
     tab1, tab2 = st.tabs(["Most Selled Products", "Products & Profits"])
