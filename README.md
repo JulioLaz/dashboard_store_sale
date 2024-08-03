@@ -1,3 +1,6 @@
+# Visualiza el dashboard:
+https://dashboard-sales-brasil.streamlit.app/#sales-sellers
+
 # Ventas ecommerce Brazil Dashboard
 
 Este proyecto es un dashboard interactivo desarrollado con Streamlit que analiza y visualiza datos de ventas de comercio electrónico en Brasil.
@@ -11,16 +14,23 @@ Este proyecto es un dashboard interactivo desarrollado con Streamlit que analiza
 - Análisis de tendencias de ventas a lo largo del tiempo
 - Insights sobre las marcas y productos más vendidos
 
-## Capturas de pantalla
-
-### Dashboard principal
-[Espacio para imagen del dashboard principal]
-
-### Análisis geográfico
-[Espacio para imagen del análisis geográfico]
+![image](https://github.com/user-attachments/assets/563e11f7-8f3c-49f4-8840-e76ee1c6cd7e)
 
 ### Tendencias de ventas
-[Espacio para imagen de tendencias de ventas]
+![image](https://github.com/user-attachments/assets/a86899a9-0789-4ede-bf6f-34fb30ab90ba)
+![image](https://github.com/user-attachments/assets/9275fae1-be68-4392-aa9a-ce89152093d7)
+![image](https://github.com/user-attachments/assets/d85d51e8-fc83-4444-8207-93fbd32fef69)
+
+### Análisis geográfico
+![image](https://github.com/user-attachments/assets/4f2ea2c5-0226-4154-ad15-cdcb773a9641)
+![image](https://github.com/user-attachments/assets/b2dde79d-07cb-427b-81c7-87f0b46e0243)
+![image](https://github.com/user-attachments/assets/aa283b0a-5e0c-4f8b-85d0-a0adad3ba26d)
+
+### Análisis Brands & Products
+![image](https://github.com/user-attachments/assets/772b16ae-b8b3-46a0-8418-fec0304365e0)
+![image](https://github.com/user-attachments/assets/fc61ff1f-32f2-445d-8cec-3c536687d972)
+![image](https://github.com/user-attachments/assets/3df48b82-c3d1-446e-9d01-9f8dd556889d)
+![image](https://github.com/user-attachments/assets/df861ffb-bcc0-400b-b18b-e80e2ba51e4f)
 
 ## Tecnologías utilizadas
 
