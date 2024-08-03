@@ -94,12 +94,11 @@ def load_data():
         df_all['product_genero']=df_all['marca_genero']
         df_all['product_genero'] = df_all.apply(lambda row: clasificando_productos_unisex.get(row['producto'], row['product_genero']),axis=1)
         df_all['fecha_compra'] = pd.to_datetime(df_all['fecha_compra'])
+        df_all['Year'] = df_all['fecha_compra'].dt.year
         df_all['Month'] = df_all['fecha_compra'].dt.month_name()
         df_all['Month_num'] = df_all['fecha_compra'].dt.month
         return df_all
-# print('#'*70)
-# print('columnas :', load_data().columns)
-# print('#'*70)
+
 ### PBI & Pop for State
 @st.cache_data(ttl=600)
 def load_pop_pbi_state():
