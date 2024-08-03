@@ -1,9 +1,8 @@
+# Ventas ecommerce Brazil Dashboard
+Este proyecto es un dashboard interactivo desarrollado con Streamlit que analiza y visualiza datos de ventas de comercio electrónico en Brasil.
+
 # Visualiza el dashboard:
 https://dashboard-sales-brasil.streamlit.app/#sales-sellers
-
-# Ventas ecommerce Brazil Dashboard
-
-Este proyecto es un dashboard interactivo desarrollado con Streamlit que analiza y visualiza datos de ventas de comercio electrónico en Brasil.
 
 ## Características
 
