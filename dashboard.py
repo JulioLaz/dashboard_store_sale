@@ -178,7 +178,6 @@ def main():
         else: orders_change="sin perído previo"          
         col3.markdown("<span style='color: #00ff00;font-size:1.5rem'>Número de Pedidos</span>", unsafe_allow_html=True)
         col3.metric("", formata_numero(current_orders,''), delta=orders_change)
-        # col3.metric("", f"{current_orders:,}", delta=orders_change)
         
         # Marcas
         current_brands = current_data['marca'].nunique()

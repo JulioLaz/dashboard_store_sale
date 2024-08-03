@@ -67,5 +67,4 @@ Las contribuciones son bienvenidas. Por favor, abre un issue para discutir cambi
 ## Licencia
 
 Copyright - 2024 - Julio Alberto Lazarte
-
 Todos los derechos reservados.
