@@ -65,7 +65,7 @@ https://dashboard-sales-brasil.streamlit.app/#sales-sellers
 Las contribuciones son bienvenidas. Por favor, abre un issue para discutir cambios mayores antes de hacer un pull request.
 
 ## Licencia
-## Licencia
 
-Copyright [2024] [Julio Alberto Lazarte]
+Copyright - 2024 - Julio Alberto Lazarte
+
 Todos los derechos reservados.
